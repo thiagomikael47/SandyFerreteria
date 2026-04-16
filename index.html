@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Ferreteria Sandi</title>
+    <link rel="icon" type="image/jpg" href="./assets/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="./assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="./webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="./webform/electrico.html" class="dropdown__link">
+                    motores</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown__link">herramientas manueales</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="./webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="main">
+      <section class="carousel" id="inicio">
+        <div class="carousel__container">
+          <div class="carousel__track">
+            <!-- Slide 1 -->
+            <div class="carousel__slide active">
+              <div
+                class="carousel__background"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1600&quot;);
+                "
+              ></div>
+              <div class="carousel__overlay"></div>
+              <div class="carousel__content">
+                <span class="carousel__badge">Bienvenidos</span>
+                <h1 class="carousel__title">SANDI <span>FERRETERÍA</span></h1>
+                <p class="carousel__subtitle">
+                  Tu aliada profesional en herramientas y materiales de
+                  construcción de primera calidad
+                </p>
+                <div class="carousel__buttons">
+                  <a
+                    href="#productos"
+                    class="carousel__btn carousel__btn--primary"
+                    >Explorar Productos</a
+                  >
+                  <a
+                    href="#contacto"
+                    class="carousel__btn carousel__btn--secondary"
+                    >Contáctanos</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel__slide">
+              <div
+                class="carousel__background"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1600&quot;);
+                "
+              ></div>
+              <div class="carousel__overlay"></div>
+              <div class="carousel__content">
+                <span class="carousel__badge">Calidad Superior</span>
+                <h1 class="carousel__title">
+                  PRODUCTOS DE <span>PRIMERA</span>
+                </h1>
+                <p class="carousel__subtitle">
+                  Trabajamos con las mejores marcas del mercado para garantizar
+                  tu satisfacción
+                </p>
+                <div class="carousel__buttons">
+                  <a
+                    href="#productos"
+                    class="carousel__btn carousel__btn--primary"
+                    >Ver Catálogo</a
+                  >
+                  <a
+                    href="#nosotros"
+                    class="carousel__btn carousel__btn--secondary"
+                    >Conocer Más</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel__slide">
+              <div
+                class="carousel__background"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1600&quot;);
+                "
+              ></div>
+              <div class="carousel__overlay"></div>
+              <div class="carousel__content">
+                <span class="carousel__badge">Asesoramiento</span>
+                <h1 class="carousel__title">
+                  EXPERTOS A TU <span>SERVICIO</span>
+                </h1>
+                <p class="carousel__subtitle">
+                  Personal capacitado listo para ayudarte en todos tus proyectos
+                </p>
+                <div class="carousel__buttons">
+                  <a
+                    href="#contacto"
+                    class="carousel__btn carousel__btn--primary"
+                    >Hablar con un Experto</a
+                  >
+                  <a
+                    href="#productos"
+                    class="carousel__btn carousel__btn--secondary"
+                    >Ver Ofertas</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4 -->
+            <div class="carousel__slide">
+              <div
+                class="carousel__background"
+                style="
+                  background-image: url(&quot;https://images.unsplash.com/photo-1416339442236-8ceb164046f8?w=1600&quot;);
+                "
+              ></div>
+              <div class="carousel__overlay"></div>
+              <div class="carousel__content">
+                <span class="carousel__badge">Ofertas Especiales</span>
+                <h1 class="carousel__title">PRECIOS <span>INCREÍBLES</span></h1>
+                <p class="carousel__subtitle">
+                  Descuentos exclusivos en herramientas profesionales y
+                  materiales de construcción
+                </p>
+                <div class="carousel__buttons">
+                  <a
+                    href="#productos"
+                    class="carousel__btn carousel__btn--primary"
+                    >Ver Promociones</a
+                  >
+                  <a
+                    href="https://api.whatsapp.com/send?phone=51934709652"
+                    class="carousel__btn carousel__btn--secondary"
+                  >
+                    <i class="bx bxl-whatsapp"></i> WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel__progress">
+            <div class="carousel__progress-bar"></div>
+          </div>
+
+          <div class="carousel__arrow carousel__arrow--left">
+            <i class="fas fa-chevron-left"></i>
+          </div>
+          <div class="carousel__arrow carousel__arrow--right">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+
+          <div class="carousel__nav">
+            <span class="carousel__dot active"></span>
+            <span class="carousel__dot"></span>
+            <span class="carousel__dot"></span>
+            <span class="carousel__dot"></span>
+          </div>
+        </div>
+      </section>
+      <section class="container__valores">
+        <div class="contenedor">
+          <div class="content">
+            <figure class="effect-oscar">
+              <img src="./assets/Valor1.webp" alt="img09" />
+              <figcaption>
+                <h2>SANDY <span>-Calidad</span></h2>
+                <p>
+                  Contamos con productos que garantizan una duracion y acabado
+                  de alto nivel , a comparacion de nuestros competidores .
+                </p>
+                <a href="#">View more</a>
+              </figcaption>
+            </figure>
+            <figure class="effect-oscar">
+              <img src="./assets/Valor2.jpg" alt="img10" />
+              <figcaption>
+                <h2>SANDY <span>-Garantia</span></h2>
+                <p>
+                  La calidad de nuestros productos es nuestra mas grande
+                  garantia para la fidelidad de nuestros clientes.
+                </p>
+                <a href="#">View more</a>
+              </figcaption>
+            </figure>
+            <figure class="effect-oscar">
+              <img src="./assets/Valor3.webp" alt="img09" />
+              <figcaption>
+                <h2>SANDY <span>-Seguridad</span></h2>
+                <p>
+                  Brindamos la seguridad al momento de nuestras entregas a nivel
+                  Nacional , para mantener la confiabilidad de nuestros clientes
+                </p>
+                <a href="#">View more</a>
+              </figcaption>
+            </figure>
+            <figure class="effect-oscar">
+              <img src="./assets/Valor4.jpg" alt="img10" />
+              <figcaption>
+                <h2>SANDY <span>-Ahorro</span></h2>
+                <p>
+                  En Madshi tratamos de que nuestros productos tenga un pecio
+                  economico para lograr contar con su apoyo en nuestro
+                  creciemiento.
+                </p>
+                <a href="#">View more</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+      <section class="categories" id="productos">
+        <h2 class="section__title">Nuestras Categorías</h2>
+        <div class="categories__grid">
+          <div class="category__card">
+            <div class="category__image">
+              <i class="fas fa-hammer"></i>
+            </div>
+            <div class="category__content">
+              <h3 class="category__title">Herramientas Manuales</h3>
+              <p class="category__description">
+                Martillos, destornilladores, llaves y más
+              </p>
+            </div>
+          </div>
+          <div class="category__card">
+            <div class="category__image">
+              <i class="fas fa-plug"></i>
+            </div>
+            <div class="category__content">
+              <h3 class="category__title">Herramientas Eléctricas</h3>
+              <p class="category__description">
+                Taladros, amoladoras, sierras eléctricas
+              </p>
+            </div>
+          </div>
+          <div class="category__card">
+            <div class="category__image">
+              <i class="fas fa-paint-roller"></i>
+            </div>
+            <div class="category__content">
+              <h3 class="category__title">Pinturas y Accesorios</h3>
+              <p class="category__description">
+                Todo para tus proyectos de pintura
+              </p>
+            </div>
+          </div>
+          <div class="category__card">
+            <div class="category__image">
+              <i class="fas fa-wrench"></i>
+            </div>
+            <div class="category__content">
+              <h3 class="category__title">Plomería</h3>
+              <p class="category__description">Tuberías, llaves, accesorios</p>
+            </div>
+          </div>
+          <div class="category__card">
+            <div class="category__image">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="category__content">
+              <h3 class="category__title">Electricidad</h3>
+              <p class="category__description">
+                Cables, enchufes, interruptores
+              </p>
+            </div>
+          </div>
+          <div class="category__card">
+            <div class="category__image">
+              <i class="fas fa-screwdriver"></i>
+            </div>
+            <div class="category__content">
+              <h3 class="category__title">Ferretería en General</h3>
+              <p class="category__description">Tornillos, clavos, adhesivos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="container_textslider">
+        <div class="container_one">
+          <div class="title_marcas">
+            <h2>
+              Representantes exclusivos <span>de las mejores marcas</span>
+            </h2>
+            <div class="loader">
+              <span class="loader__element"></span>
+              <span class="loader__element"></span>
+              <span class="loader__element"></span>
+            </div>
+          </div>
+          <div class="carrusel-marcas">
+            <div class="carrusel-items">
+              <div class="carrusel-item">
+                <img src="./assets/xtd.png" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/bauker.webp" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/truper.png" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/total.jpg" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/forteperu.png" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/kamasa.png" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/3m.jpg" alt="" />
+              </div>
+              <div class="carrusel-item">
+                <img src="./assets/bosch.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="./assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
+            <li><i class="fas fa-phone"></i> +51 934 709 652</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

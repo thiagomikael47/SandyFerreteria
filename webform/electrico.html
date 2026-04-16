@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandi Ferretería - Herramientas Manuales</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="../assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="../webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link">
+                    motores</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown__link">herramientas manueales</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Banner -->
+    <div class="page-banner">
+      <div class="page-banner-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Inicio</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Herramientas Manuales</span>
+        </div>
+        <h1>Herramientas <span>Manuales</span></h1>
+        <p>
+          Martillos, destornilladores, llaves y todo lo que necesitas para tu
+          trabajo
+        </p>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <div class="search-inner">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar productos por nombre..."
+            autocomplete="off"
+          />
+          <button
+            id="clearSearch"
+            class="clear-btn hidden"
+            title="Limpiar búsqueda"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="martillo">Martillos</button>
+          <button class="chip" data-filter="llave">Llaves</button>
+          <button class="chip" data-filter="destornillador">
+            Destornilladores
+          </button>
+          <button class="chip" data-filter="cinta">Cintas</button>
+          <button class="chip" data-filter="oferta">Ofertas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta" id="resultsMeta">
+      <span class="results-count" id="resultsCount"></span>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Ordenar por...</option>
+        <option value="price-asc">Precio: Menor a mayor</option>
+        <option value="price-desc">Precio: Mayor a menor</option>
+        <option value="rating">Mejor valorados</option>
+        <option value="discount">Mayor descuento</option>
+      </select>
+    </div>
+
+    <main>
+      <div class="container__products">
+        <button class="back-button" id="backButton">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Volver a productos</span>
+        </button>
+
+        <div class="products-grid" id="productsGrid">
+          <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>No encontramos resultados</h3>
+            <p>Intenta con otro término o revisa los filtros activos</p>
+            <span class="clear-search-link" id="clearSearchLink"
+              >Limpiar búsqueda</span
+            >
+          </div>
+        </div>
+
+        <div class="product-detail" id="productDetail"></div>
+      </div>
+    </main>
+
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="../assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero, tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="#">Productos</a></li>
+            <li><a href="../pages/nosotros.html">Nosotros</a></li>
+            <li><a href="../pages/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
+            <li><i class="fas fa-phone"></i> +51 934 709 652</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Martillo de Carpintero 16oz",
+          category: "martillo",
+          price: 28,
+          originalPrice: 45,
+          discount: 38,
+          image:
+            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80",
+          description:
+            "Martillo profesional con mango de fibra de vidrio anti-vibración, cabeza de acero templado y equilibrio perfecto para uso intensivo en carpintería y construcción.",
+          features: [
+            "Acero al carbono",
+            "Mango anti-vibración",
+            "Cabeza 16 oz",
+            "Certificado ISO",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 2,
+          name: "Martillo de Garra 20oz Truper",
+          category: "martillo",
+          price: 42,
+          originalPrice: 65,
+          discount: 35,
+          image:
+            "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80",
+          description:
+            "Martillo de garra reforzado, ideal para clavar y extraer clavos en trabajos de construcción pesada. Marca Truper de alta durabilidad.",
+          features: [
+            "20 oz de peso",
+            "Garra doble biselada",
+            "Mango hickory",
+            "Alta durabilidad",
+          ],
+          rating: 4.8,
+          reviews: 189,
+        },
+        {
+          id: 3,
+          name: "Set Destornilladores 12 piezas",
+          category: "destornillador",
+          price: 35,
+          originalPrice: 60,
+          discount: 42,
+          image:
+            "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&q=80",
+          description:
+            "Juego completo de 12 destornilladores con puntas Phillips, planas y Torx. Mangos ergonómicos antideslizantes para máxima comodidad.",
+          features: [
+            "12 piezas incluidas",
+            "Acero CrV",
+            "Mangos ergonómicos",
+            "Estuche incluido",
+          ],
+          rating: 4.5,
+          reviews: 302,
+        },
+        {
+          id: 4,
+          name: 'Llave Inglesa 10" Kamasa',
+          category: "llave",
+          price: 22,
+          originalPrice: 38,
+          discount: 42,
+          image:
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+          description:
+            "Llave inglesa ajustable de 10 pulgadas con apertura máxima de 35mm. Fabricada en acero forjado con acabado cromado anti-corrosión.",
+          features: [
+            "Acero forjado",
+            "Apertura 35mm",
+            "Anti-corrosión",
+            "Grabado de tallas",
+          ],
+          rating: 4.3,
+          reviews: 156,
+        },
+        {
+          id: 5,
+          name: "Set Llaves Allen 9 piezas",
+          category: "llave",
+          price: 18,
+          originalPrice: 30,
+          discount: 40,
+          image:
+            "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400&q=80",
+          description:
+            "Juego de llaves hexagonales (Allen) en tallas métricas de 1.5 a 10mm. Acero S2 de alta resistencia, terminación negra mate.",
+          features: [
+            "9 piezas métrica",
+            "Acero S2",
+            "Tallas 1.5-10mm",
+            "Portallaves incluido",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 6,
+          name: "Cinta Métrica 5m Stanley",
+          category: "cinta",
+          price: 19,
+          originalPrice: 32,
+          discount: 41,
+          image:
+            "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
+          description:
+            "Cinta métrica de 5 metros con carcasa resistente a impactos, cinta de acero con revestimiento Mylar y bloqueo automático preciso.",
+          features: [
+            "5 metros de largo",
+            "Cuerpo anti-golpe",
+            "Bloqueo auto",
+            "Cinta Mylar",
+          ],
+          rating: 4.7,
+          reviews: 421,
+        },
+        {
+          id: 7,
+          name: 'Alicates Universales 8" Bauker',
+          category: "llave",
+          price: 15,
+          originalPrice: 25,
+          discount: 40,
+          image:
+            "https://images.unsplash.com/photo-1609205823200-c8bf98d6d9ed?w=400&q=80",
+          description:
+            "Alicates universales de 8 pulgadas con mango bimaterial aislante, articulación remachada y corte lateral integrado.",
+          features: [
+            "8 pulgadas",
+            "Aislamiento 1000V",
+            "Boca articulada",
+            "Acero CrV",
+          ],
+          rating: 4.2,
+          reviews: 134,
+        },
+        {
+          id: 8,
+          name: "Destornillador Eléctrico 4V",
+          category: "destornillador",
+          price: 55,
+          originalPrice: 85,
+          discount: 35,
+          image:
+            "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80",
+          description:
+            "Destornillador eléctrico compacto de 4V con batería de litio recargable. Incluye 30 puntas intercambiables y estuche de transporte.",
+          features: ["4V litio", "30 puntas", "Carga USB-C", "Luz LED"],
+          rating: 4.9,
+          reviews: 267,
+        },
+        {
+          id: 9,
+          name: "Nivel de Burbuja 60cm",
+          category: "otros",
+          price: 24,
+          originalPrice: 40,
+          discount: 40,
+          image:
+            "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80",
+          description:
+            "Nivel de aluminio con 3 burbujas (horizontal, vertical y 45°). Marco de aluminio resistente con gomas protectoras en los extremos.",
+          features: [
+            "3 burbujas",
+            "Aluminio reforzado",
+            "60 cm largo",
+            "Gomas protectoras",
+          ],
+          rating: 4.5,
+          reviews: 98,
+        },
+        {
+          id: 10,
+          name: "Martillo de Goma 500g",
+          category: "martillo",
+          price: 16,
+          originalPrice: 26,
+          discount: 38,
+          image:
+            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80",
+          description:
+            "Martillo de goma negra con mango de madera, ideal para trabajos de instalación de pisos, azulejos y ensamblaje sin dañar superficies.",
+          features: [
+            "500 gramos",
+            "Goma resistente",
+            "Sin marcas",
+            "Uso versátil",
+          ],
+          rating: 4.3,
+          reviews: 73,
+        },
+        {
+          id: 11,
+          name: 'Llave de Tubo 14"',
+          category: "llave",
+          price: 30,
+          originalPrice: 50,
+          discount: 40,
+          image:
+            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
+          description:
+            "Llave de tubo cromada de 14 pulgadas para trabajos de plomería y fontanería. Mandíbulas de acero templado con ajuste preciso.",
+          features: [
+            "14 pulgadas",
+            "Acero cromado",
+            "Ajuste rápido",
+            "Maxiagarre",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 12,
+          name: "Cinta Métrica 8m Truper",
+          category: "cinta",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image:
+            "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
+          description:
+            "Cinta métrica profesional de 8 metros con doble impresión (cm/pulgadas), bloqueo con freno y carcasa de goma de doble componente.",
+          features: [
+            "8 metros",
+            "Doble escala",
+            "Carcasa goma",
+            "Freno preciso",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+      ];
+
+      let currentSearch = "";
+      let currentFilter = "todos";
+      let currentSort = "default";
+      let selectedProductId = null;
+
+      const searchInput = document.getElementById("searchInput");
+      const clearSearch = document.getElementById("clearSearch");
+      const clearSearchLink = document.getElementById("clearSearchLink");
+      const productsGrid = document.getElementById("productsGrid");
+      const productDetail = document.getElementById("productDetail");
+      const backButton = document.getElementById("backButton");
+      const noResults = document.getElementById("noResults");
+      const resultsCount = document.getElementById("resultsCount");
+      const sortSelect = document.getElementById("sortSelect");
+
+      function getFilteredProducts() {
+        let filtered = [...products];
+        if (currentSearch.trim() !== "") {
+          const q = currentSearch.toLowerCase().trim();
+          filtered = filtered.filter(
+            (p) =>
+              p.name.toLowerCase().includes(q) ||
+              p.description.toLowerCase().includes(q) ||
+              p.features.some((f) => f.toLowerCase().includes(q)) ||
+              p.category.toLowerCase().includes(q),
+          );
+        }
+        if (currentFilter !== "todos") {
+          if (currentFilter === "oferta") {
+            filtered = filtered.filter((p) => p.discount >= 40);
+          } else {
+            filtered = filtered.filter(
+              (p) =>
+                p.category === currentFilter ||
+                p.name.toLowerCase().includes(currentFilter),
+            );
+          }
+        }
+        switch (currentSort) {
+          case "price-asc":
+            filtered.sort((a, b) => a.price - b.price);
+            break;
+          case "price-desc":
+            filtered.sort((a, b) => b.price - a.price);
+            break;
+          case "rating":
+            filtered.sort((a, b) => b.rating - a.rating);
+            break;
+          case "discount":
+            filtered.sort((a, b) => b.discount - a.discount);
+            break;
+        }
+        return filtered;
+      }
+
+      function generateStars(rating, size = 14) {
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          const filled = i < Math.floor(rating) ? "filled" : "";
+          html += `<svg class="star ${filled}" width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+        }
+        return html;
+      }
+
+      function highlight(text, query) {
+        if (!query.trim()) return text;
+        const regex = new RegExp(
+          `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+          "gi",
+        );
+        return text.replace(
+          regex,
+          '<mark style="background:#FDB912;border-radius:3px;padding:0 2px;">$1</mark>',
+        );
+      }
+
+      function renderProductsGrid() {
+        const filtered = getFilteredProducts();
+        productsGrid
+          .querySelectorAll(".product-card")
+          .forEach((c) => c.remove());
+        const total = products.length;
+        if (currentSearch || currentFilter !== "todos") {
+          resultsCount.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> productos`;
+        } else {
+          resultsCount.innerHTML = `<strong>${total}</strong> productos disponibles`;
+        }
+        if (filtered.length === 0) {
+          noResults.classList.add("visible");
+          return;
+        }
+        noResults.classList.remove("visible");
+        filtered.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.setAttribute("data-id", product.id);
+          card.onclick = () => showProductDetail(product.id);
+          card.innerHTML = `
+            <div class="product-image-container">
+              <div class="discount-badge">-${product.discount}%</div>
+              <img src="${product.image}" alt="${product.name}" loading="lazy" />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">${highlight(product.name, currentSearch)}</h3>
+              <div class="rating-container">${generateStars(product.rating)}<span class="reviews-count">(${product.reviews})</span></div>
+              <div class="price-container">
+                <span class="current-price">S/ ${product.price}</span>
+                <span class="original-price">S/ ${product.originalPrice}</span>
+              </div>
+              <button class="btn-details">Ver Detalles</button>
+            </div>`;
+          productsGrid.insertBefore(card, noResults);
+        });
+      }
+
+      function showProductDetail(productId) {
+        selectedProductId = productId;
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+        productDetail.innerHTML = `
+          <div class="detail-card">
+            <div class="detail-content">
+              <div class="detail-image-section">
+                <div class="discount-badge">-${product.discount}%</div>
+                <img src="${product.image}" alt="${product.name}" />
+              </div>
+              <div class="detail-info-section">
+                <div>
+                  <div class="rating-container">${generateStars(product.rating, 18)}<span class="reviews-count">(${product.reviews} reseñas)</span></div>
+                  <h1 class="detail-title" style="margin:0.75rem 0">${product.name}</h1>
+                  <div class="detail-price-container">
+                    <span class="detail-current-price">S/ ${product.price}</span>
+                    <span class="detail-original-price">S/ ${product.originalPrice}</span>
+                    <span style="background:#fef2f2;color:#ef4444;padding:4px 10px;border-radius:8px;font-size:0.82rem;font-weight:700;">Ahorras S/ ${product.originalPrice - product.price}</span>
+                  </div>
+                  <p class="detail-description">${product.description}</p>
+                  <div class="features-section">
+                    <h3 class="features-title">Características:</h3>
+                    <ul class="features-list">${product.features.map((f) => `<li><div class="feature-dot"></div>${f}</li>`).join("")}</ul>
+                  </div>
+                </div>
+                <div class="buttons-section">
+                  <button class="btn-buy" onclick="buyNow()"><i class="fas fa-bolt"></i> Comprar Ahora</button>
+                  <a href="https://api.whatsapp.com/send?phone=51934709652&text=Hola! Me interesa: ${encodeURIComponent(product.name)} a S/ ${product.price}" class="btn-whatsapp" target="_blank">
+                    <i class="bx bxl-whatsapp" style="font-size:1.2rem"></i> Consultar por WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        productsGrid.classList.add("hidden");
+        productDetail.classList.add("active");
+        backButton.classList.add("active");
+        document.querySelector(".search-wrapper").style.display = "none";
+        document.getElementById("resultsMeta").style.display = "none";
+        document.querySelector(".page-banner").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showProductsGrid() {
+        selectedProductId = null;
+        productsGrid.classList.remove("hidden");
+        productDetail.classList.remove("active");
+        backButton.classList.remove("active");
+        document.querySelector(".search-wrapper").style.display = "";
+        document.getElementById("resultsMeta").style.display = "";
+        document.querySelector(".page-banner").style.display = "";
+      }
+
+      function buyNow() {
+        const product = products.find((p) => p.id === selectedProductId);
+        window.open(
+          `https://api.whatsapp.com/send?phone=51934709652&text=Hola! Quiero comprar: ${encodeURIComponent(product.name)} - S/ ${product.price}`,
+          "_blank",
+        );
+      }
+
+      searchInput.addEventListener("input", function () {
+        currentSearch = this.value;
+        clearSearch.classList.toggle("hidden", !currentSearch);
+        if (productDetail.classList.contains("active")) showProductsGrid();
+        renderProductsGrid();
+      });
+
+      function doClearSearch() {
+        searchInput.value = "";
+        currentSearch = "";
+        clearSearch.classList.add("hidden");
+        searchInput.focus();
+        renderProductsGrid();
+      }
+
+      clearSearch.addEventListener("click", doClearSearch);
+      if (clearSearchLink)
+        clearSearchLink.addEventListener("click", doClearSearch);
+
+      document
+        .getElementById("filterChips")
+        .addEventListener("click", function (e) {
+          const chip = e.target.closest(".chip");
+          if (!chip) return;
+          document
+            .querySelectorAll(".chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          currentFilter = chip.dataset.filter;
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          renderProductsGrid();
+        });
+
+      sortSelect.addEventListener("change", function () {
+        currentSort = this.value;
+        renderProductsGrid();
+      });
+
+      backButton.addEventListener("click", showProductsGrid);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        if (e.key === "Escape") {
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          else doClearSearch();
+        }
+      });
+
+      renderProductsGrid();
+    </script>
+  </body>
+</html>

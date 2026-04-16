@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sandi Ferretería - Todo en Herramientas</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="../assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="../webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link">
+                    motores</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown__link">herramientas manueales</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="main_contacto">
+      <div class="container_contact">
+        <section class="content_contact">
+          <div class="title_contact">
+            <div class="left-side">
+              <h2>Contáctanos</h2>
+            </div>
+            <div class="right-side">
+              <h2>Cotización de Producto</h2>
+            </div>
+          </div>
+
+          <div class="container_contacto">
+            <div class="left-side">
+              <div class="item">
+                <h3>Email</h3>
+                <a href="mailto:information@untitled.ext"
+                  >information@untitled.ext</a
+                >
+              </div>
+              <div class="item">
+                <h3>Teléfonos</h3>
+                <a href="tel:+000000000">(000) 000-0000</a>
+              </div>
+              <div class="item">
+                <h3>Dirección</h3>
+                <a>123 Somewhere Road, Nashville, TN 000</a>
+              </div>
+              <div class="item">
+                <h3>Nuestras Redes Sociales</h3>
+                <div class="icons">
+                  <a href="#" aria-label="Facebook"
+                    ><i class="fa-brands fa-facebook"></i
+                  ></a>
+                  <a href="#" aria-label="Instagram"
+                    ><i class="fa-brands fa-square-instagram"></i
+                  ></a>
+                  <a href="#" aria-label="TikTok"
+                    ><i class="fa-brands fa-tiktok"></i
+                  ></a>
+                  <a href="#" aria-label="WhatsApp"
+                    ><i class="fa-brands fa-square-whatsapp"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="right-side">
+              <form
+                action="https://formsubmit.co/mikaeljara47@gmail.com"
+                method="POST"
+              >
+                <div class="top">
+                  <div class="top-Content">
+                    <label for="nombres">Nombres</label>
+                    <input
+                      type="text"
+                      id="nombres"
+                      name="nombres"
+                      placeholder="Ingresa tu nombre"
+                      required
+                    />
+                  </div>
+                  <div class="top-Content">
+                    <label for="apellidos">Apellidos</label>
+                    <input
+                      type="text"
+                      id="apellidos"
+                      name="apellidos"
+                      placeholder="Ingresa tus apellidos"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="top">
+                  <div class="top-Content">
+                    <label for="telefono">Teléfono</label>
+                    <input
+                      type="text"
+                      id="telefono"
+                      name="telefono"
+                      placeholder="(000) 000-0000"
+                      required
+                    />
+                  </div>
+                  <div class="top-Content">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="correo@ejemplo.com"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="top">
+                  <div class="top-Content">
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" name="categoria" required>
+                      <option value="">Seleccionar</option>
+                      <option value="consulta">Consulta General</option>
+                      <option value="cotizacion">Cotización</option>
+                      <option value="soporte">Soporte Técnico</option>
+                      <option value="otros">Otros</option>
+                    </select>
+                  </div>
+                </div>
+
+                <label for="descripcion">Mensaje</label>
+                <textarea
+                  id="descripcion"
+                  name="descripcion"
+                  placeholder="Escribe tu mensaje aquí..."
+                  required
+                ></textarea>
+
+                <input type="submit" value="Enviar Mensaje" class="button" />
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="http://127.0.0.1:5504/menu-desplegable-main/webform/contacto.html#"
+                />
+                <input type="hidden" name="_captcha" value="false" />
+              </form>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="container_one">
+        <section class="container_map">
+          <!-- Reemplaza con tu imagen de mapa -->
+          <img
+            src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1400&q=80"
+            alt="Mapa de ubicación"
+          />
+        </section>
+      </div>
+    </main>
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="../assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
+            <li><i class="fas fa-phone"></i> +51 934 709 652</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
