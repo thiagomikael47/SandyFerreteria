@@ -1,0 +1,1605 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Accesorios</title>
+    <link rel="icon" type="image/jpg" href="../assets/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="../assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="../webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="../webform/motores.html" class="dropdown__link">
+                    Motores y Generadores</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/manuales.html" class="dropdown__link"
+                    >herramientas Manuales</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/mecanico.html" class="dropdown__link"
+                    >Mecanico</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link"
+                    >Herramientas Electricas</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/accesorios.html" class="dropdown__link"
+                    >Accesorios</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Banner -->
+    <div class="page-banner">
+      <div class="page-banner-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Inicio</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Herramientas Manuales</span>
+        </div>
+        <h1>Herramientas <span>Manuales</span></h1>
+        <p>
+          Martillos, destornilladores, llaves y todo lo que necesitas para tu
+          trabajo
+        </p>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <div class="search-inner">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar productos por nombre..."
+            autocomplete="off"
+          />
+          <button
+            id="clearSearch"
+            class="clear-btn hidden"
+            title="Limpiar búsqueda"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="martillo">Martillos</button>
+          <button class="chip" data-filter="llave">Llaves</button>
+          <button class="chip" data-filter="destornillador">
+            Destornilladores
+          </button>
+          <button class="chip" data-filter="cinta">Cintas</button>
+          <button class="chip" data-filter="oferta">Ofertas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta" id="resultsMeta">
+      <span class="results-count" id="resultsCount"></span>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Ordenar por...</option>
+        <option value="price-asc">Precio: Menor a mayor</option>
+        <option value="price-desc">Precio: Mayor a menor</option>
+        <option value="rating">Mejor valorados</option>
+        <option value="discount">Mayor descuento</option>
+      </select>
+    </div>
+
+    <main>
+      <div class="container__products">
+        <button class="back-button" id="backButton">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Volver a productos</span>
+        </button>
+
+        <div class="products-grid" id="productsGrid">
+          <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>No encontramos resultados</h3>
+            <p>Intenta con otro término o revisa los filtros activos</p>
+            <span class="clear-search-link" id="clearSearchLink"
+              >Limpiar búsqueda</span
+            >
+          </div>
+        </div>
+
+        <div class="product-detail" id="productDetail"></div>
+      </div>
+    </main>
+
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="../assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../webform/motores.html">Productos</a></li>
+            <li><a href="../webform/home.html">Nosotros</a></li>
+            <li><a href="../webform/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Av Grau 511 y Av Maurtua 155
+              , Ica - Perú
+            </li>
+            <li><i class="fas fa-phone"></i>921583704</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Imán extensible de acero inoxidable, 1.5 kg, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/imantruper.jpg",
+          description: "",
+          features: [
+            "Levanta hasta 1.5 kg",
+            "Se extiende hasta 65 cm",
+            "Clip tipo bolígrafo",
+            "Para recuperar objetos de metal en lugares de difícil acceso",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 2,
+          name: "Iman extensible flexible de acero con LED 3 KG",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/imantruperLed.webp",
+          description: "",
+          features: [
+            "Levanta hasta 3 kg",
+            "Mango Comfort Grip",
+            "Utiliza 3 baterías AG13, incluidas",
+            "Para recuperar objetos de metal en lugares de difícil acceso",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 3,
+          name: "Imán Extensible Acero Inoxidable 3.6 Kg Trupe",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/imantruper.jpg",
+          description: "",
+          features: [
+            "Capacidad de carga de 3.6 kg para levantar objetos metálicos",
+            "Extensible de 16 cm a 63 cm para alcanzar espacios reducidos",
+            "Clip tipo bolígrafo",
+            "Mango de PVC para un agarre cómodo y seguro",
+            "Para recuperar objetos de metal en lugares de difícil acceso",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 4,
+          name: "Linterna LED 15 Recargable 220 V HOME LIGHT",
+          category: "linternas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternahome.webp",
+          description:
+            "La linterna flotante recargable Home Light está diseñada para iluminación portátil en situaciones domésticas, técnicas y de emergencia. Recomendada para uso en hogar, camping, búsqueda e industria.",
+          features: [
+            "Modelo: Linterna flotante recargable",
+            "Iluminación: 15 LED frontales + 12 LED laterales",
+            "Alcance: Hasta 450 metro",
+            "Batería: Recargable 1200 mAh",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 5,
+          name: "Linterna Led de Cabeza Minera Recargable",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternafrontal.jpg",
+          description:
+            "Led frontal de alto brillo y potencia, máximo rendimiento con bajo consumo de energía.",
+          features: [
+            "Potencia: 0.5W",
+            "Duración carga útil: 9 horas",
+            "Tiempo de carga: 8 horas",
+            "Potencia de lúmenes frontal: 50L",
+            "Batería: 500 mah",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 6,
+          name: "Linterna 2 en 1 con Foco Led Recargable",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linterna.webp",
+          description: "",
+          features: [
+            "Batería Recargable con Luz Led",
+            "Tiempo de aproximación 7 Horas",
+            "Tiempo de carga 12-18 Horas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 7,
+          name: "Linterna Min Flotante Recargable C/tubo Led Home Light",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaroja.webp",
+          description: "",
+          features: [
+            "Color de la luz: Blanco",
+            "Tipo de alimentación: corriente eléctrica.",
+            "Tipo de luz: led",
+            "Cantidad de modos de cambio de luz: 2.",
+            "Potencia: 90lm.",
+            "Alcance de proyección: 200m.",
+            "Es recargable",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 8,
+          name: "Linterna Flotante Recargable",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/Linterna-Flotante-Recargable.webp",
+          description:
+            "Características adicionales: Es un modelo flotante y resistente al agua, ideal para entornos acuáticos o de mucha humedad. ",
+          features: [
+            "Fuente de Luz: 15 LEDs en el foco frontal y 12 LEDs laterales (o un tubo LED lateral)",
+            "Alimentación: Recargable",
+            "Batería: Batería de plomo sellada de 1,200 mAh (miliamperios-hora)",
+            "Tiempo de carga: Aproximadamente 8 horas",
+            "Alcance de la luz: Hasta 450 metros (m)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 9,
+          name: "Linterna Flotante Aerodinámica",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaaerodinamica.webp",
+          description: "",
+          features: [
+            "Color de la luz: Blanco",
+            "Alimentación: Recargable (batería interna).",
+            "TFuente de Luz: Utiliza tecnología LED de alta intensidad",
+            "Batería: Batería de plomo sellada de 2,400 mAh (miliamperios-hora).",
+            "Alcance de la luz: Hasta 350 metros (m).",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 10,
+          name: "Linterna Led Recargable 5W Opalux",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaopaluix.png",
+          description: "",
+          features: [
+            "Linterna LED 5W Recargable",
+            "Lumenes: 95/250LM",
+            "Batería recargable: 4V 400 mAh",
+            "Alimentacion: 220V cable 50cms",
+            "Alcance de Iluminacion: 100m",
+            "Switch 2 tiempos: (luz alta y luz baja)",
+            "Duración: Luz Alta 5 horas / Luz Baja 20 horas",
+            "Tiempo de carga 15 horas antes de uso inicial",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 11,
+          name: "Linterna Recargable LED 20W HB-2146 OPALUX",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaopalux.2.jpg",
+          description: "",
+          features: [
+            "LED CREE que llega hasta 280MTS",
+            "Autonomía de 2.5hrs en alto brillo, 150hrs luz intermitente",
+            "Cuenta con cargador de pared y cargador de auto",
+            "Batería de ácido de plomo de 6v.4ah",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 12,
+          name: "LINTERNA LED 10W RECARGABLE OPALUX HB-4011T/A",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaopalux.3.webp",
+          description: "",
+          features: [
+            "Batería recargable ácido de plomo 6V",
+            "Cargador 220VAC",
+            "Hasta 2,5 horas como linterna y Hasta 150 horas luz intermitente",
+            " Potencia 10 Watts",
+            "Potente Haz de Luz 180 metros",
+            "Batería de ácido de plomo de 4v. 6Ah",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 13,
+          name: "Linterna LED Recargable 7W OPALUX OP-L9274",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaopalux.4.jpg",
+          description: "",
+          features: [
+            "Potencia: 7W",
+            "Alimentación: 220–240V 50/60Hz",
+            "Batería Recargable: Litio 3.7V / 4800mAh",
+            "Lúmenes: Luz fuerte 400 Lm / Luz baja 110 Lm",
+            "Duración: Luz Alta 4h / Modo ahorro 17h / Lámpara 3.5h",
+            "Tiempo de Carga: 12–15 horas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 14,
+          name: "Linterna de minero LED 800 lm, de 4 pilas AA, TRUPER EXPERT",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternafrontaltruper.jpg",
+          description: "",
+          features: [
+            "Luminosidad: 800 lm (alto), 450 lm (bajo)",
+            "Distancia del haz de luz: 200 m",
+            "Duración de carga de la batería: 	3.5 horas (alto) 5.5 horas (bajo)",
+            "Lúmenes: Luz fuerte 400 Lm / Luz baja 110 Lm",
+            "Peso: 208 g",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 15,
+          name: "Linterna de minero LED 100 lm de 3 pilas AAA, PRETUL",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternafrontalpretul.jpg",
+          description: "",
+          features: [
+            "Luminosidad: 100 lm (alto), 40 lm (bajo))",
+            "Distancia del haz de luz: 14 m",
+            "Duración de carga de la batería: 	6.5 horas (alto) 7.5 horas (bajo)",
+            "Pilas: 3 AAA (no incluidas)",
+            "Peso: 75 g",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 16,
+          name: "Linterna Frontal Energizer 60 Lumens",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/linternaenergizer.jpg",
+          description: "",
+          features: [
+            "Vea hasta 20 metros por delante con hasta 60 lúmenes de luz LED brillante.",
+            "Cabeza Móvil",
+            "Resistente al agua",
+            "Banda antideslizante ajustable",
+            "Lente inastillable",
+            "Luz nocturna",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 17,
+          name: "Blíster con 100 anzuelos para pesca #8 , TRUPER",
+          category: "anzuelos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "Acero niquelado para mayor resistencia a la corrosión",
+          features: [
+            "Tamaño: # 8",
+            "Longitud 42 mm",
+            "Apertura de gancho 16 mm",
+            "Diámetro del cuerpo 1.65 mm",
+            "Diámetro interno del ojillo 3.3 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 18,
+          name: "Blíster con 100 anzuelos para pesca #9 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: # 9",
+            "Longitud 39 mm",
+            "Apertura de gancho 15 mm",
+            "Diámetro del cuerpo 1.45 mm",
+            "Diámetro interno del ojillo 3.1 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 19,
+          name: "Blíster con 100 anzuelos para pesca #10 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: # 10",
+            "Longitud 36 mm",
+            "Apertura de gancho 14 mm",
+            "Diámetro del cuerpo 1.3 mm",
+            "Diámetro interno del ojillo 2.8 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+
+        {
+          id: 20,
+          name: "Blíster con 100 anzuelos para pesca #11 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: # 11",
+            "Longitud 33 mm",
+            "Apertura de gancho 11 mm",
+            "Diámetro del cuerpo 1.2 mm",
+            "Diámetro interno del ojillo 2.5 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 21,
+          name: "Blíster con 100 anzuelos para pesca #12 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: # 12",
+            "Longitud 29 mm",
+            "Apertura de gancho 12 mm",
+            "Diámetro del cuerpo 1.3 mm",
+            "Diámetro interno del ojillo 2.3 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 22,
+          name: "Blíster con 100 anzuelos para pesca #13 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: #13",
+            "Longitud 27 mm",
+            "Apertura de gancho 11 mm",
+            "Diámetro del cuerpo 1 mm",
+            "Diámetro interno del ojillo 1.9 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 23,
+          name: "Blíster con 100 anzuelos para pesca #14 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: #14",
+            "Longitud 24 mm",
+            "Apertura de gancho 10 mm",
+            "Diámetro del cuerpo 0.95 mm",
+            "Diámetro interno del ojillo 1.8 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 24,
+          name: "Blíster con 100 anzuelos para pesca #15 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: #13",
+            "Longitud 22 mm",
+            "Apertura de gancho 9 mm",
+            "Diámetro del cuerpo 0.9 mm",
+            "Diámetro interno del ojillo 1.6 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 25,
+          name: "Blíster con 100 anzuelos para pesca #16 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: #13",
+            "Longitud 20 mm",
+            "Apertura de gancho 8 mm",
+            "Diámetro del cuerpo 0.85 mm",
+            "Diámetro interno del ojillo 1.5 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 26,
+          name: "Blíster con 100 anzuelos para pesca #18 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: #18",
+            "Longitud 18 mm",
+            "Apertura de gancho 7 mm",
+            "Diámetro del cuerpo 0.75 mm",
+            "Diámetro interno del ojillo 1.4 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 27,
+          name: "Blíster con 100 anzuelos para pesca #20 , TRUPER",
+          category: "anzuelo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anzuelotruper.webp",
+          description: "",
+          features: [
+            "Tamaño: #20",
+            "Longitud 15 mm",
+            "Apertura de gancho 6 mm",
+            "Diámetro del cuerpo 0.65 mm",
+            "Diámetro interno del ojillo 1.2 mm",
+            "Empaque individual Blíster con 100 piezas",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 28,
+          name: "Alambre de Pua GALVANIZADO",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alambregalva.jpg",
+          description: "",
+          features: [
+            "Resistente al óxido y a la corrosión",
+            "Púas afiladas y espaciadas para mayor seguridad",
+            "Fácil de instalar y duradero",
+            "Fácil de instalar y duradero",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 29,
+          name: "Juego de 13 brocas HSS para metal en estuche, TRUPER EXPERT",
+          category: "brocas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.1.jpg",
+          description: "",
+          features: [
+            "Uso en metales ferrosos, no ferrosos, madera y plástico",
+            "Brocas de 1/8' a 5/16' con punta Split Point autocentrable para perforaciones más rápidas y precisas",
+            "abricadas en acero M2, 3X mayor vida útil que las brocas de óxido negro",
+            "Tipo de zanco:	P3 antiderrapante (3-16' a 1/2') y Redondo (1/16' a 11/64')",
+            "Ángulo de punta:	135°",
+            "Brocas : 1 Broca de 1/16', 1 Broca de 5/64', 1 Broca de 3/32', 1 Broca de 7/64', 1 Broca de 1/8', 1 Broca de 9/64', 1 Broca de 5/32', 1 Broca de 11/64', 1 Broca de 3/16', 1 Broca de 13/64', 1 Broca de 7/32', 1 Broca de 1/4', 1 Broca de 5/16'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 30,
+          name: "Juego de 10 brocas HSS para metal en estuche, Truper Expert",
+          category: "brocas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.2.jpg",
+          description: "",
+          features: [
+            "Fabricadas en acero M2 de larga duración con flauta en acabado óxido negro",
+            "Brocas de 1/8' a 1/4' con punta Split Point autocentrable para perforaciones más rápidas y precisas",
+            "Medidas marcadas en cada broca para fácil identificación",
+            "Zanco antiderrapante P3 3/16' a 1/4'",
+            "Zanco redondo 1/16' a 11/64'",
+            "Brocas : 1 Broca de 1/16', 1 Broca de 5/64', 1 Broca de 3/32', 1 Broca de 7/64', 1 Broca de 1/8', 1 Broca de 9/64', 1 Broca de 5/32', 1 Broca de 11/64', 1 Broca de 3/16', 1 Broca de 1/4'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 31,
+          name: "Juego de 7 brocas HSS para metal en estuche, TRUPER EXPERT",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.3.jpg",
+          description: "",
+          features: [
+            "Fabricadas en acero M2, 3X mayor vida útil que las brocas de óxido negro",
+            "Brocas de 1/8' a 1/4' con punta Split Point autocentrable para perforaciones más rápidas y precisas",
+            "Medidas marcadas en cada broca para fácil identificación",
+            "Zanco antiderrapante P3 3/16' a 1/4'",
+            "Zanco redondo 1/16' a 1/8'",
+            "Brocas : 1 Broca de 1/16' 1 Broca de 5/64' 1 Broca de 3/32' 1 Broca de 7/64' 1 Broca de 1/8' 1 Broca de 3/16' 1 Broca de 1/4'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 32,
+          name: "Juego de 6 brocas para concreto, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.4.webp",
+          description: "",
+          features: [
+            "Cuerpo de acero al cromo que ofrece mayor resistencia al calentamiento",
+            "Punta de carburo de tungsteno",
+            "Zanco P3 antiderrapante",
+            "Para rotomartillos (compatible con la mayoría de broqueros de mordaza",
+            "Especificaciones Zanco antiderrapante P3 3/16' a 3/8'",
+            "Brocas : 2 Brocas de 3/16' x 6' 2 Brocas de 1/4' x 6' 1 Broca de 5/16' x 6' 1 Broca de 3/8' x 6'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 33,
+          name: "Juego de 5 brocas para concreto, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/brocas.5.jpg",
+          description: "",
+          features: [
+            "Cuerpo de acero al cromo que ofrece mayor resistencia al calentamiento",
+            "Punta de carburo de tungsteno",
+            "Zanco P3 antiderrapante",
+            "Medidas 3/16' a 3/8'",
+            "Brocas : 3/16' x 4', 1/4' x 4', 1/4' x 6', 5/16' x 4' y 3/8' x 6'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 34,
+          name: "Juego de 15 brocas y cinceles SDS Plus en estuche, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/brocas6.jpg",
+          description: "",
+          features: [
+            "Para perforaciones en concreto y ladrillo",
+            "Punta de cruz con doble inserto de carburo para mayor precisión de perforación",
+            "Cuerpo de acero al cromo que ofrece mayor resistencia al calentamiento",
+            "Longitud de cinceles : 100 (25 cm)",
+            "Tipo de zanco : Sistema directo de inserción SDS Plus",
+            "Brocas : 1 Cincel largo de punta, 1 Cincel largo plano 3/4', 1 Cincel largo plano 1-1/2', 1 Broca 3/16' x 8', 1 Broca 1/4' x 4', 1 Broca 1/4' x 6', 1 Broca 1/4' x 8', 1 Broca 1/4' x 10', 1 Broca 5/16' x 6', 1 Broca 5/16' x 12', 1 Broca 3/8' x 6', 1 Broca 3/8' x 12', 1 Broca 1/2' x 6', 1 Broca 1/2' x 12', 1 Broca 5/8' x 8'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 35,
+          name: "Juego de 3 avellanadores HSS, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.7.webp",
+          description: "",
+          features: [
+            "Ángulo de punta 82°",
+            "Zanco hexagonal de cambio rápido",
+            "Ayuda a ocultar la cabeza del tornillo",
+            "Para metales ferrosos, no ferrosos, madera y plástico",
+            "Largo total 2' (50 mm)",
+            "Tamaño del zanco 1/4' (6.5 mm)",
+            "Brocas : 3/4' (19 mm), 5/8' (16 mm) y 1/2' (13 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 36,
+          name: "Juego de 3 brocas escalonadas de óxido negro, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.8.jpg",
+          description: "",
+          features: [
+            "Punta Split Point autocentrable con dos filos de corte, para perforaciones más rápidas y precisas",
+            "Diámetro marcado en láser de larga duración para identificar rápidamente el tamaño a perforar",
+            "Fabricada en acero de alta velocidad (HSS) con acabado óxido negro",
+            "Una sola broca realiza perforaciones de diferentes diámetros",
+            "Zanco P3 antiderrapante que no se desliza en el broquero",
+            "Broca de 6 escalones Diámetro de zanco 1/4'",
+            "Broca de 13 escalones Diámetro de zanco 1/4'",
+            "Broca de 12 escalones Diámetro de zanco 3/8'",
+            "Tipo de zanco P3",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 36,
+          name: "Juego de 3 brocas escalonadas de óxido negro, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.8.jpg",
+          description: "",
+          features: [
+            "Punta Split Point autocentrable con dos filos de corte, para perforaciones más rápidas y precisas",
+            "Diámetro marcado en láser de larga duración para identificar rápidamente el tamaño a perforar",
+            "Fabricada en acero de alta velocidad (HSS) con acabado óxido negro",
+            "Una sola broca realiza perforaciones de diferentes diámetros",
+            "Zanco P3 antiderrapante que no se desliza en el broquero",
+            "Broca de 6 escalones Diámetro de zanco 1/4'",
+            "Broca de 13 escalones Diámetro de zanco 1/4'",
+            "Broca de 12 escalones Diámetro de zanco 3/8'",
+            "Tipo de zanco P3",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 37,
+          name: "Juego De Brocas Escalonada Kamasa 3Pzs KM157",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.9.jpg",
+          description: "",
+          features: [
+            "El Juego de Brocas Escalonada Kamasa es un conjunto de herramientas diseñado para perforar orificios de diferentes diámetros en una variedad de materiales,incluyendo metales,plásticos y madera.",
+            "Cada broca en este set presenta un diseño escalonado que permite realizar múltiples tamaños de perforación con una sola herramienta,lo que mejora la eficiencia y reduce la necesidad de cambiar de broca con frecuencia.",
+            "Adecuado para taladros eléctricos estándar.",
+            "Modelo: KM1576",
+            "Material: Acero de alta velocidad (HSS) con recubrimiento de titanio para mayor durabilidad y resistencia al desgaste.",
+            "Tamaños de brocas incluidos:4-12 mm/4-20 mm/4-32 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 38,
+          name: "Juego de 4 brocas para vidrio y azulejo, TRUPER EXPERT",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.10.jpg",
+          description: "",
+          features: [
+            "Punta de carburo de tungsteno de alta resitencia para mayor durabilidad, 2X mayor velocidad de perforación",
+            "Cortes 2X más rápidos con mejor acabado y sin despostilladuras",
+            "Zanco P3 antiderrapante",
+            "Cuerpo en espiral para rápida evacuación de polvo",
+            "Ideal para perforar con velocidad baja",
+            "Para perforar azulejo, cerámica y porcelanato hasta Clase 3",
+            "Mayor resistencia al calentamiento",
+            "Compatible con broqueros de mordaza",
+            "Tipo de zanco P3 antiderrapante",
+            "Brocas : 1 Broca 3/16, 1 Broca 1/4', 1 Broca 5/16', 1 Broca 3/8'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 39,
+          name: "Juego de 4 brocas para vidrio y azulejo, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.13.jpg",
+          description: "",
+          features: [
+            "Punta de carburo de tungsteno para cortes rápidos y sin despostilladuras",
+            "Zanco redondo",
+            "Ideal para perforar con velocidad baja",
+            "Compatible con broqueros de mordaza",
+            "Para perforar azulejo, loseta, cerámica y vidrio",
+            "Para perforar azulejo, cerámica y porcelanato hasta Clase 3",
+            "Tipo de zanco Redondo",
+            "Brocas : 1 Broca 3/16', 1 Broca 1/4', 1 Broca 5/16', 1 Broca 3/8'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 40,
+          name: "Broca forstner 25 mm para madera, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.14.jpg",
+          description: "",
+          features: [
+            "Fabricada en acero al carbono",
+            "Filo rectificado para cortes limpios y precisos",
+            "Orificios con fondo plano (perforaciones ciegas)",
+            "Uso sin percusión",
+            "Para madera",
+            "Largo total 95 mm",
+            "Diámetro 25 mm (1')",
+            "Tipo de zanco P3",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 41,
+          name: "Broca forstner 30 mm para madera, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.14.jpg",
+          description: "",
+          features: [
+            "Fabricada en acero al carbono",
+            "Filo rectificado para cortes limpios y precisos",
+            "Útil para instalar bisagras bidimensionales",
+            "Orificios con fondo plano (perforaciones ciegas)",
+            "Uso sin percusión",
+            "Para madera",
+            "Largo total 95 mm",
+            "Diámetro 30 mm (13/16')",
+            "Tipo de zanco P3",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 42,
+          name: "Juego de 6 brocas con punta centradora para madera, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/borca.15.jpg",
+          description: "",
+          features: [
+            "Punta centradora para una perforación más precisa",
+            "Perfora plásticos blandos y madera en general",
+            "Zanco redondo",
+            "Brocas : 1 Broca de 1/8', 1 Broca de 5/32', 1 Broca de 3/16', 1 Broca de 1/4', 1 Broca de 9/32', 1 Broca de 5/16'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+
+        {
+          id: 43,
+          name: "Juego de 8 brocas con punta centradora para madera, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/brocas.16.jpg",
+          description: "",
+          features: [
+            "Punta centradora para una perforación más precisa",
+            "Perfora plásticos blandos y madera en general",
+            "Zanco redondo",
+            "Brocas : 1 broca de 5/32', 1 broca de 3/16', 1 broca de 7/32', 1 broca de 1/4', 1 broca de 9/32', 1 broca de 5/16', 1 broca de 3/8', 1 broca de 1/8'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 44,
+          name: "Juego de brocas planas de manita, 6 piezas, TRUPER",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/brocas.17.jpg",
+          description: "",
+          features: [
+            "Punta triscada 2x mayor velocidad",
+            "Filos angulados que permiten un corte limpio y rápido",
+            "Fabricadas en acero al alto carbono",
+            "Zanco hexagonal de cambio rápido",
+            "Zanco 1/4'",
+            "Largo total 15 cm (6')",
+            "Brocas : 1 Broca plana de 3/8', 1 Broca plana de 1/2', 1 Broca plana de 5/8', 1 Broca plana de 3/4', 1 Broca plana de 7/8', 1 Broca plana de 1'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 45,
+          name: "Juego de brocas planas de manita, 6 piezas, ASAKI",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.18.webp",
+          description:
+            "El JUEGO DE MECHAS TIPO PALETA PARA MADERA 6PCS ASAKI está diseñado para ofrecer perforaciones limpias y precisas en todo tipo de maderas, desde las más blandas hasta las más duras, garantizando resultados profesionales sin astillar ni dañar la superficie de tu trabajo.",
+          features: [
+            "Acero al carbono / Acero de alta velocidad (HSS)",
+            "Perforación en madera, madera contrachapada, aglomerado y MDFPerfora plásticos blandos y madera en general",
+            "Longitud de la mecha	Variable según diámetro (aprox. 90 mm – 150 mm)",
+            "Tipo de vástago	Redondo o hexagonal (según modelo)",
+            "Brocas :] 6 mm, 8 mm, 10 mm, 12 mm, 16 mm, 20 mm (aprox. 1/4', 5/16', 3/8', 1/2', 5/8', 3/4')",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 46,
+          name: "Juego De Brocas Para Madera Cemento Metal 16 Piezas Asaki",
+          category: "broca",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/broca.19.jpg",
+          description: "",
+          features: [
+            "Juego de brocas es adecuado para perforar madera, metal y concreto",
+            "Fabricadas en acero endurecido",
+            "uego incluye un total de 16 piezas",
+            "Las brocas tienen un diámetro de entre 2-10 mm",
+            "ienen un acabado dorado y negro",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 47,
+          name: "Candado antipalanca 65 mm cuerpo metálico, HERMEX BASIC",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/hermex.1.jpg",
+          description: "",
+          features: [
+            "Cuerpo metálico recubierto de ABS resistente a impactos",
+            "Seguro tipo perno seguridad estándar",
+            "Cilindro de latón con 4 pines que brinda resistencia a robos",
+            "Mecanismo interno resistente a la corrosión",
+            "Llave y componentes de latón para mayor vida útil",
+            "Para cortina metálica",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 48,
+          name: "Candado antipalanca 65 mm cuerpo metálico, HERMEX BASIC",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/hermex.1.jpg",
+          description: "",
+          features: [
+            "Cuerpo metálico recubierto de ABS resistente a impactos",
+            "Seguro tipo perno seguridad estándar",
+            "Cilindro de latón con 4 pines que brinda resistencia a robos",
+            "Mecanismo interno resistente a la corrosión",
+            "Llave y componentes de latón para mayor vida útil",
+            "Para cortina metálica",
+            "Nivel de seguridad Alta (4)",
+            "Diámetro del pasador 8 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 49,
+          name: "Candado antipalanca 75 mm cuerpo metálico, HERMEX BASIC",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/candado.2.png",
+          description: "",
+          features: [
+            "Cuerpo metálico recubierto de ABS resistente a impactos",
+            "Seguro tipo perno seguridad estándar",
+            "Cilindro de latón con 4 pines que brinda resistencia a robos",
+            "Mecanismo interno resistente a la corrosión",
+            "Llave y componentes de latón para mayor vida útil",
+            "Para cortina metálica",
+            "Nivel de seguridad Alta (5)",
+            "Diámetro del pasador 10 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 50,
+          name: "Candado antipalanca 85 mm cuerpo metálico, HERMEX BASIC",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/candado.3.jpg",
+          description: "",
+          features: [
+            "Cuerpo metálico recubierto de ABS resistente a impactos",
+            "Seguro tipo perno seguridad estándar",
+            "Cilindro de latón con 4 pines que brinda resistencia a robos",
+            "Mecanismo interno resistente a la corrosión",
+            "Llave y componentes de latón para mayor vida útil",
+            "Para cortina metálica",
+            "Nivel de seguridad Alta (6)",
+            "Diámetro del pasador 10 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 51,
+          name: "Candado antipalanca 60 mm cuerpo de latón, HERMEX BASIC",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/candado.4.jpg",
+          description: "",
+          features: [
+            "Cuerpo de latón con acabado pulido",
+            "Seguro de balín que proporciona mayor seguridad",
+            "Cilindro de latón con 4 pines que brinda resistencia a robos",
+            "Mecanismo interno resistente a la corrosión",
+            "Para cortina metálica",
+            "Nivel de seguridad Alta (5)",
+            "Diámetro del pasador 10 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 52,
+          name: "Candado antipalanca 75 mm cuerpo de latón, HERMEX BASIC",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/candado.5.jpg",
+          description: "",
+          features: [
+            "Cuerpo de latón con acabado pulido",
+            "Seguro de balín que proporciona mayor seguridad",
+            "Cilindro de latón con 4 pines que brinda resistencia a robos",
+            "Mecanismo interno resistente a la corrosión",
+            "Para cortina metálica",
+            "Nivel de seguridad Alta (6)",
+            "Diámetro del pasador 12 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 53,
+          name: "Candado de cable con llave, 15mm X 1.20 m, HERMEX",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/candadp.9.jpg",
+          description: "",
+          features: [
+            "Cable de acero trenzado cubierto de PVC para mayor resistencia a cortes",
+            "Mecanismo de cierre con llave tipo automotriz",
+            "Seguro preventivo que impide retirar la llave si el candado está abierto",
+            "Enrollable para su fácil almacenamiento",
+            "Uso rudo",
+            "Ideal para motocicletas, bicicletas, rejas, escaleras, equipo de construcción y más",
+            "Largo 1.20 m",
+            "Diámetro 15 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 54,
+          name: "Candado de cable con combinación, 10 mm X 1.20 m, HERMEX",
+          category: "candados",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/candado.6.jpg",
+          description: "",
+          features: [
+            "Cable de acero trenzado cubierto de PVC para mayor resistencia a cortes",
+            "Porta candado para cuadro de bicicleta",
+            "Mecanismo de cierre combinación de 4 dígitos",
+            "Uso ligero",
+            "Ideales para motocicletas, bicicletas, escaleras, equipo de construcción y más",
+            "Largo 1.20 m",
+            "Diámetro 10 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+      ];
+
+      let currentSearch = "";
+      let currentFilter = "todos";
+      let currentSort = "default";
+      let selectedProductId = null;
+
+      const searchInput = document.getElementById("searchInput");
+      const clearSearch = document.getElementById("clearSearch");
+      const clearSearchLink = document.getElementById("clearSearchLink");
+      const productsGrid = document.getElementById("productsGrid");
+      const productDetail = document.getElementById("productDetail");
+      const backButton = document.getElementById("backButton");
+      const noResults = document.getElementById("noResults");
+      const resultsCount = document.getElementById("resultsCount");
+      const sortSelect = document.getElementById("sortSelect");
+
+      function getFilteredProducts() {
+        let filtered = [...products];
+        if (currentSearch.trim() !== "") {
+          const q = currentSearch.toLowerCase().trim();
+          filtered = filtered.filter(
+            (p) =>
+              p.name.toLowerCase().includes(q) ||
+              p.description.toLowerCase().includes(q) ||
+              p.features.some((f) => f.toLowerCase().includes(q)) ||
+              p.category.toLowerCase().includes(q),
+          );
+        }
+        if (currentFilter !== "todos") {
+          if (currentFilter === "oferta") {
+            filtered = filtered.filter((p) => p.discount >= 40);
+          } else {
+            filtered = filtered.filter(
+              (p) =>
+                p.category === currentFilter ||
+                p.name.toLowerCase().includes(currentFilter),
+            );
+          }
+        }
+        switch (currentSort) {
+          case "price-asc":
+            filtered.sort((a, b) => a.price - b.price);
+            break;
+          case "price-desc":
+            filtered.sort((a, b) => b.price - a.price);
+            break;
+          case "rating":
+            filtered.sort((a, b) => b.rating - a.rating);
+            break;
+          case "discount":
+            filtered.sort((a, b) => b.discount - a.discount);
+            break;
+        }
+        return filtered;
+      }
+
+      function generateStars(rating, size = 14) {
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          const filled = i < Math.floor(rating) ? "filled" : "";
+          html += `<svg class="star ${filled}" width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+        }
+        return html;
+      }
+
+      function highlight(text, query) {
+        if (!query.trim()) return text;
+        const regex = new RegExp(
+          `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+          "gi",
+        );
+        return text.replace(
+          regex,
+          '<mark style="background:#FDB912;border-radius:3px;padding:0 2px;">$1</mark>',
+        );
+      }
+
+      function renderProductsGrid() {
+        const filtered = getFilteredProducts();
+        productsGrid
+          .querySelectorAll(".product-card")
+          .forEach((c) => c.remove());
+        const total = products.length;
+        if (currentSearch || currentFilter !== "todos") {
+          resultsCount.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> productos`;
+        } else {
+          resultsCount.innerHTML = `<strong>${total}</strong> productos disponibles`;
+        }
+        if (filtered.length === 0) {
+          noResults.classList.add("visible");
+          return;
+        }
+        noResults.classList.remove("visible");
+        filtered.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.setAttribute("data-id", product.id);
+          card.onclick = () => showProductDetail(product.id);
+          card.innerHTML = `
+                  <div class="product-image-container">
+                    <div class="discount-badge">-${product.discount}%</div>
+                    <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                  </div>
+                  <div class="product-info">
+                    <h3 class="product-name">${highlight(product.name, currentSearch)}</h3>
+                    <div class="rating-container">${generateStars(product.rating)}<span class="reviews-count">(${product.reviews})</span></div>
+                    <div class="price-container">
+                      <span class="current-price">S/ ${product.price}</span>
+                      <span class="original-price">S/ ${product.originalPrice}</span>
+                    </div>
+                    <button class="btn-details">Ver Detalles</button>
+                  </div>`;
+          productsGrid.insertBefore(card, noResults);
+        });
+      }
+
+      function showProductDetail(productId) {
+        selectedProductId = productId;
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+        productDetail.innerHTML = `
+                <div class="detail-card">
+                  <div class="detail-content">
+                    <div class="detail-image-section">
+                      <div class="discount-badge">-${product.discount}%</div>
+                      <img src="${product.image}" alt="${product.name}" />
+                    </div>
+                    <div class="detail-info-section">
+                      <div>
+                        <div class="rating-container">${generateStars(product.rating, 18)}<span class="reviews-count">(${product.reviews} reseñas)</span></div>
+                        <h1 class="detail-title" style="margin:0.75rem 0">${product.name}</h1>
+                        <div class="detail-price-container">
+                          <span class="detail-current-price">S/ ${product.price}</span>
+                          <span class="detail-original-price">S/ ${product.originalPrice}</span>
+                          <span style="background:#fef2f2;color:#ef4444;padding:4px 10px;border-radius:8px;font-size:0.82rem;font-weight:700;">Ahorras S/ ${product.originalPrice - product.price}</span>
+                        </div>
+                        <p class="detail-description">${product.description}</p>
+                        <div class="features-section">
+                          <h3 class="features-title">Características:</h3>
+                          <ul class="features-list">${product.features.map((f) => `<li><div class="feature-dot"></div>${f}</li>`).join("")}</ul>
+                        </div>
+                      </div>
+                      <div class="buttons-section">
+                        <a href="https://api.whatsapp.com/send?phone=51921583704text=Hola! Me interesa: ${encodeURIComponent(product.name)} a S/ ${product.price}" class="btn-whatsapp" target="_blank">
+                          <i class="bx bxl-whatsapp" style="font-size:1.2rem"></i> Comprar Ahora
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>`;
+        productsGrid.classList.add("hidden");
+        productDetail.classList.add("active");
+        backButton.classList.add("active");
+        document.querySelector(".search-wrapper").style.display = "none";
+        document.getElementById("resultsMeta").style.display = "none";
+        document.querySelector(".page-banner").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showProductsGrid() {
+        selectedProductId = null;
+        productsGrid.classList.remove("hidden");
+        productDetail.classList.remove("active");
+        backButton.classList.remove("active");
+        document.querySelector(".search-wrapper").style.display = "";
+        document.getElementById("resultsMeta").style.display = "";
+        document.querySelector(".page-banner").style.display = "";
+      }
+
+      function buyNow() {
+        const product = products.find((p) => p.id === selectedProductId);
+        window.open(
+          `https://api.whatsapp.com/send?phone=51934709652&text=Hola! Quiero comprar: ${encodeURIComponent(product.name)} - S/ ${product.price}`,
+          "_blank",
+        );
+      }
+
+      searchInput.addEventListener("input", function () {
+        currentSearch = this.value;
+        clearSearch.classList.toggle("hidden", !currentSearch);
+        if (productDetail.classList.contains("active")) showProductsGrid();
+        renderProductsGrid();
+      });
+
+      function doClearSearch() {
+        searchInput.value = "";
+        currentSearch = "";
+        clearSearch.classList.add("hidden");
+        searchInput.focus();
+        renderProductsGrid();
+      }
+
+      clearSearch.addEventListener("click", doClearSearch);
+      if (clearSearchLink)
+        clearSearchLink.addEventListener("click", doClearSearch);
+
+      document
+        .getElementById("filterChips")
+        .addEventListener("click", function (e) {
+          const chip = e.target.closest(".chip");
+          if (!chip) return;
+          document
+            .querySelectorAll(".chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          currentFilter = chip.dataset.filter;
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          renderProductsGrid();
+        });
+
+      sortSelect.addEventListener("change", function () {
+        currentSort = this.value;
+        renderProductsGrid();
+      });
+
+      backButton.addEventListener("click", showProductsGrid);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        if (e.key === "Escape") {
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          else doClearSearch();
+        }
+      });
+
+      renderProductsGrid();
+    </script>
+  </body>
+</html>

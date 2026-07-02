@@ -51,12 +51,27 @@
               </span>
               <ul class="dropdown__menu">
                 <li>
-                  <a href="./webform/electrico.html" class="dropdown__link">
-                    motores</a
+                  <a href="./webform/motores.html" class="dropdown__link">
+                    Herramientas ELectricas y Genradores</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="dropdown__link">herramientas manueales</a>
+                  <a href="./webform/manuales.html" class="dropdown__link"
+                    >herramientas manueales</a
+                  >
+                </li>
+                <li>
+                  <a href="./webform/mecanico.html" class="dropdown__link"
+                    >Mecanica</a
+                  >
+                </li>
+                <li>
+                  <a href="./webform/electrico.html" class="dropdown__link"
+                    >Balanzas y electrico</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="dropdown__link">Accesorios</a>
                 </li>
               </ul>
             </li>
@@ -77,7 +92,7 @@
               <div
                 class="carousel__background"
                 style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1504148455328-c376907d081c?w=1600&quot;);
+                  background-image: url(&quot;./assets/ferreteria.2.jpg&quot;);
                 "
               ></div>
               <div class="carousel__overlay"></div>
@@ -90,12 +105,12 @@
                 </p>
                 <div class="carousel__buttons">
                   <a
-                    href="#productos"
+                    href="../webform/manuales.html"
                     class="carousel__btn carousel__btn--primary"
                     >Explorar Productos</a
                   >
                   <a
-                    href="#contacto"
+                    href="../webform/contacto.html"
                     class="carousel__btn carousel__btn--secondary"
                     >Contáctanos</a
                   >
@@ -108,7 +123,7 @@
               <div
                 class="carousel__background"
                 style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1600&quot;);
+                  background-image: url(&quot;./assets/ferreteria1.jpg&quot;);
                 "
               ></div>
               <div class="carousel__overlay"></div>
@@ -141,7 +156,7 @@
               <div
                 class="carousel__background"
                 style="
-                  background-image: url(&quot;https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1600&quot;);
+                  background-image: url(&quot;./assets/ferrteria.3.jpg&quot;);
                 "
               ></div>
               <div class="carousel__overlay"></div>
@@ -220,54 +235,59 @@
           </div>
         </div>
       </section>
-      <section class="container__valores">
-        <div class="contenedor">
-          <div class="content">
-            <figure class="effect-oscar">
-              <img src="./assets/Valor1.webp" alt="img09" />
-              <figcaption>
-                <h2>SANDY <span>-Calidad</span></h2>
-                <p>
-                  Contamos con productos que garantizan una duracion y acabado
-                  de alto nivel , a comparacion de nuestros competidores .
-                </p>
-                <a href="#">View more</a>
-              </figcaption>
-            </figure>
-            <figure class="effect-oscar">
-              <img src="./assets/Valor2.jpg" alt="img10" />
-              <figcaption>
-                <h2>SANDY <span>-Garantia</span></h2>
-                <p>
-                  La calidad de nuestros productos es nuestra mas grande
-                  garantia para la fidelidad de nuestros clientes.
-                </p>
-                <a href="#">View more</a>
-              </figcaption>
-            </figure>
-            <figure class="effect-oscar">
-              <img src="./assets/Valor3.webp" alt="img09" />
-              <figcaption>
-                <h2>SANDY <span>-Seguridad</span></h2>
-                <p>
-                  Brindamos la seguridad al momento de nuestras entregas a nivel
-                  Nacional , para mantener la confiabilidad de nuestros clientes
-                </p>
-                <a href="#">View more</a>
-              </figcaption>
-            </figure>
-            <figure class="effect-oscar">
-              <img src="./assets/Valor4.jpg" alt="img10" />
-              <figcaption>
-                <h2>SANDY <span>-Ahorro</span></h2>
-                <p>
-                  En Madshi tratamos de que nuestros productos tenga un pecio
-                  economico para lograr contar con su apoyo en nuestro
-                  creciemiento.
-                </p>
-                <a href="#">View more</a>
-              </figcaption>
-            </figure>
+      <section class="values">
+        <div class="values__container">
+          <div class="values__header">
+            <span class="values__eyebrow">Nuestro compromiso</span>
+            <h2 class="values__title">
+              Lo que nos distingue <span>en cada venta</span>
+            </h2>
+          </div>
+
+          <div class="values__grid">
+            <article class="value-card">
+              <div class="value-card__icon"><i class="fas fa-award"></i></div>
+              <h3 class="value-card__title">SANDY <span>· Calidad</span></h3>
+              <p class="value-card__text">
+                Productos que garantizan durabilidad y un acabado de alto nivel,
+                por encima del promedio de la competencia.
+              </p>
+              <span class="value-card__bar"></span>
+            </article>
+
+            <article class="value-card">
+              <div class="value-card__icon">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <h3 class="value-card__title">SANDY <span>· Garantía</span></h3>
+              <p class="value-card__text">
+                La calidad de nuestros productos respalda la fidelidad de
+                nuestros clientes, venta tras venta.
+              </p>
+              <span class="value-card__bar"></span>
+            </article>
+
+            <article class="value-card">
+              <div class="value-card__icon">
+                <i class="fas fa-truck-fast"></i>
+              </div>
+              <h3 class="value-card__title">SANDY <span>· Seguridad</span></h3>
+              <p class="value-card__text">
+                Entregas confiables a nivel nacional, cuidando cada pedido desde
+                el almacén hasta tu puerta.
+              </p>
+              <span class="value-card__bar"></span>
+            </article>
+
+            <article class="value-card">
+              <div class="value-card__icon"><i class="fas fa-tags"></i></div>
+              <h3 class="value-card__title">SANDY <span>· Ahorro</span></h3>
+              <p class="value-card__text">
+                Precios pensados para acompañar tu crecimiento, sin sacrificar
+                la calidad que nos caracteriza.
+              </p>
+              <span class="value-card__bar"></span>
+            </article>
           </div>
         </div>
       </section>
@@ -334,6 +354,287 @@
             <div class="category__content">
               <h3 class="category__title">Ferretería en General</h3>
               <p class="category__description">Tornillos, clavos, adhesivos</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="values">
+        <div class="values__header">
+          <span class="values__eyebrow">Nuestras Oferta</span>
+          <h2 class="values__title">
+            Las mejores <span>ofertas del mes</span>
+          </h2>
+        </div>
+        <div class="promo-grid" id="promoGrid">
+          <!-- Card CON 2 fotos: pon 2 (o más) <img> dentro de promo-card__gallery -->
+          <div
+            class="promo-card"
+            data-name='Cinta Teflon Rojo Pesado 1/2"'
+            data-price="1.50"
+          >
+            <span class="promo-card__badge">Oferta</span>
+            <div class="promo-card__qty-pill">
+              <button class="qty-minus">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-plus">+</button>
+            </div>
+
+            <div class="promo-card__gallery">
+              <img
+                class="active"
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500"
+                alt="Cinta teflon vista 1"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500"
+                alt="Cinta teflon vista 2"
+              />
+              <button class="promo-card__arrow promo-card__arrow--left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="promo-card__arrow promo-card__arrow--right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="promo-card__dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+              </div>
+            </div>
+
+            <div class="promo-card__body">
+              <p class="promo-card__name">Cinta Teflon Rojo Pesado 1/2"</p>
+              <div class="promo-card__prices">
+                <span class="promo-card__price">S/. 1.50</span>
+                <span class="promo-card__price-old">S/. 2.00</span>
+              </div>
+              <a href="#" class="promo-card__cta wsp-btn">
+                <i class="bx bxl-whatsapp"></i>Comprar
+              </a>
+            </div>
+          </div>
+          <div
+            class="promo-card"
+            data-name='Cinta Teflon Rojo Pesado 1/2"'
+            data-price="1.50"
+          >
+            <span class="promo-card__badge">Oferta</span>
+            <div class="promo-card__qty-pill">
+              <button class="qty-minus">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-plus">+</button>
+            </div>
+
+            <div class="promo-card__gallery">
+              <img
+                class="active"
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500"
+                alt="Cinta teflon vista 1"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500"
+                alt="Cinta teflon vista 2"
+              />
+              <button class="promo-card__arrow promo-card__arrow--left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="promo-card__arrow promo-card__arrow--right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="promo-card__dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+              </div>
+            </div>
+
+            <div class="promo-card__body">
+              <p class="promo-card__name">Cinta Teflon Rojo Pesado 1/2"</p>
+              <div class="promo-card__prices">
+                <span class="promo-card__price">S/. 1.50</span>
+                <span class="promo-card__price-old">S/. 2.00</span>
+              </div>
+              <a href="#" class="promo-card__cta wsp-btn">
+                <i class="bx bxl-whatsapp"></i>Comprar
+              </a>
+            </div>
+          </div>
+          <div
+            class="promo-card"
+            data-name='Cinta Teflon Rojo Pesado 1/2"'
+            data-price="1.50"
+          >
+            <span class="promo-card__badge">Oferta</span>
+            <div class="promo-card__qty-pill">
+              <button class="qty-minus">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-plus">+</button>
+            </div>
+
+            <div class="promo-card__gallery">
+              <img
+                class="active"
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500"
+                alt="Cinta teflon vista 1"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500"
+                alt="Cinta teflon vista 2"
+              />
+              <button class="promo-card__arrow promo-card__arrow--left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="promo-card__arrow promo-card__arrow--right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="promo-card__dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+              </div>
+            </div>
+
+            <div class="promo-card__body">
+              <p class="promo-card__name">Cinta Teflon Rojo Pesado 1/2"</p>
+              <div class="promo-card__prices">
+                <span class="promo-card__price">S/. 1.50</span>
+                <span class="promo-card__price-old">S/. 2.00</span>
+              </div>
+              <a href="#" class="promo-card__cta wsp-btn">
+                <i class="bx bxl-whatsapp"></i>Comprar
+              </a>
+            </div>
+          </div>
+          <div
+            class="promo-card"
+            data-name='Cinta Teflon Rojo Pesado 1/2"'
+            data-price="1.50"
+          >
+            <span class="promo-card__badge">Oferta</span>
+            <div class="promo-card__qty-pill">
+              <button class="qty-minus">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-plus">+</button>
+            </div>
+
+            <div class="promo-card__gallery">
+              <img
+                class="active"
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500"
+                alt="Cinta teflon vista 1"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500"
+                alt="Cinta teflon vista 2"
+              />
+              <button class="promo-card__arrow promo-card__arrow--left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="promo-card__arrow promo-card__arrow--right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="promo-card__dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+              </div>
+            </div>
+
+            <div class="promo-card__body">
+              <p class="promo-card__name">Cinta Teflon Rojo Pesado 1/2"</p>
+              <div class="promo-card__prices">
+                <span class="promo-card__price">S/. 1.50</span>
+                <span class="promo-card__price-old">S/. 2.00</span>
+              </div>
+              <a href="#" class="promo-card__cta wsp-btn">
+                <i class="bx bxl-whatsapp"></i>Comprar
+              </a>
+            </div>
+          </div>
+          <div
+            class="promo-card"
+            data-name='Cinta Teflon Rojo Pesado 1/2"'
+            data-price="1.50"
+          >
+            <span class="promo-card__badge">Oferta</span>
+            <div class="promo-card__qty-pill">
+              <button class="qty-minus">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-plus">+</button>
+            </div>
+
+            <div class="promo-card__gallery">
+              <img
+                class="active"
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500"
+                alt="Cinta teflon vista 1"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500"
+                alt="Cinta teflon vista 2"
+              />
+              <button class="promo-card__arrow promo-card__arrow--left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="promo-card__arrow promo-card__arrow--right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="promo-card__dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+              </div>
+            </div>
+
+            <div class="promo-card__body">
+              <p class="promo-card__name">Cinta Teflon Rojo Pesado 1/2"</p>
+              <div class="promo-card__prices">
+                <span class="promo-card__price">S/. 1.50</span>
+                <span class="promo-card__price-old">S/. 2.00</span>
+              </div>
+              <a href="#" class="promo-card__cta wsp-btn">
+                <i class="bx bxl-whatsapp"></i>Comprar
+              </a>
+            </div>
+          </div>
+          <div
+            class="promo-card"
+            data-name='Cinta Teflon Rojo Pesado 1/2"'
+            data-price="1.50"
+          >
+            <span class="promo-card__badge">Oferta</span>
+            <div class="promo-card__qty-pill">
+              <button class="qty-minus">−</button>
+              <span class="qty-value">1</span>
+              <button class="qty-plus">+</button>
+            </div>
+
+            <div class="promo-card__gallery">
+              <img
+                class="active"
+                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=500"
+                alt="Cinta teflon vista 1"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500"
+                alt="Cinta teflon vista 2"
+              />
+              <button class="promo-card__arrow promo-card__arrow--left">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="promo-card__arrow promo-card__arrow--right">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="promo-card__dots">
+                <button class="active" data-index="0"></button>
+                <button data-index="1"></button>
+              </div>
+            </div>
+
+            <div class="promo-card__body">
+              <p class="promo-card__name">Cinta Teflon Rojo Pesado 1/2"</p>
+              <div class="promo-card__prices">
+                <span class="promo-card__price">S/. 1.50</span>
+                <span class="promo-card__price-old">S/. 2.00</span>
+              </div>
+              <a href="#" class="promo-card__cta wsp-btn">
+                <i class="bx bxl-whatsapp"></i>Comprar
+              </a>
             </div>
           </div>
         </div>
@@ -408,17 +709,20 @@
         <div>
           <h3 class="footer__title">Enlaces Rápidos</h3>
           <ul class="footer__links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#productos">Productos</a></li>
-            <li><a href="#nosotros">Nosotros</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="./webform/motores.html">Productos</a></li>
+            <li><a href="./webform/home.html">Nosotros</a></li>
+            <li><a href="./webform/contacto.html">Contacto</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer__title">Contacto</h3>
           <ul class="footer__links">
-            <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
-            <li><i class="fas fa-phone"></i> +51 934 709 652</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Av Grau 511 y Av Maurtua 155
+              , Ica - Perú
+            </li>
+            <li><i class="fas fa-phone"></i>921583704</li>
             <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
           </ul>
         </div>
@@ -433,5 +737,68 @@
       </div>
     </footer>
     <script src="./js/script.js"></script>
+    <script>
+      // ========================================================
+      // NUEVO SCRIPT — pégalo en tu js/script.js
+      // Cambia el número por el tuyo (mismo que ya usas: 51934709652)
+      // ========================================================
+      const WHATSAPP_NUMBER = "51921580904";
+
+      document.querySelectorAll(".promo-card").forEach((card) => {
+        const qtyValue = card.querySelector(".qty-value");
+        const minus = card.querySelector(".qty-minus");
+        const plus = card.querySelector(".qty-plus");
+        const wspBtn = card.querySelector(".wsp-btn");
+        const name = card.dataset.name;
+        const price = card.dataset.price;
+
+        function updateLink() {
+          const qty = qtyValue.textContent;
+          const total = (parseFloat(price) * parseInt(qty)).toFixed(2);
+          const msg = `Hola, quiero pedir:%0A- ${encodeURIComponent(name)} x${qty} (S/. ${total})`;
+          wspBtn.href = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${msg}`;
+          wspBtn.target = "_blank";
+        }
+
+        minus.addEventListener("click", () => {
+          let v = parseInt(qtyValue.textContent);
+          if (v > 1) qtyValue.textContent = v - 1;
+          updateLink();
+        });
+        plus.addEventListener("click", () => {
+          let v = parseInt(qtyValue.textContent);
+          qtyValue.textContent = v + 1;
+          updateLink();
+        });
+
+        updateLink();
+
+        // ---- Galería de fotos ----
+        const images = card.querySelectorAll(".promo-card__gallery img");
+        const dots = card.querySelectorAll(".promo-card__dots button");
+        const arrowLeft = card.querySelector(".promo-card__arrow--left");
+        const arrowRight = card.querySelector(".promo-card__arrow--right");
+        let current = 0;
+
+        function showImage(index) {
+          if (!images.length) return;
+          images[current].classList.remove("active");
+          dots[current] && dots[current].classList.remove("active");
+          current = (index + images.length) % images.length;
+          images[current].classList.add("active");
+          dots[current] && dots[current].classList.add("active");
+        }
+
+        dots.forEach((dot) => {
+          dot.addEventListener("click", () =>
+            showImage(parseInt(dot.dataset.index)),
+          );
+        });
+        if (arrowLeft)
+          arrowLeft.addEventListener("click", () => showImage(current - 1));
+        if (arrowRight)
+          arrowRight.addEventListener("click", () => showImage(current + 1));
+      });
+    </script>
   </body>
 </html>

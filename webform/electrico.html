@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <title>Herramientas Electricas</title>
+    <link rel="icon" type="image/jpg" href="../assets/logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sandi Ferretería - Herramientas Manuales</title>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -51,12 +53,29 @@
               </span>
               <ul class="dropdown__menu">
                 <li>
-                  <a href="../webform/electrico.html" class="dropdown__link">
-                    motores</a
+                  <a href="../webform/motores.html" class="dropdown__link">
+                    Motores y Generadores</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="dropdown__link">herramientas manueales</a>
+                  <a href="../webform/manuales.html" class="dropdown__link"
+                    >herramientas Manuales</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/mecanico.html" class="dropdown__link"
+                    >Mecanico</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link"
+                    >Herramientas Electricas</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/accesorios.html" class="dropdown__link"
+                    >Accesorios</a
+                  >
                 </li>
               </ul>
             </li>
@@ -190,7 +209,7 @@
           <p>
             Ser el lider del mercado y ser reconocido en los mercados donde
             opera por la calidad y diversidad de productos, como tambien
-            soluciones que se ofrecen en el sector ferretero, tanto a nivel
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
             nacional
           </p>
           <div class="social__media">
@@ -209,16 +228,19 @@
           <h3 class="footer__title">Enlaces Rápidos</h3>
           <ul class="footer__links">
             <li><a href="../index.html">Inicio</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="../pages/nosotros.html">Nosotros</a></li>
-            <li><a href="../pages/contacto.html">Contacto</a></li>
+            <li><a href="../webform/motores.html">Productos</a></li>
+            <li><a href="../webform/home.html">Nosotros</a></li>
+            <li><a href="../webform/contacto.html">Contacto</a></li>
           </ul>
         </div>
         <div>
           <h3 class="footer__title">Contacto</h3>
           <ul class="footer__links">
-            <li><i class="fas fa-map-marker-alt"></i> Lima, Perú</li>
-            <li><i class="fas fa-phone"></i> +51 934 709 652</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Av Grau 511 y Av Maurtua 155
+              , Ica - Perú
+            </li>
+            <li><i class="fas fa-phone"></i>921583704</li>
             <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
           </ul>
         </div>
@@ -238,235 +260,377 @@
       const products = [
         {
           id: 1,
-          name: "Martillo de Carpintero 16oz",
-          category: "martillo",
-          price: 28,
-          originalPrice: 45,
-          discount: 38,
-          image:
-            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80",
+          name: "Báscula digital para cocina, con tazón, 5 kg, TRUPER",
+          category: "balamza",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/balanzatrupe.1.jpg",
           description:
-            "Martillo profesional con mango de fibra de vidrio anti-vibración, cabeza de acero templado y equilibrio perfecto para uso intensivo en carpintería y construcción.",
+            "Cuerpo y plato de ABS con tazón de poliestireno y emplea 2 pilas de carbón-zinc tipo AAA",
           features: [
-            "Acero al carbono",
-            "Mango anti-vibración",
-            "Cabeza 16 oz",
-            "Certificado ISO",
+            "Display LCD con luz blanca de fondo de fácil lectura",
+            "Función TARA (peso neto sin recipiente)",
+            "Indicador de sobrepeso y batería baja",
+            "Capacidad máxima 5 kg",
+            "Unidad de medida g / oz / lb",
+            "División mínima 1 g / 0.7 oz",
+            "Pesada mínima 20 g / 0.2 oz",
+            "Pilas 3 V.C.C (2 pilas de 1.5 V.C.C.)",
+            "Dimensiones del tazón 24 cm x 18 cm x 4.5 cm",
+            "Dimensiones de la báscula (Base x Alto x Fondo) 16 cm x 5 cm x 22 cm",
           ],
           rating: 4.6,
           reviews: 214,
         },
         {
           id: 2,
-          name: "Martillo de Garra 20oz Truper",
-          category: "martillo",
+          name: "Báscula digital para cocina, plato de acero inox,5kg, TRUPER",
+          category: "balamza",
           price: 42,
           originalPrice: 65,
           discount: 35,
-          image:
-            "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&q=80",
+          image: "../assets/balanza.2.jpg",
           description:
-            "Martillo de garra reforzado, ideal para clavar y extraer clavos en trabajos de construcción pesada. Marca Truper de alta durabilidad.",
+            "Cuerpo y plato de ABS con tazón de poliestireno y emplea 2 pilas de carbón-zinc tipo AAA",
           features: [
-            "20 oz de peso",
-            "Garra doble biselada",
-            "Mango hickory",
-            "Alta durabilidad",
+            "Función TARA (peso neto sin recipiente)",
+            "Indicador de sobrepeso y batería baja",
+            "Capacidad máxima 5 kg",
+            "División mínima 1 g / 0.1 oz",
+            "Pesada mínima 20 g / 0.2 oz",
+            "Unidad de medida Gramos (g) / Onzas (oz)",
+            "Pilas 3 V.C.C (2 pilas de 1.5 V.C.C.)",
+            "Dimensiones del plato de acero inoxidable 13 cm x 14 cm",
+            "Dimensiones (Base x Alto x Fondo) 14 cm x 3 cm x 21 cm",
           ],
           rating: 4.8,
           reviews: 189,
         },
         {
           id: 3,
-          name: "Set Destornilladores 12 piezas",
-          category: "destornillador",
+          name: "Báscula electrónica de precisión, de bolsillo, 500 g, TRUPER",
+          category: "balanza",
           price: 35,
           originalPrice: 60,
           discount: 42,
-          image:
-            "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400&q=80",
+          image: "../assets/balamza.3.jpg",
           description:
-            "Juego completo de 12 destornilladores con puntas Phillips, planas y Torx. Mangos ergonómicos antideslizantes para máxima comodidad.",
+            "Cuerpo y plato de ABS con tazón de poliestireno y emplea 2 pilas de carbón-zinc tipo AAA",
           features: [
-            "12 piezas incluidas",
-            "Acero CrV",
-            "Mangos ergonómicos",
-            "Estuche incluido",
+            "Capacidad máxima 500 g",
+            "Unidad de medida g / oz / ozt / dwt / ct / gn / tl",
+            "División mínima 0.01 g / 0.005 oz",
+            "Pesada mínima 0.2 g",
+            "Pilas 3 V.C.C (2 pilas de 1.5 V.C.C.)",
+            "Plato de acero inoxidable 10 cm x 10 cm",
+            "Dimensiones (Base x Alto x Fondo) 11 cm x 2 cm x 13 cm",
           ],
           rating: 4.5,
           reviews: 302,
         },
         {
           id: 4,
-          name: 'Llave Inglesa 10" Kamasa',
-          category: "llave",
+          name: "Báscula mecánica para cocina 5 Kg, PRETUL",
+          category: "balanza",
           price: 22,
           originalPrice: 38,
           discount: 42,
-          image:
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
-          description:
-            "Llave inglesa ajustable de 10 pulgadas con apertura máxima de 35mm. Fabricada en acero forjado con acabado cromado anti-corrosión.",
+          image: "../assets/balamzapretul.1.jpg",
+          description: "",
           features: [
-            "Acero forjado",
-            "Apertura 35mm",
-            "Anti-corrosión",
-            "Grabado de tallas",
+            "Carcasa plástica y charola desmontable",
+            "Indicador de fácil lectura",
+            "Sistema de ajuste manual",
+            "Capacidad 5 kg",
+            "Capacidad 5 kg División mínima 40 g",
+            "Pesada mínima 400 g",
+            "Dimensiones de la charola (Base x Alto x Fondo) 15.4 cm x 5.3 cm x 15 cm",
           ],
           rating: 4.3,
           reviews: 156,
         },
         {
           id: 5,
-          name: "Set Llaves Allen 9 piezas",
-          category: "llave",
+          name: "Báscula electrónica para equipaje, de pilas, 50 kg, TRUPER",
+          category: "balanza",
           price: 18,
           originalPrice: 30,
           discount: 40,
-          image:
-            "https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=400&q=80",
+          image: "../assets/balanza.4.jpg",
           description:
-            "Juego de llaves hexagonales (Allen) en tallas métricas de 1.5 a 10mm. Acero S2 de alta resistencia, terminación negra mate.",
+            "Cuerpo de ABS con cubierta de acero inoxidable y emplea 1 pila de litio tipo botón CR2032",
           features: [
-            "9 piezas métrica",
-            "Acero S2",
-            "Tallas 1.5-10mm",
-            "Portallaves incluido",
+            "Display LCD con luz azul de fondo para mayor visibilidad",
+            "Hebilla reforzada y correa resistente de nylon",
+            "Indicador de batería baja",
+            "Diseño compacto y ligero",
+            "Capacidad máxima 50 kg (110 lb)",
+            "División mínima 1 g",
+            "Pesada mínima 200 g",
+            "Unidad de medida Kilogramos (kg) / Libras (lb) / Onzas (oz) / Gramos (g)",
+            "Pila 3 V.C.C",
+            "Dimensiones (Base x Alto x Fondo) 15 cm x 3 cm x 2 cm",
           ],
           rating: 4.4,
           reviews: 88,
         },
         {
           id: 6,
-          name: "Cinta Métrica 5m Stanley",
-          category: "cinta",
+          name: "Báscula electrónica de bolsillo, de pilas, 500 g, TRUPER",
+          category: "balanza",
           price: 19,
           originalPrice: 32,
           discount: 41,
-          image:
-            "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
+          image: "../assets/balanza.5.jpg",
           description:
-            "Cinta métrica de 5 metros con carcasa resistente a impactos, cinta de acero con revestimiento Mylar y bloqueo automático preciso.",
+            "Cuerpo de ABS con cubierta de acero inoxidable y emplea 1 pila de litio tipo botón CR2032",
           features: [
-            "5 metros de largo",
-            "Cuerpo anti-golpe",
-            "Bloqueo auto",
-            "Cinta Mylar",
+            "Display LCD con luz de fondo verde para mayor visibilidad",
+            "Función TARA (peso neto sin recipiente) y conteo de piezas",
+            "Capacidad máxima 500 g (1.1 lb)",
+            "Unidad de medida g / oz / ct / gn",
+            "División mínima 0.1 g / 0.005",
+            "Pesada mínima 2 g / 0.2 oz",
+            "Pilas 3 V.C.C (2 pilas de 1.5 V.C.C.)",
+            "Plato de acero inoxidable 5 cm x 5 cm",
+            "Dimensiones (Base x Alto x Fondo) 7 cm x 2 cm x 12 cm",
           ],
           rating: 4.7,
           reviews: 421,
         },
         {
           id: 7,
-          name: 'Alicates Universales 8" Bauker',
-          category: "llave",
+          name: "Báscula electrónica colgante, de pilas, 300 kg, TRUPER",
+          category: "balanza",
           price: 15,
           originalPrice: 25,
           discount: 40,
-          image:
-            "https://images.unsplash.com/photo-1609205823200-c8bf98d6d9ed?w=400&q=80",
-          description:
-            "Alicates universales de 8 pulgadas con mango bimaterial aislante, articulación remachada y corte lateral integrado.",
+          image: "../assets/balanza.6.png",
+          description: "Cuerpo de aluminio , diseño compacto y ligero",
           features: [
-            "8 pulgadas",
-            "Aislamiento 1000V",
-            "Boca articulada",
-            "Acero CrV",
+            "Display LCD con luz azul de fondo para mayor visibilidad",
+            "Función HOLD que congela la medición e indicador de aviso por sobrepeso",
+            "Unidad de medida: kg / lb / N",
+            "Capacidad máxima 300 kg (661 lb)",
+            "Unidad de medida kg / lb / N",
+            "División mínima 100 g",
+            "Pesada mínima 2 kg",
+            "Pilas 4.5 V.C.C (3 pilas de 1.5 V.C.C.)",
+            "Dimensiones (Base x Alto x Fondo) 9 cm x 14 cm x 5 cm",
           ],
           rating: 4.2,
           reviews: 134,
         },
         {
           id: 8,
-          name: "Destornillador Eléctrico 4V",
-          category: "destornillador",
+          name: "Báscula capacidad 100 kg romana de resorte, TRUPER",
+          category: "balamza",
           price: 55,
           originalPrice: 85,
           discount: 35,
-          image:
-            "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80",
-          description:
-            "Destornillador eléctrico compacto de 4V con batería de litio recargable. Incluye 30 puntas intercambiables y estuche de transporte.",
-          features: ["4V litio", "30 puntas", "Carga USB-C", "Luz LED"],
+          image: "../assets/balanza.7.png",
+          description: "",
+          features: [
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Protección de sobrecarga",
+            "Mecanismo de doble resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg",
+            "Capacidad 100 kg",
+            "División mínima 1 kg",
+            "Pesada mínima 10 kg",
+            "Largo total 50 cm",
+          ],
           rating: 4.9,
           reviews: 267,
         },
         {
           id: 9,
-          name: "Nivel de Burbuja 60cm",
-          category: "otros",
+          name: "Báscula capacidad 50 kg romana de resorte, TRUPER",
+          category: "balanza",
           price: 24,
           originalPrice: 40,
           discount: 40,
-          image:
-            "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=400&q=80",
-          description:
-            "Nivel de aluminio con 3 burbujas (horizontal, vertical y 45°). Marco de aluminio resistente con gomas protectoras en los extremos.",
+          image: "../assets/balanza.7.png",
+          description: "",
           features: [
-            "3 burbujas",
-            "Aluminio reforzado",
-            "60 cm largo",
-            "Gomas protectoras",
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Protección de sobrecarga",
+            "Mecanismo de doble resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg",
+            "Capacidad 50 kg",
+            "División mínima 0.5 kg",
+            "Pesada mínima 5 kg",
+            "Largo total 39 cm",
           ],
           rating: 4.5,
           reviews: 98,
         },
         {
           id: 10,
-          name: "Martillo de Goma 500g",
-          category: "martillo",
+          name: "Báscula capacidad 25 kg romana de resorte, TRUPER",
+          category: "balamza",
           price: 16,
           originalPrice: 26,
           discount: 38,
-          image:
-            "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=400&q=80",
-          description:
-            "Martillo de goma negra con mango de madera, ideal para trabajos de instalación de pisos, azulejos y ensamblaje sin dañar superficies.",
+          image: "../assets/balanza.7.png",
+          description: "",
           features: [
-            "500 gramos",
-            "Goma resistente",
-            "Sin marcas",
-            "Uso versátil",
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Mecanismo de un resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg",
           ],
           rating: 4.3,
           reviews: 73,
         },
         {
           id: 11,
-          name: 'Llave de Tubo 14"',
-          category: "llave",
+          name: "Báscula capacidad 100 kg romana de resorte, PRETUL",
+          category: "balanza",
           price: 30,
           originalPrice: 50,
           discount: 40,
-          image:
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80",
-          description:
-            "Llave de tubo cromada de 14 pulgadas para trabajos de plomería y fontanería. Mandíbulas de acero templado con ajuste preciso.",
+          image: "../assets/balanzapretul.jpg",
+          description: "",
           features: [
-            "14 pulgadas",
-            "Acero cromado",
-            "Ajuste rápido",
-            "Maxiagarre",
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Mecanismo de doble resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg y lb",
+            "División mínima 1 kg",
+            "Pesada mínima 10 kg",
+            "Largo total 34 cm",
           ],
           rating: 4.1,
           reviews: 62,
         },
         {
           id: 12,
-          name: "Cinta Métrica 8m Truper",
-          category: "cinta",
+          name: "Báscula capacidad 50 kg romana de resorte, PRETUL",
+          category: "balanza",
           price: 25,
           originalPrice: 42,
           discount: 40,
-          image:
-            "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
-          description:
-            "Cinta métrica profesional de 8 metros con doble impresión (cm/pulgadas), bloqueo con freno y carcasa de goma de doble componente.",
+          image: "../assets/balanzapretul.jpg",
+          description: "",
           features: [
-            "8 metros",
-            "Doble escala",
-            "Carcasa goma",
-            "Freno preciso",
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Mecanismo de doble resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg y lb",
+            "División mínima 0.5 kg",
+            "Pesada mínima 5 kg",
+            "Largo total 31 cm",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 13,
+          name: "Báscula capacidad 25 kg romana de resorte, PRETUL",
+          category: "balanza",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image: "../assets/balanzapretul.jpg",
+          description: "",
+          features: [
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Mecanismo de doble resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg y lb",
+            "División mínima 0.5 kg",
+            "Pesada mínima 5 kg",
+            "Largo total 24 cm",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 14,
+          name: "Báscula capacidad 12 kg romana de resorte, PRETUL",
+          category: "balanza",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image: "../assets/balanzapretul.jpg",
+          description: "",
+          features: [
+            "Gancho, cuerpo y resorte de acero, cubierta de aluminio",
+            "Mecanismo de doble resorte",
+            "Dinamómetro mecánico",
+            "Medición en kg y lb",
+            "División mínima 0.25 kg",
+            "Pesada mínima 2.5 kg",
+            "Largo total 17 cm",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 15,
+          name: "Balanza con Brazo 150Kg Doble Display OPALUX - OP-9015DD",
+          category: "balanza",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image: "../assets/balanzaopalux.jpg",
+          description: "",
+          features: [
+            "Peso máximo soportado: 150 kg",
+            "Voltaje: 220V",
+            "Materiales: Metal",
+            "Rango de pesaje: 1 kg – 150 kg, con resolución de precisión en unidades completas",
+            "Plataforma: Superficie robusta con mica protectora y estructura metálica",
+            "Brazo visor: muestra doble display LED, uno orientado al usuario y otro hacia el cliente",
+            "Dimensiones del producto: 58x45x60cm (Alto x Largo x Ancho)",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 16,
+          name: "Balanza Digital Doble Pantalla 40kg Op-209ct Opalux",
+          category: "balanza",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image: "../assets/balanzaopalux.2.webp",
+          description: "",
+          features: [
+            "Soporta hasta 40kg.",
+            "Pantalla LCD y pantalla para clientes.",
+            "La bandeja es de acero inoxidable.",
+            "Contiene 4 memorias.",
+            "ncluye la tecla Tara que posibilita restar el peso de los recipientes.",
+            "Posee tecla cero para restablecer el valor de la balanza.",
+            "Tipo de alimentación: batería/corriente doméstica.",
+            "La duración de la batería depende del uso que se le de al producto.",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 17,
+          name: "Balanza Electrónica Opalux Recargable 40K OP-208",
+          category: "balanza",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image: "",
+          description: "",
+          features: [
+            "TIPO Balanza electrónica recargable",
+            "BATERÍA 4 V – 4000 mAh",
+            "DURACIÓN DE BATERÍA Hasta 30 horas",
+            "FUENTE DE ENERGÍA PARA RECARGA 220VAC",
+            "MEMORIA 7 Memorias",
+            "PANTALLA Display LCD",
+            "PESO MÁXIMO 40 Kilogramos",
+            "PESO MÍNIMO 200 gramos",
           ],
           rating: 4.6,
           reviews: 183,

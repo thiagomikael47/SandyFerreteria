@@ -1,0 +1,3073 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Herramientas Manules</title>
+    <link rel="icon" type="image/jpg" href="../assets/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="../assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="../webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="../webform/motores.html" class="dropdown__link">
+                    Motores y Generadores</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/manuales.html" class="dropdown__link"
+                    >herramientas Manuales</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/mecanico.html" class="dropdown__link"
+                    >Mecanico</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link"
+                    >Herramientas Electricas</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/accesorios.html" class="dropdown__link"
+                    >Accesorios</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Banner -->
+    <div class="page-banner">
+      <div class="page-banner-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Inicio</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Herramientas Manuales</span>
+        </div>
+        <h1>Herramientas <span>Manuales</span></h1>
+        <p>
+          Martillos, destornilladores, llaves y todo lo que necesitas para tu
+          trabajo
+        </p>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <div class="search-inner">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar productos por nombre..."
+            autocomplete="off"
+          />
+          <button
+            id="clearSearch"
+            class="clear-btn hidden"
+            title="Limpiar búsqueda"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="martillo">Martillos</button>
+          <button class="chip" data-filter="llave">Llaves</button>
+          <button class="chip" data-filter="destornillador">
+            Destornilladores
+          </button>
+          <button class="chip" data-filter="cinta">Cintas</button>
+          <button class="chip" data-filter="oferta">Ofertas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta" id="resultsMeta">
+      <span class="results-count" id="resultsCount"></span>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Ordenar por...</option>
+        <option value="price-asc">Precio: Menor a mayor</option>
+        <option value="price-desc">Precio: Mayor a menor</option>
+        <option value="rating">Mejor valorados</option>
+        <option value="discount">Mayor descuento</option>
+      </select>
+    </div>
+
+    <main>
+      <div class="container__products">
+        <button class="back-button" id="backButton">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Volver a productos</span>
+        </button>
+
+        <div class="products-grid" id="productsGrid">
+          <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>No encontramos resultados</h3>
+            <p>Intenta con otro término o revisa los filtros activos</p>
+            <span class="clear-search-link" id="clearSearchLink"
+              >Limpiar búsqueda</span
+            >
+          </div>
+        </div>
+
+        <div class="product-detail" id="productDetail"></div>
+      </div>
+    </main>
+
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="../assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../webform/motores.html">Productos</a></li>
+            <li><a href="../webform/home.html">Nosotros</a></li>
+            <li><a href="../webform/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Av Grau 511 y Av Maurtua 155
+              , Ica - Perú
+            </li>
+            <li><i class="fas fa-phone"></i>921583704</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Escalera de tijera tipo III 3 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera3truper.jpg",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 3",
+            "Altura: 1.2 m",
+            "Peso: 3.7 kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 2,
+          name: "Escalera de tijera tipo III 4 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera4truper.jpg",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 4",
+            "Altura: 1.5 m ",
+            "Peso: 4.8 kg",
+            "Bandeja retráctil, soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 3,
+          name: "Escalera de tijera tipo III 5 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera5truper.jpg",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 5",
+            "Altura: 1.8 m ",
+            "Peso: 5.4 kg",
+            "Bandeja retráctil:  soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 4,
+          name: "Escalera de tijera tipo III 6 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera6truper.webp",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 6",
+            "Altura: 2.1 m)",
+            "Peso: 6.4 kg",
+            "Bandeja retráctil:  soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 5,
+          name: "Escalera de tijera tipo III 7 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera7truper.webp",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 7",
+            "Altura: 2.4 m ",
+            "Peso: 10.8 kg",
+            "Bandeja retráctil:  soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 6,
+          name: "Escalera de tijera tipo III 8 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera8truper.jpg",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 8",
+            "Altura: 2.7 m ",
+            "Peso: 9.5 kg",
+            "Bandeja retráctil:  soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 7,
+          name: "Escalera de tijera tipo III 9 escalones, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera9truper.webp",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 9",
+            "Altura: 3 m ",
+            "Peso: 10.5 kg",
+            "Bandeja retráctil:  soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 8,
+          name: "Escalera de extensión, tipo III, 16 peldaños, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera9truper.webp",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 16",
+            "Altura: 3.9 m ",
+            "Peso: 9 kg",
+            "Peldaños: antiderrapantes en forma  D",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 9,
+          name: "Escalera de extensión, tipo III, 24 peldaños, TRUPER",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escalera9truper.webp",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 24",
+            "Altura: 6.1 m ",
+            "Peso: 14 kg",
+            "Peldaños: antiderrapantes en forma  D",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 10,
+          name: "Escalera Multiposición 12 Escalones Tipo I Truper",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escaleratruper02.jpg",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 12",
+            "Altura: 3.9 m ",
+            "Altura tijera: 1.9 m ",
+            "Peso: 14.3 kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 11,
+          name: "Escalera Multiposición 16 Escalones Tipo I Truper",
+          category: "escaleras",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/escaleratruper01M.jpg",
+          description:
+            "Estructura de aluminio y doble refuerzo en peldaños inferiores para mayor resistencia.",
+          features: [
+            "Tipo : III",
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 12",
+            "Altura: 5 m ",
+            "Altura tijera: 2.5 m ",
+            "Peso: 14.3 kg",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 12,
+          name: "Escalera de tijera de todos los tamaños",
+          category: "escaleras",
+          price: 25,
+          originalPrice: 42,
+          discount: 40,
+          image: "../assets/escaleraazul.webp",
+          description: "escalera de metal de 4, 5, 6, 7, 8 y 9 paso de madera ",
+          features: [
+            "Capacidad: de carga 150 kg",
+            "Peldaños: 9",
+            "Altura: 3 m ",
+            "Peso: 10.5 kg",
+            "Bandeja retráctil:  soporta hasta 5 Kg",
+          ],
+          rating: 4.6,
+          reviews: 183,
+        },
+        {
+          id: 13,
+          name: " Pinza para electricista 8' alta palanca,Comfort Grip,EXPERT",
+          category: "pinzas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono y acabado niquelado gris, 3X más resistente a la corrosión",
+          features: [
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "Cuchillas diseñadas para cortes precisos",
+            "Largo 8' (20 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 14,
+          name: "Alicate Universal 8' Kamasa",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alicatekamasa.jpg",
+          description:
+            "Fabricado en acero tratado para alta resistencia y acabado resistente a la corrosión",
+          features: [
+            "Mango bimaterial de gran adherencia",
+            "Superficie dentada para firme sujeción ",
+            "No se deforma con esfuerzo prolongado",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 15,
+          name: "Alicate Universal 8' Stanley",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alicatestanley.png",
+          description:
+            "Protección pronunciada en la parte superior del mango, para impedir que la mano toque la mordaza de metal en las aplicaciones eléctrica",
+          features: [
+            "Modelo: 84-056",
+            "Mango bi-material antideslizante",
+            "Acero cromo níquel resistente durable, para cortes fuertes",
+            "Superficie de corte tratada térmicamente",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 16,
+          name: "Alicate Universal 8' Profield",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alicaterfield.webp",
+          description: "",
+          features: [
+            "Tamaño: 8 pulg.",
+            "Material economico y duradero",
+            "Mango ergonomico",
+            "Ideal para trabajos basicos",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 17,
+          name: "Alicate Universal 8' pesadp , TOtal",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alicatetotal.webp",
+          description: "",
+          features: [
+            "Mango bi-material antideslizante",
+            "Acero cromo níquel resistente durable, para cortes fuertes",
+            "Superficie de corte tratada térmicamente",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 18,
+          name: "Pinza punta y corte 6' mango Comfort Grip, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.2.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono",
+          features: [
+            "Largo 6' (15 cm)",
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "Cuchillas afiladas para cortes rápidos y precisos",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 19,
+          name: "Alicate Stanley Punta Larga 6' PRO 84-053",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/PINZASTANLEY6.jpg",
+          description:
+            "Mango bi-material antideslizante. Protección pronunciada en la parte superior del mango, para impedir que la mano toque la mordaza de metal en las aplicaciones eléctricas.",
+          features: [
+            "Fabricado en acero cromo níquel resistente y durable, para cortes fuertes. ",
+            "Superficie de corte tratada térmicamente. Especificaciones: Tipo de Producto: Alicates Modelo: 84-053",
+            "Alto empaque: 6",
+            "Alto empaque: 6",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 20,
+          name: " Alicate Punta larga 6' AM/NEG , KAMASA",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaskamasa.jpg",
+          description:
+            "Pinzas especialmente para electricidad y en general. Protección pronunciada en la parte superior del mango, para impedir que la mano toque la mordaza de metal en las aplicaciones eléctrica",
+          features: [
+            "Tipo: Corte Punta",
+            "Tamaño: 6'",
+            "Mango: Bimateria",
+            "Aislante: No",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 21,
+          name: "Pinza corte diagonal 6' alta palanca, Comfort Grip, Truper",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.3.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono",
+          features: [
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "Cuchillas afiladas para cortes rápidos y precisos",
+            "Largo 6'(15 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 21,
+          name: "Alicate corte Diagonal 6' STANLEY",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzasstanley.jpg",
+          description:
+            "Fabricado en metal revestido en plástico. Mango ergonométrico recubierto con protección pronunciada en la parte superior, para impedir que la mano toque la mordaza de metal en trabajos eléctricos.",
+          features: [
+            "Aplicaciones: Cortar cables y alambres.",
+            "Componente:	Acero cromo níquel",
+            "Largo: pulg	6",
+            "Ancho: pulg (a)	2, 4",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 22,
+          name: "Alicate Corte Diagonal 6' Kamasa",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaskamasa.png",
+          description:
+            "Fabricado en metal revestido en plástico. Mango ergonométrico recubierto con protección pronunciada en la parte superior, para impedir que la mano toque la mordaza de metal en trabajos eléctricos.",
+          features: [
+            "Cuerpo de niquel y cromo",
+            "Mango de goma antideslizante.",
+            "Modelo corte diagonal.",
+            "ácil y rápido de usar",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 23,
+          name: "Pinzas de chofer 8' mango Comfort Grip, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.4.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono.",
+          features: [
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "2 Posiciones de ajuste",
+            "Largo 8' (20 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 24,
+          name: "Pinzas de chofer 10' mango Comfort Grip, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.4.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono.",
+          features: [
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "2 Posiciones de ajuste",
+            "Largo 10' (25 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 25,
+          name: "Pinzas de extensión 8' mango Comfort Grip, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.5.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono.",
+          features: [
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "5 Posiciones de ajuste",
+            "Mordazas en paralelo que permiten un mejor agarre en cualquier posición",
+            "Largo 8' (20 cm)",
+            "Capacidad de máxima apertura 28 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 26,
+          name: "Pinzas de extensión 10' mango Comfort Grip, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper6.webp",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono.",
+          features: [
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "7 Posiciones de ajuste",
+            "Mordazas en paralelo que permiten un mejor agarre en cualquier posición",
+            "Largo 10' (25 cm)",
+            "Capacidad de máxima apertura 48 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 27,
+          name: "Pinzas de extensión 12' mango Comfort Grip, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.5.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono.",
+          features: [
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Aísla hasta 1,000 voltios de corriente alterna",
+            "Mango ergonómico con topes que evitan el deslizamiento de la mano",
+            "7 Posiciones de ajuste",
+            "Mordazas en paralelo que permiten un mejor agarre en cualquier posición",
+            "Largo 12' (30 cm)",
+            "Capacidad de máxima apertura 48 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 28,
+          name: "Pinza de extensión 8' mango de PVC, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.7.webp",
+          description:
+            "Fabricada en acero al carbono y acabado pulido para fácil limpieza",
+          features: [
+            "Mango cubierto de PVC que absorbe el esfuerzo y ofrece mayor comodidad",
+            "Mordazas en paralelo que permiten un mejor agarre en cualquier posición",
+            "5 Posiciones de ajuste",
+            "Largo 8' (20 cm)",
+            "Capacidad de máxima apertura 1 3/8' (35 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 29,
+          name: "Pinza de chofer 6' mango de PVC, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.6.png",
+          description:
+            "Fabricada en acero al carbono y acabado pulido para fácil limpieza",
+          features: [
+            "Mango cubierto de PVC que absorbe el esfuerzo y ofrece mayor comodidad",
+            "2 Posiciones de ajuste",
+            "Largo 6' (15 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 30,
+          name: "Pinza de presión 10' mordaza curva mango de vinil, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.8.jpg",
+          description:
+            "Mordazas curvas de acero al cromo molibdeno para mayor durabilidad y agarre y mango antiderrapante",
+          features: [
+            "Tornillo de ajuste moleteado que proporciona un mejor agarre para controlar la apertura de la mordaza y la presión de bloqueo",
+            "Acabado niquelado que resiste la corrosión",
+            "Para máxima sujeción y torque en superficies como tuberías, pernos planos y hexagonales, tornillos y tuercas",
+            "Largo 10' (25 cm)",
+            "Apertura máxima 2' (50 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 31,
+          name: "Alicate De Presion Curvo 10″ Kamasa",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaskamasa.1.jpg",
+          description:
+            "Mordazas de acero con forma de curva en la punta y con dos puntos de contacto para una máxima presión sobre tuercas y tornillos, mangos Bimetal- antiderrapante. Su uso general es para el agarre a presión de ciertas tuercas y tubos de hasta 1 pulgada y para sostener cualquier pieza plana o redon",
+          features: [
+            "Mangos de jebe y palanca de descompresión.",
+            "En acero cromo vanadio",
+            "Mordazas curva",
+            "Contacto para máxima presión sobre tuercas y tornillos",
+            "Palanca de afloje rápido",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 32,
+          name: "Pinza de presión 9' tipo C con mordaza autoajustable",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaC.jpg",
+          description:
+            "Mordazas de acero al carbono y mango con relieve que ofrece mayor agarre y evita que la pinza resbale",
+          features: [
+            "Palanca de liberación recubierta con PVC",
+            "Tornillo de ajuste moleteado que proporciona un mejor agarre para controlar la apertura de la mordaza y la presión de bloqueo",
+            "Acabado niquelado que resiste la corrosión",
+            "Largo 9' (23 cm)",
+            "Apertura máxima 3 1/2' (90 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 33,
+          name: "Pinza de presión 11' tipo C con mordaza autoajustable",
+          category: "alicatesz",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaC.jpg",
+          description:
+            "Mordazas de acero al carbono y mango con relieve que ofrece mayor agarre y evita que la pinza resbale",
+          features: [
+            "Palanca de liberación recubierta con PVC",
+            "Tornillo de ajuste moleteado que proporciona un mejor agarre para controlar la apertura de la mordaza y la presión de bloqueo",
+            "Acabado niquelado que resiste la corrosión",
+            "Largo 11' (28 cm)",
+            "Apertura máxima 4 1/4' (108 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 34,
+          name: "Mini pinza de punta de aguja 6' mango Comfort Grip, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.8.png",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono y para trabajos en espacios estrechos",
+          features: [
+            "Mango ergonómico antiderrapante",
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Largo 6' (15 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 35,
+          name: "Mini pinza para electricista 5' mango Comfort Grip, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.9.jpg",
+          description:
+            "Fabricada en acero al cromo vanadio, 2X más resistente al desgaste que las de acero al carbono",
+          features: [
+            "Moleteado cruzado para un mejor agarre",
+            "Mango ergonómico antiderrapante",
+            "Acabado niquelado gris, 3X más resistente a la corrosión",
+            "Largo 5' (13 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 36,
+          name: "Pinza para anillos de retención 6' 4 cabezas intercambiables",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/Fpinzatruper.9.jpg",
+          description: "Fabricada en acero al carbono y mango comfort grip",
+          features: [
+            "Para anillos internos y externos de ejes y flechas",
+            "Cabezas intercambiables que permiten trabajar en distintos ángulos",
+            "deal para uso automotriz y mecánica en general",
+            "Largo 6' (150 mm)",
+            "Capacidad de cierre de anillos 1 3/4' (45 mm) hasta 1' (25 mm)",
+            "Capacidad de apertura de anillos 3/4' (19 mm) hasta 2 1/2' (65 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 37,
+          name: "Juego alicate saca seguro 4 piezas Kamasa",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaskamasa.4.webp",
+          description:
+            "Descubre la eficiencia y calidad del Juego de Alicates para Sacar Seguros Kamasa, que incluye 4 piezas ideales para extraer seguros a presión de diferentes diámetros. Con un recubrimiento de mango de jebe para un agarre cómodo, estos alicates de acero garantizan durabilidad y resistencia. Perfectos para uso profesional, este juego de alicates te ayudará a trabajar de manera segura y precisa en cualquier proyecto. Asegúrate de mantenerlos fuera del alcance de los niños y seguir las recomendaciones de uso para un rendimiento óptimo.",
+          features: [
+            "Fabricados en acero resistente",
+            "Recubrimiento de mango de jebe para un agarre cómodo",
+            "ncluye 4 piezas para diferentes diámetros de seguros",
+            "Peso del producto: 0.195 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 38,
+          name: "Pinza 5' de corte para electrónica, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.10.png",
+          description:
+            "Fabricada en acero al manganeso, resistente a la corrosión y mango antiderrapante de TPR",
+          features: [
+            "Resorte de autoapertura de fácil operación",
+            "Diseño de punta que facilita el trabajo en espacios reducidos",
+            "Cortes limpios al ras y seguro de apertura",
+            "Largo 5' (13 cm)",
+            "Corta cable calibre hasta 16 AWG",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 39,
+          name: "Pinza sacabocados 9' mango de PVC, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pínzatruper.11.jpg",
+          description:
+            "Cuerpo de acero con mango recubierto de PVC para mayor comodidad",
+          features: [
+            "epósito de desperdicio",
+            "oporte que asegura que el material no sufra daños al cortarlo",
+            "Para perforaciones en cuero, lona, plástico y cartón",
+            "Largo 9' (23 cm)",
+            "Diámetros de perforación 2, 2.5, 3, 3.5, 4 y 4.5 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 40,
+          name: "Pinza 6' pela cables automática, 16 a 12 AWG, TRUPER EXPERT",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.12.jpg",
+          description:
+            "Cuchillas de acero SK5, 3X más durables que las de acero al carbono y mango ergonómico de TPR antiderrapante",
+          features: [
+            "Perilla de ajuste y resorte que regresa la herramienta a su posición inicial",
+            "Permite quitar el aislante del cable de forma automática y sin dañarlo, hasta 1' de largo",
+            "Corta y pela cables sólidos y trenzados de 16 a 12 AWG",
+            "Largo 6' (15 cm)",
+            "Corta y pela cable calibre 16 AWG a 12 AWG (sólido y trenzado)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 41,
+          name: "Pinza 9' pela cables, 26 a 10 AWG, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.13.jpg",
+          description:
+            "Fabricada en acero con acabado niquelado y mango cubierto de PVC",
+          features: [
+            "Para pelar cables trenzados calibres de 26 a 10 AWG y sólidos de 22 a 8 AWG",
+            "Cortador de tornillos",
+            "Mordazas para crimpar terminales aisladas y no aisladas",
+            "Largo 9' (23 cm)",
+            "Pela cable calibre 22 a 8 AWG sólido | 26 a 10 AWG trenzado",
+            "Corta tornillos medidas 4-40, 6-32, 8-32, 10-24 y 10-32",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 42,
+          name: "Pinza 6' pela cables, 26 a 16 AWG, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper.14.png",
+          description:
+            "Fabricada en acero con acabado pulido y mango cubierto de polipropileno con TPR antiderrapante",
+          features: [
+            "Para cortar y pelar cables trenzados calibres 26 a 16 AWG",
+            "Resorte de autoapertura",
+            "Cuchillas de corte y punta delgada para lugares de difícil acceso",
+            "Largo 6' (15 cm)",
+            "Pela cable calibre 26 a 16 AWG trenzado",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 43,
+          name: "Alicate Pelacables 6″ MIY-5021 MIYAKO",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alicatemiyako.webp",
+          description:
+            "El alicate pelacables es una herramienta que permite pelar cables eléctricos sin dañar el hilo interior del cable.",
+          features: [
+            "Resorte de autoapertura",
+            "Cuchillas de corte y punta delgada para lugares de difícil acceso",
+            "Largo 6' (15 cm)",
+            "Pela cable calibre 26 a 16 AWG trenzado",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 44,
+          name: "Pela cable auto ajustable - 96-230 stanley",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzasstanley.1.jpg",
+          description: "",
+          features: [
+            "El pela cables se ajusta automáticamente, pela cables de calibre 10-24 AWG.",
+            "Corta cables de cobre y de aluminio, así como cables con múltiples alambres de hasta 10mm y cables con alambre sólido de hasta 6mm.",
+            "ncluye ponchador para terminales aislados de 10-22AWG, terminales no aislados de 10-22AWG, y terminales de encendido de 7-9mm.",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 45,
+          name: "Alicate pelacable automaticc kamasa profesional KM-027",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzakamasa.4.jpg",
+          description: "",
+          features: [
+            "El pela cables se ajusta automáticamente, pela cables de calibre 10-24 AWG.",
+            "Corta cables de cobre y de aluminio, así como cables con múltiples alambres de hasta 10mm y cables con alambre sólido de hasta 6mm.",
+            "ncluye ponchador para terminales aislados de 10-22AWG, terminales no aislados de 10-22AWG, y terminales de encendido de 7-9mm.",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 46,
+          name: "Alicate Pelacable Multiuso Automatico 3 En 1 Total ",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatotal.2.jpg",
+          description:
+            "Sistema 3 en 1 que permite realizar cortes, pelado y prensado de terminales con una sola herramienta manual.",
+          features: [
+            "Pelar, cortar y prensar",
+            "	Rango de pelado de cables: 10 AWG ~ 24 AWG (0,2 ~ 6 mm²)",
+            "Función de corte: alambres de cobre y aluminio.",
+            "Función de prensado:",
+            "Engarce los terminales aislados 0,5-6 mm² (10-22 AWG)",
+            "Engarce los terminales no aislados: 0,5-6 mm² (4-22 AWG);",
+            "Engarce los terminales de encendido: 7-8 mm²",
+            "Mango duradero y cómodo",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 47,
+          name: "Pinza 9' pela cables, 18 a 10 AWG, PRETUL",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzapretul.1.jpg",
+          description:
+            "Fabricada en acero al carbono y , mango cubierto de PVC",
+          features: [
+            "Para pelar cables trenzados y sólidos calibres de 18 a 10 AWG",
+            "Cortador de tornillos y cuchillas de corte",
+            "6 Mordazas para crimpar terminales aisladas y no aisladas",
+            "Largo 9' (23 cm)",
+            "Pela cable calibre 18 A 10 AWG",
+            "Corta tornillos medidas M 2.6, M 3, M 3.5, M 4 y M 5",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 48,
+          name: "Pinza 8' pela cables automática, 22 a 10 AWG, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/alicatetruper.16.jpg",
+          description: "",
+          features: [
+            "Fabricada en acero con mango de TPR y polipropileno",
+            "3 Mordazas para crimpar cables de 22 a 10 AWG",
+            "ope para medir la longitud del cable a pelar",
+            "Permite quitar el aislante del cable de forma automática",
+            "Largo 8' (20 cm)",
+            "Corta y pela cable calibre 22 a 10 AWG",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 49,
+          name: "Pinza 8' ponchadora, módulos intercambiables, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/p0inzastruper.17.jpg",
+          description: "",
+          features: [
+            "Cuchilla de acero SK5",
+            "Mango cubierto de TPR antiderrapante",
+            "orta y pela cable",
+            "Uso en electrónica y telecomunicaciones",
+            "Para instalar conectores: RJ-9, RJ-11, RJ-12 y RJ-45",
+            "Largo 8' (20 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 50,
+          name: "Pinza 8' ponchadora para cables RJ-45, 8 contactos, TRUPER",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzastruper.18.webp",
+          description: "",
+          features: [
+            "Cuchilla de acero SK5",
+            "Mango cubierto de TPR antiderrapante",
+            "Corta, pela e instala cables conectores RJ-45",
+            "Uso en electrónica, telecomunicaciones y redes de computadora",
+            "Largo 8' (20 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 51,
+          name: "Ponchador de Impacto para Jack RJ45 HY-324 HONY",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/ponchador.1.jpg",
+          description:
+            "Es una herramienta de función con carga de resorte utilizado para empujar los hilos entre los pines de metal, permitiendo pelar al mismo tiempo el revestimiento del cable. Esto asegura una buena conexión eléctrica del cable con los pines que se encuentran dentro del Jack",
+          features: [
+            "Tipo:	Ponchador de Impacto para Jack RJ45",
+            "Cuchillas:	110/88",
+            "Dimensiones externas: 7.7 x 3.5 x 20 cm",
+            "",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 52,
+          name: "Ponchadora Rj45 + Rj11 Con Pela Cable",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzasotros.1.jpg",
+          description: "",
+          features: [
+            "La boca de los alicates está hecha de acero, que es duro y duradero.",
+            "No dañará el cable sin cáscara y funcionará cómodamente con alta eficiencia.",
+            "Mientras usa los alicates, simplemente inserte el enchufe modular en su posición y presionelo.",
+            "Adecuado para cables Cat5 y Cat5e con conectores 8P8C",
+            "Separador de cables incluido.",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 53,
+          name: "Ponchadora KAMASA RJ45 RJ11",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/ponchadorkamasa.webp",
+          description:
+            "Herramienta de Alta Precisión para Conectores de Red Optimiza tus trabajos de cableado con la ponchadora KAMASA RJ45/RJ11 , diseñado especialmente para crimpar conectores de red y telefonía con la mayor eficiencia.",
+          features: [
+            "Compatible con conectores RJ45 y RJ11, ideal para cables Ethernet y de telefonía.",
+            "Diseño ergonómico y antideslizante para un manejo cómodo y seguro.",
+            "Fabricado con materiales de alta calidad para garantizar durabilidad y resistencia.",
+            "Cuchillas afiladas de precisión para cortes limpios y pelado de cables sin dañar el interior.",
+            "Mecanismo eficiente que asegura un prensado uniforme y profesional.",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 54,
+          name: "Ponchadora AISLADOS Ojal uña",
+          category: "alicates",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pomchador.2.jpg",
+          description: "",
+          features: [
+            "tipo de prensado : prensado de 4 puntos",
+            "rango de prensado : 0.5 - 6mm2",
+            "peso de la herramienta : 0.49 kg",
+            "empaque :  estuche de cartón",
+            "largo de la herramienta : 220mm ",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 55,
+          name: "Ponchadora Tubular sobremoldeado 6 Puntas",
+          category: "alicate",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/ponchador.3.webp",
+          description: "",
+          features: [
+            "tipo de prensado : hexagonal",
+            "rango de prensado : 0.5 - 6mm2",
+            "peso de la herramienta : 0.35 kg",
+            "empaque :  estuche de cartón",
+            "largo de la herramienta : 175mm ",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 56,
+          name: "Pinza para tierra de 500 A, TRUPER",
+          category: "alicate",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper20.jpg",
+          description:
+            "Lámina de acero galvanizada para mayor resistencia a la corrosión",
+          features: [
+            "Conexión y mordazas cobrizadas",
+            "Resorte de alta presión para un agarre firme de la pieza de trabajo",
+            "Puente de cobre entre mordazas para una mejor conductividad eléctrica",
+            "Mangos cómodos para mayor fuerza de agarre",
+            "Superficie amplia de contacto en sus puntas",
+            "Capacidad 500 A",
+            "Largo 24 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 57,
+          name: "Pinza para tierra de 300 A, TRUPER",
+          category: "alicate",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzatruper20.jpg",
+          description:
+            "Lámina de acero galvanizada para mayor resistencia a la corrosión",
+          features: [
+            "Conexión y mordazas cobrizadas",
+            "Resorte de alta presión para un agarre firme de la pieza de trabajo",
+            "Puente de cobre entre mordazas para una mejor conductividad eléctrica",
+            "Mangos cómodos para mayor fuerza de agarre",
+            "Superficie amplia de contacto en sus puntas",
+            "Capacidad 300 A",
+            "Largo 20 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 58,
+          name: "Pinza para tierra de 300 Amperes, PRETUL",
+          category: "alicate",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaspretul.5.jpg",
+          description: "",
+          features: [
+            "Lámina de acero galvanizada para mayor resistencia a la corrosión",
+            "Mordazas de latón",
+            "Resorte de alta presión para un agarre firme de la pieza de trabajo",
+            "Puente de cobre entre mordazas para una mejor conductividad eléctrica",
+            "Capacidad 300 A",
+            "Largo 17 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 59,
+          name: "Pinza para tierra de 500 Amperes, PRETUL",
+          category: "alicate",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pinzaspretul.6.jpg",
+          description: "",
+          features: [
+            "Lámina de acero galvanizada para mayor resistencia a la corrosión",
+            "Mordazas de latón",
+            "Resorte de alta presión para un agarre firme de la pieza de trabajo",
+            "Puente de cobre entre mordazas para una mejor conductividad eléctrica",
+            "Capacidad 500 A",
+            "Largo 21 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 60,
+          name: "Pinza porta electrodo de 500 A, TRUPER",
+          category: "pinzas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/electrodo.1.jpg",
+          description: "",
+          features: [
+            "Recubrimiento de fibra de vidrio resistente a temperaturas elevadas",
+            "Mordaza de latón para una excelente conductividad eléctrica y mayor tiempo de vida",
+            "La separación entre mango y palanca permite un manejo más cómodo del electrodo",
+            "Opresor para sujetar el cable",
+            "Capacidad 500 A",
+            "Largo 32 cm",
+            "Calibre del cable 4/0 AWG (120 mm²)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 61,
+          name: "Pinza porta electrodo de 300 A, TRUPER",
+          category: "pinzas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/electrodo.1.jpg",
+          description: "",
+          features: [
+            "Recubrimiento de fibra de vidrio resistente a temperaturas elevadas",
+            "Mordaza de latón para una excelente conductividad eléctrica y mayor tiempo de vida",
+            "La separación entre mango y palanca permite un manejo más cómodo del electrodo",
+            "Opresor para sujetar el cable",
+            "Capacidad 300 A",
+            "Largo 25 cm",
+            "Calibre del cable 2/0 AWG (70 mm²)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 62,
+          name: "Pinza porta electrodos de 500 Amperes, PRETUL",
+          category: "pinzas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/electrodopretul.jpg",
+          description: "",
+          features: [
+            "Mordaza de latón para una excelente conductividad eléctrica y mayor tiempo de vida",
+            "La separación entre mango y palanca permite un manejo más cómodo del electrodo",
+            "Opresor para sujetar el cable",
+            "Capacidad 500 A",
+            "Largo 25 cm",
+            "Calibre del cable 4 AWG (120 mm²)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 63,
+          name: "Pinza porta electrodos de 300 Amperes, PRETUL",
+          category: "pinzas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/electrodopretul.jpg",
+          description: "",
+          features: [
+            "Mordaza de latón para una excelente conductividad eléctrica y mayor tiempo de vida",
+            "La separación entre mango y palanca permite un manejo más cómodo del electrodo",
+            "Opresor para sujetar el cable",
+            "Capacidad 300 A",
+            "Largo 23 cm",
+            "Calibre del cable 2/0 AWG (70 mm²)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 64,
+          name: "Pistola calafateadora para salchicha de 600 ml, TRUPER",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/siliconatruper.jpg",
+          description: "",
+          features: [
+            "Cuerpo tipo barril y maneral de aluminio resistente a la corrosión",
+            "Para dispensar productos de todo tipo de viscosidad a granel o empaque tipo salchicha hasta 600 ml",
+            "Largo (incluye boquilla) 60 cm",
+            "Ancho 20 cm",
+            "Capacidad 600 ml",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 65,
+          name: "Pistola calafateadora tipo esqueleto, reforzada, TRUPER",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/siliconatruper.2.jpg",
+          description: "",
+          features: [
+            "Cuerpo de acero y maneral de aluminio resistente a la corrosión",
+            "Muela robusta de acero para asegurar el trinquete",
+            "Doble varilla de empuje y medición",
+            "Largo 25.3 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 66,
+          name: "Pistola calafateadora reforzada, TRUPER",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pistolatruper.3.png",
+          description: "",
+          features: [
+            "Cuerpo de acero y maneral de aluminio resistente a la corrosión",
+            "Gatillo reforzado y barril giratorio",
+            "Gancho curvo para colgar en estantes o escaleras",
+            "Aguja para destape",
+            "Largo 25.3 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 67,
+          name: "Pistola calafateadora tipo esqueleto, TRUPER",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pistola.4.jpg",
+          description: "",
+          features: [
+            "Cuerpo de acero y maneral de aluminio resistente a la corrosión",
+            "Émbolo de espiga hexagonal de acero",
+            "Largo 22.5 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 68,
+          name: "Pistola calafateadora lisa, PRETUL",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/PICA-pistolapretul.1.jpg",
+          description: "",
+          features: ["Cuerpo de acero"],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 69,
+          name: "Arco 12' profesional extra pesado de 1 kg, TRUPER EXPERT",
+          category: "Arco",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcotruper.jpg",
+          description: "",
+          features: [
+            "2x Mayor peso que otras marcas, para cortar más rápido y reducir fatiga",
+            "Mango ergonómico antiderrapante inyectado en polipropileno y asa secundaria para mayor control",
+            "Palanca para ajuste de tensión de la hoja",
+            "Tensión de segueta hasta 1500 kg/cm²",
+            "Dos posiciones de segueta 45° y 90°",
+            "Largo del arco 188 (450 mm)",
+            "Largo de segueta 12' (300 mm)",
+            "Tensión 1500 kg/cm²",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 70,
+          name: "Arco 12' profesional tubular de acero para segueta, TRUPER",
+          category: "arcos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcotruper.2.jpg",
+          description: "",
+          features: [
+            "Mango ergonómico inyectado en aluminio y asa secundaria para mayor control",
+            "Palanca para ajuste de tensión de la hoja",
+            "Tensión de segueta hasta 1200 kg/cm²",
+            "Dos posiciones de segueta 90° y 180°",
+            "Largo del arco 16 1/4' (425 mm)",
+            "Largo de segueta 12' (300 mm)",
+            "Tensión 1200 kg/cm²",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 71,
+          name: "Arco 12' de solera para segueta, PRETUL",
+          category: "arcos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcopretul.png",
+          description: "",
+          features: [
+            "Mango fabricado en ABS",
+            "Compacto y resistente",
+            "Mayor tensión de ajuste para cortes más rápidos y precisos",
+            "Dos posiciones de segueta 90° y 180°",
+            "Tuerca de ajuste de tensión",
+            "Largo del arco 15 1/2' (390 mm)",
+            "Largo de segueta 12' (300 mm)",
+            "Tensión 1000 kg / cm²",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 72,
+          name: "Mini arco 12' de aluminio para segueta, TRUPER",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcotruper.4.jpg",
+          description: "",
+          features: [
+            "Mango ergonómico para mejor agarre",
+            "Ligero y compacto para cortes en espacios reducidos",
+            "Largo del arco 8 1/4' (210 mm)",
+            "Largo de segueta 12' (300 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 73,
+          name: "Mini arco 12' de plástico para segueta, PRETUL",
+          category: "pistolas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcopretul.3.jpg",
+          description: "",
+          features: [
+            "Ligero y compacto para cortes en espacios reducidos",
+            "Largo del arco 8' (200 mm)",
+            "Largo de segueta 12' (300 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 74,
+          name: "Arco calador con 5 seguetas de 6-1/2', PRETUL",
+          category: "arcos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcopretul.5.jpg",
+          description: "",
+          features: [
+            "Mango de madera",
+            "Para cortar madera, plástico y metal no ferroso",
+            "Palanca ajustable para cortes curvos",
+            "Largo del arco 12 3/4' (290 mm)",
+            "Largo de segueta 6 1/2' (165 mm)",
+            "Profundidad de corte 5' (125 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 75,
+          name: "Marco De Sierra , TOTAL",
+          category: "arcos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/marcototal.1.webp",
+          description: "",
+          features: [
+            "Largo de la hoja: 30 cm.",
+            "Hoja de sierra de 30 cm para cortes precisos en metal.",
+            "Manija de plástico ABS, resistente y duradera.",
+            "Peso ligero de 2 kg para fácil manejo.",
+            "ientes por pulgada: 1, asegura cortes suaves.",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 76,
+          name: "Arco de Sierra Fijo 12' 20-206 Stanley",
+          category: "arcos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/arcostanley.png",
+          description: "",
+          features: [
+            "Mango cerrado ergonómico con textura patentada para mayor comodidad, mejor control y agarre.",
+            "Mango cerrado para protección de las manos.",
+            "Arco fijo resistente de acero pintado.",
+            "Empuñadura cerrara para tensión máxima 104 lbs (47 kg).",
+            "",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 77,
+          name: "Arco sierra cromado 12' Kamasa",
+          category: "arcos",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/marcokamasa.webp",
+          description:
+            "El Arco Sierra Kamasa 12' Cromado Negro es una herramienta profesional ideal para cortar metales, plástico y en algunos casos madera. Sus dientes están configurados para cortar en un solo sentido, garantizando cortes limpios y precisos. Con un recubrimiento de mango de goma para un agarre cómodo y seguro, este arco sierra es resistente y duradero. Aprovecha su garantía de 6 meses por defectos de fabricación y manténlo fuera del alcance de los niños.",
+          features: [
+            "Ideal para cortar metales, plástico y madera",
+            "Dientes configurados para cortes precisos.",
+            "Dientes configurados para cortes precisos.",
+            "Altura: 20.00 cm",
+            "Ancho: 15.00 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 78,
+          name: "Azadón Lane No. 2 de 2.0 lb, sin mango, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/azadon.1.jpg",
+          description:
+            "Forjada en una sola pieza con nervio central para mayor resistencia al impacto y disminución de la vibración, acabado pulido y preafilado",
+          features: [
+            "Ideal para aflojar y preparar el terreno para la siembra",
+            "Compatible con mangos de reposición modelos MG-AL-M, MG-AL y MGAL-S marca Truper®",
+            "Uso agrícola y hortícola",
+            "Dimensiones de la hoja (ancho x altura) 8' (20 cm) x 8' (20 cm)",
+            "Diámetro cónico 38 - 39 mm",
+            "Peso de la cabeza 2 lb (0.9 kg)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 79,
+          name: "Azadón Lane No. 1 de 1.8 lb, sin mango, TRUPER",
+          category: "azadon",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/azadon.1.jpg",
+          description:
+            "Forjada en una sola pieza con nervio central para mayor resistencia al impacto y disminución de la vibración, acabado pulido y preafilado",
+          features: [
+            "Ideal para aflojar y preparar el terreno para la siembra",
+            "Compatible con mangos de reposición modelos MG-AL-M, MG-AL y MGAL-S marca Truper®",
+            "Uso agrícola y hortícola",
+            "Dimensiones de la hoja (ancho x altura) 7 1/2' (19 cm) x 7 !/2' (19 cm)",
+            "Diámetro cónico 38 - 39 mm",
+            "Peso de la cabeza 1.8 lb (0.8 kg)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 80,
+          name: "Azadón Lane No. 0 de 1.6 lb, sin mango, TRUPER",
+          category: "azadon",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/azadon.1.jpg",
+          description:
+            "Forjada en una sola pieza con nervio central para mayor resistencia al impacto y disminución de la vibración, acabado pulido y preafilado",
+          features: [
+            "Ideal para aflojar y preparar el terreno para la siembra",
+            "Compatible con mangos de reposición modelos MG-AL-M, MG-AL y MGAL-S marca Truper®",
+            "Uso agrícola y hortícola",
+            "Dimensiones de la hoja (ancho x altura) 6 1/2' (17 cm) x 6 !/2' (17 cm)",
+            "Diámetro cónico 38 - 39 mm",
+            "Peso de la cabeza 1.6 lb (0.7 kg)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 81,
+          name: "Azadón tomatero, mango corto de madera 18', TRUPER",
+          category: "azadon",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/azadon.2.png",
+          description: "",
+          features: [
+            "Mango de madera",
+            "deal para labrar surcos, cavar en tierra dura, cultivar y cosechar tomate",
+            "Dimensiones de la hoja (ancho x alto) 6' (15 cm) x 4' (10 cm)",
+            "Mango: 18' (45 cm)",
+            "Peso de la cabeza: 0.7 lb (0.3 kg)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 82,
+          name: "Cuchara para albañil, 6',7',8', PRETUL Perú",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharapretul.webp",
+          description:
+            "Hoja de acero templado que proporciona mayor resistencia al desgaste y mango de madera pulido y laqueado",
+          features: [
+            "Ensamble reforzado de mango y zanco con casquillo crimpado y adhesivo de uretano que evita que gire el mango",
+            "Ideal para aplicar yeso y aplanar muros",
+            "Medida 6' (15 cm)",
+            "Medida 7' (18 cm)",
+            "Medida 8' (21 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 83,
+          name: "Cuchara para albañil, 8' yesera, PRETUL Perú",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharapretul.2.jpg",
+          description:
+            "Hoja rígida de acero de mayor espesor, Ligera y resistente, fabricada en acero templado para máxima esistencia al desgaste",
+          features: [
+            "Mango de madera pulido y laqueado",
+            "Ensamble reforzado de mango y zanco con casquillo crimpado y adhesivo de uretano que evita que gire el mango",
+            "Ideal para aplicar yeso y aplanar muros",
+            "Medida 8' (20 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 84,
+          name: "Plancha para Batir M/GOMA, COME",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharacome.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 85,
+          name: "Plancha para Batir M/GOMA, RUBI",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cuchararubi.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 86,
+          name: "Plancha para Empastar Kamasa Km 221 de 130 x 280 mm",
+          category: "plancha",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/planchalisa.jpg",
+          description:
+            "Fabricado en acero pulido mango de PVC que ofrece el manejo de la herramienta para construcción.",
+          features: ["Alto: 8'", "Ancho: 13'"],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 87,
+          name: "Plancha para Empastar M/GOMA ROJO",
+          category: "plancha",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/planchalisa.2.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 88,
+          name: "Plancha Empastar B/ALUMINIO M/GOMA COME",
+          category: "plancha",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/planchalisa.3.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 89,
+          name: "Plancha para Batir M/GOMA, COME",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharacome.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 90,
+          name: "Plancha para Batir M/GOMA, COME",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharacome.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 91,
+          name: "Plancha para Batir M/GOMA, COME",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharacome.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 92,
+          name: "Plancha para Batir M/GOMA, COME",
+          category: "cuchara",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cucharacome.jpg",
+          description: "",
+          features: ["", "", "", "", ""],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 93,
+          name: "Berbiquí profesional 12' perilla de madera, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/barbiquitruper.webp",
+          description: "",
+          features: [
+            "Barril y manivela fabricados de madera",
+            "Matraca reversible para perforar y atornillar madera",
+            "Se puede usar con destapacaños manual",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 94,
+          name: "Berbiquí 12' perilla de plástico, PRETUL",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/barbiquipretul.webp",
+          description: "",
+          features: [
+            "Barril y manivela fabricados de madera",
+            "Matraca reversible para perforar y atornillar madera",
+            "Se puede usar con destapacaños manual",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 95,
+          name: "Barreta de uña de 3/4' x 105 cm, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pata.1.webp",
+          description: "",
+          features: [
+            "Fabricada en acero con doble tratamiento térmico para mayor resistencia y durabilidad",
+            "Uñas y escoplo pulidos",
+            "Ideal para sacar clavos y desarmar cimbras",
+            "Sección hexagonal 3/4' (19 mm)",
+            "Escoplo 25.4 mm",
+            "Largo 105 cm (4')",
+            "Peso 2.9 kg (6.3 lb)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 96,
+          name: "Barreta de uña de 3/4' x 75 cm, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/pata.1.webp",
+          description: "",
+          features: [
+            "Fabricada en acero con doble tratamiento térmico para mayor resistencia y durabilidad",
+            "Uñas y escoplo pulidos",
+            "Ideal para sacar clavos y desarmar cimbras",
+            "Sección hexagonal 3/4' (19 mm)",
+            "Escoplo 25.4 mm",
+            "Largo 75 cm (30')",
+            "Peso 2.1 kg (4.6 lb)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 97,
+          name: "Barreta de punta de 1'x150 cm, escoplo 72 mm, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/barreta.1.png",
+          description: "",
+          features: [
+            "Fabricada de acero con doble tratamiento térmico",
+            "Para perforar superficies duras de tierra, piedra o concreto y demoler, romper o cortar raíces de árboles",
+            "Sección hexagonal 1' (25 mm)",
+            "Escoplo 72 mm",
+            "Largo 150 cm (59')",
+            "Peso 6.4 kg (14 lb)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 98,
+          name: "Barra cavadora 1' x 150 cm, escoplo 102 mm, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/barrera.2.jpg",
+          description: "",
+          features: [
+            "Barra cavadora 1' x 150 cm, escoplo 102 mm, TRUPER",
+            "De uso agrícola para sembrar y cavar, en construcción para romper y levantar pisos",
+            "Escoplo 102 mm",
+            "Diámetro 1' (25 mm)",
+            "Largo 150 cm (59')",
+            "Peso 8 kg (18 lb)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 99,
+          name: "Amarrador de varillas, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/amarrador.1.jpg",
+          description: "",
+          features: [
+            "Fabricado en acero al cromo",
+            "Diseño robusto que brinda mayor resistencia",
+            "Punta angulada para mejor sujeción",
+            "Largo 260 mm",
+            "Diámetro 13 mm (1/2')",
+            "Medidas del mango (largo x ancho) 39 mm x 90 mm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 100,
+          name: "Organizador con 44 gavetas, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/organizador.1.jpg",
+          description: "",
+          features: [
+            "Marco de ABS resistente a impactos",
+            "Gavetas de polipropileno traslúcido que permite ver el contenido, con jaladera para fácil apertura",
+            "16 Separadores para dividir las gavetas, ubicados al reverso del organizador",
+            "Ranuras para montarse en pared y rieles que permiten apilar un organizador sobre otro",
+            "Dimensiones (base x alto x fondo) 51 x 40 x 16 cm",
+            "imensiones gaveta mediana 12 x 5 x 15 cm",
+            "Dimensiones gaveta chica 6 x 4 x 15 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 101,
+          name: "Caja para herramienta, 23'x17' con ruedas, mango telescópico",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.1.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broche metálico de liberación rápida a una mano",
+            "Asa metálica",
+            "Ranura en 'V' para soporte en corte de materiales",
+            "Ruedas grandes de uso rudo de 7 1/2' (19 cm) para facilitar la transportación",
+            "Capacidad 57 L (15 gal)",
+            "Dimensiones caja (base x alto x fondo) 23' (58 cm) x 17' (43 cm) x 15 1/4' (39 cm)",
+            "Dimensiones charola 13 5/8' (35 cm) x 12 1/4' (31 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 102,
+          name: "Caja para herramienta,19'x25' con ruedas, 3 en 1 desmontable",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.2.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches de conexión rápida",
+            "Asa metálica",
+            "Asa plegable para mayor comodidad y fácil transportación",
+            "Compartimentos en la tapa para almacenar piezas pequeñas sin necesidad de abrir la caja",
+            "Ruedas grandes de uso rudo de 7 1/2' (19 cm)",
+            "Capacidad 53 L (14 gal)",
+            "Dimensiones (alto x base x fondo) 25 (63 cm) x 19' (48 cm) x 11 1/2' (29 cm)",
+            "Caja superior 18' (46 cm) x 8' (20 cm) x 11' (28 cm)",
+            "Charola 19' (48 cm) x 5 1/8' (13 cm) x 11' (28 cm)",
+            "Caja inferior 18 1/2' (47 cm) x 10 1/2' (27 cm) x 11' (28 cm)",
+            "Peso 4.8 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 103,
+          name: "Caja para herramienta, profunda de 17'x12', TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.3.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches plásticos",
+            "Volumen extra grande para herramientas de gran tamaño",
+            "Ranura que permite sujetar a la mayoría de motocicletas",
+            "Capacidad 25 L (6.6 gal)",
+            "Dimensiones caja 13 1/2' (34 cm) x 12' (30 cm) x 17 1/2' (44 cm)",
+            "Dimensiones charola 12 1/2' (31.5 cm) x 11' (28 cm) x 2 3/4' (7 cm)",
+            "Peso 2.3 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 104,
+          name: "Caja para herramienta de 14' con compartimentos, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.4.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches plásticos",
+            "Compartimentos superiores en la tapa para almacenar piezas pequeñas sin necesidad de abrir la caja",
+            "Ranura que permite sujetar a la mayoría de motocicletas",
+            "Modelo ancho para mayor capacidad",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Base 14' (36 cm)",
+            "Fondo 8' (20 cm)Peso 2.3 kg",
+            "Alto 6 1/4' (16 cm)",
+            "Peso 0.8 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 105,
+          name: "Caja para herramienta de 19' con compartimentos, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.5.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches de ABS tipo bisagra y de uso rudo para mayor resistencia",
+            "Compartimentos superiores en la tapa para almacenar piezas pequeñas sin necesidad de abrir la caja",
+            "Modelo ancho para mayor capacidad",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Base 19' (48 cm)",
+            "Fondo 10 1/2' (27 cm)",
+            "Alto 10' (25 cm)",
+            "Peso 1.9 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 106,
+          name: "Caja para herramienta de 13' con compartimentos, PRETUL",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cajapretul.1.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches plásticos",
+            "Compartimentos superiores en la tapa para almacenar piezas pequeñas sin necesidad de abrir la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Base 13' (33 cm)",
+            "Fondo 7' (18 cm)",
+            "Alto 5' (13 cm)",
+            "Peso 0.5 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 107,
+          name: "Caja para herramienta de 16' con compartimentos, PRETUL",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cajapretul.1.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches plásticos",
+            "Compartimentos superiores en la tapa para almacenar piezas pequeñas sin necesidad de abrir la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Base 16' (40 cm)",
+            "Fondo 8 1/2' (22 cm)",
+            "Alto 7 1/2' (19 cm)",
+            "Peso 0.9 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 108,
+          name: "Caja para herramienta de 19' con compartimentos, PRETUL",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.6.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broches plásticos",
+            "Compartimentos superiores en la tapa para almacenar piezas pequeñas sin necesidad de abrir la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Base 19' (48 cm)",
+            "Fondo 9 1/4' (23 cm)",
+            "Alto 8 1/2' (22 cm)",
+            "Peso 1.4 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 109,
+          name: "Caja para herramienta 17' industrial con broches metálicos",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.7.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broche metálico con orificio para candado, que brinda mayor seguridad al contenido de la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Calidad industrial",
+            "Base 17' (43 cm)",
+            "Fondo 10' (25 cm)",
+            "Alto 9' (23 cm)",
+            "Peso 1.7 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 110,
+          name: "Caja para herramienta 20' industrial con broches metálicos",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.8.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broche metálico con orificio para candado, que brinda mayor seguridad al contenido de la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Calidad industrial",
+            "Base 20' (50 cm)",
+            "Fondo 10 1/2' (27 cm)",
+            "Alto 9' (23 cm)",
+            "Peso 2.2 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 111,
+          name: "Caja para herramienta 23' industrial con broches metálicos",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.9.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broche metálico con orificio para candado, que brinda mayor seguridad al contenido de la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Calidad industrial",
+            "Base 23' (58 cm)",
+            "Fondo 10 1/2' (27 cm)",
+            "Alto 10' (25 cm)",
+            "Peso 3 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 112,
+          name: "Caja para herramienta 26' industrial con broches metálicos",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/caja.9.jpg",
+          description: "",
+          features: [
+            "Fabricada en polipropileno",
+            "Broche metálico con orificio para candado, que brinda mayor seguridad al contenido de la caja",
+            "Manija con diseño ergonómico para transportar cómodamente",
+            "Calidad industrial",
+            "Base 26' (66 cm)",
+            "Fondo 10 1/2' (27 cm)",
+            "Alto 10' (25 cm)",
+            "Peso 3.3 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 113,
+          name: "Cavador mangos de madera 48', TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cavador.1.jpg",
+          description: "",
+          features: [
+            "Recomendado para uso agrícola",
+            "Hojas de acero templado para mayor resistencia y durabilidad",
+            "Mangos cuadrados de madera de 48'",
+            "Ideal para cavar hoyos para postes y soportes en el suelo",
+            "Largo de mangos 48' (122 cm)",
+            "Apertura máxima 6' (150 mm)",
+            "Espesor de hoja 1.8 mm Inner 2'",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 114,
+          name: "Cavador mangos de acero 45', TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cavador.2.webp",
+          description: "",
+          features: [
+            "Recomendado para uso agrícola",
+            "Hojas de acero templado para mayor resistencia y durabilidad",
+            "Mangos de acero con insertos de madera que aumentan la resistencia a la flexión",
+            "Grips de 7' para mayor confort",
+            "Largo de mangos 45' (114 cm)",
+            "Grips 7' (18 cm)",
+            "Espesor pared tubo 1.5 mm (0.06')",
+            "Espesor de hoja 1.8 mm",
+            "Apertura máxima 6' (150 mm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 115,
+          name: "Carretilla 5.5 ft3 Neumática, bastidor tubular, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/carretilla..jpg",
+          description: "",
+          features: [
+            "Llanta neumática reforzada con rin de 3 aspas, diseño robusto y resistente al desgaste, rodada con mayor estabilidad",
+            "Concha de lámina espesor 0.9 mm",
+            "Bastidor tubular calibre 16 (1.5 mm) con grips antiderrapantes",
+            "Soportes de uso pesado, mayor estabilidad en cualquier tipo de superficie",
+            "acón estabilizador",
+            "Capacidad (Copeteada / Ras) 5.5 ft³ (156 L) / 2.8 ft³ (80 L)",
+            "Medidas de la concha 27' (69 cm) x 36 1/2' (93 cm) x 11' (28 cm)",
+            "Medidas de llanta 4' (10 cm) x 16' (40 cm)Espesor de hoja 1.8 mm",
+            "Resistencia de carga 580 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 116,
+          name: "Carretilla 6 ft3 Neumática, bastidor tubular, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/carretilla.1.jpg",
+          description: "",
+          features: [
+            "Llanta neumática reforzada con rin de 3 aspas, diseño robusto y resistente al desgaste, rodada con mayor estabilidad",
+            "Concha de lámina espesor 0.9 mm",
+            "Bastidor tubular calibre 16 (1.5 mm) con grips antiderrapantes",
+            "Soportes de uso pesado, mayor estabilidad en cualquier tipo de superficie",
+            "acón estabilizador",
+            "Capacidad (Copeteada / Ras) 6 ft³ (170 L) / 3.5 ft³ (100 L)",
+            "Medidas de la concha 25 1/2' (65 cm) x 38' (97 cm) x 16' (41 cm)",
+            "Medidas de llanta 4' (10 cm) x 16' (40 cm)",
+            "Resistencia de carga 580 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 117,
+          name: "Carretilla 5.5 ft3 roja, neumática, bastidor tubular, PRETUL",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/carretilla.2.jpg",
+          description: "",
+          features: [
+            "Llanta neumática reforzada con rin de 3 aspas",
+            "Concha de lámina espesor 0.7 mm",
+            "Bastidor tubular calibre 18 (1.21 mm)",
+            "Puente que brinda mayor estabilidad",
+            "Capacidad (Copeteada / Ras) 5.5 ft³ (156 L) / 2.8 ft³ (80 L)",
+            "Medidas de la concha 27' (69 cm) x 36 1/2'(93 cm) x 11' (28 cm)",
+            "Medidas de llanta 4' (10 cm) x 16 (41 cm)",
+            "Resistencia de carga 350 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 118,
+          name: "Carretilla para niños, concha plástica 54 x 38 cm, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/carretilla.3.jpg",
+          description: "",
+          features: [
+            "Concha plástica 2.5 mm espesor, ligera y con mayor capacidad",
+            "Bastidor tubular",
+            "Grips antiderrapantes",
+            "Rin con 6 brazos para mayor resistencia",
+            "Dimensiones de la concha 20 cm (8') x 38 cm (15') x 52 cm (20 1/2')",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 119,
+          name: "Concha metálica para carretillas CAT-50FF y CAT-50ND, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/carretilla.4.jpg",
+          description: "",
+          features: [
+            "Fabricada de acero calibre 21 (0.9 mm)",
+            "Repuesto para carretillas modelos CAT-50 marca Truper®",
+            "Capacidad (Copeteada / Ras) 5.5 ft³ (156 L) / 2.8 ft³ (80 L)",
+            "Medidas 27' (69 cm) x 36 1/2' (93 cm) x 11' (28 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 120,
+          name: "Concha metálica p/carretillas CAT-60FF/ND y T6FF/N,TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/carretilla.5.jpg",
+          description: "",
+          features: [
+            "Fabricada de acero calibre 21 (0.9 mm)",
+            "Repuesto para carretillas modelos CAT-60 y T-6 marca Truper®",
+            "Capacidad (Copeteada / Ras) 6 ft³ (170 L) / 3.5 ft³ (100 L)",
+            "Medidas 25 1/2' (65 cm) x 38' (97 cm) x 16' (40 cm)",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 121,
+          name: "Llanta completa neumática 16', incluye eje y baleros",
+          category: "llantas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/llantas.truper1.jpg",
+          description: "",
+          features: [
+            "Repuesto para carretillas modelos CAT-45ND,CAT-55ND, CAT-15ND, CAT50ND, CAT-60ND, CAR-81, CAT-60PL, T-6N y CAT-50WD de la marca Truper®",
+            "Llanta neumática reforzada, diseño robusto y resistente al desgaste, rodada con mayor estabilidad",
+            "Rin de acero con 3 aspas para mayor resistencia al impacto",
+            "Eje de acero al carbono con acabado galvanizado",
+            "Medidas (Ancho | Diámetro) 4' (10 cm) x 16' (40 cm)",
+            "Medidas del eje (Diámetro | Largo) 5/8' (1.6 cm) | 5 1/4' (13 cm)",
+            "Diámetro del rin 8' (20 cm)",
+            "Presión de inflado 20 a 25 PS",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 121,
+          name: "Llanta neumática reforzada 16', sin cámara, TRUPER",
+          category: "llantas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/llantas.truper2.jpg",
+          description: "",
+          features: [
+            "Llanta neumática reforzada, diseño robusto y resistente al desgaste, rodada con mayor estabilidad y sin cámara",
+            "Medidas (Ancho | Diámetro) 4' (10 cm) x 16' (40 cm)",
+            "Número de capas 2",
+            "Presión de inflado 20 a 25 PSI",
+            "Peso 1.7 kg",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 122,
+          name: "Cámara para llanta de 16', para carretilla TRUPER",
+          category: "llantas",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/camara.1.jpg",
+          description: "",
+          features: [
+            "Fabricada de hule natural",
+            "Cámaras solas, no incluye llanta",
+            "Medidas (Ancho | Diámetro) 4' (10 cm) x 16' (40 cm)",
+            "Diámetro interior 203 mm",
+            "Peso 360 g",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 123,
+          name: "Juego de 2 palancas para cambio de llanta de carretilla",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/camara.1.jpg",
+          description: "",
+          features: [
+            "Fabricadas en acero templado",
+            "Acabado color negro",
+            "2 Palancas",
+            "Para facilitar el cambio de llantas neumáticas en carretillas TRUPER Y PRETUL.",
+            "Largo 23 cm",
+            "Color Negro",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 124,
+          name: "Calibrador vernier digital 6', acero inox, std y mm, TRUPER",
+          category: "calibrador",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/calbrador.1.jpg",
+          description: "",
+          features: [
+            "Fabricado en acero inoxidable",
+            "Pantalla grande de LCD con lectura en milímetros, pulgadas y fracción de pulgada",
+            "Funciones: encendido/apagado automático, ajuste de origen y cambio de unidades",
+            "Resolución	0.0005' / 0.01 mm",
+            "Rango de medición 	0' - 6' / 0 - 150 mm",
+            "Tolerancia	0.002' / 0.05 mmColor Negro",
+            "Pila	CR2032  3 V c. c. (incluida)",
+            "Peso aproximado	200 g",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 125,
+          name: "Calibrador vernier analógico 6', acero inox, std y mm,TRUPER",
+          category: "calibrador",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/calibrador.2.jpg",
+          description: "",
+          features: [
+            "Fabricado en acero inoxidable",
+            "Escala grabada con láser en milímetros y pulgadas para una lectura clara y duradera",
+            "Resolución	0.001' / 0.02 mm",
+            "Rango de medición 	0' - 6' / 0 - 150 mm",
+            "Tolerancia	0.002' / 0.05",
+            "Peso aproximado	143 g",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 126,
+          name: "Calibrador vernier escolar 6', acero, std y mm, PRETUL",
+          category: "calibrador",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/calibrador.3.jpg",
+          description: "",
+          features: [
+            "Fabricado en acero",
+            "Escala dual graduada en milímetros y pulgadas",
+            "Resolución	0.06' / 0.1 mm",
+            "Rango de medición 	0'- 6' / 0 - 150 mm",
+            "Tolerancia	0.158' / 0.4 mm",
+            "Peso aproximado	85 g",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 127,
+          name: "Cepillo de alambre 64 pinceles de acero al carbono, TRUPER",
+          category: "cepillo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cepillo.1.jpg",
+          description: "",
+          features: [
+            "Cerdas de acero al carbono y mango ergonómico de polipropileno",
+            "Remueve pintura vieja, óxido, hollín",
+            "Ideal para limpiar superficies de concreto, piedra, metal y madera",
+            "Calibre del alambre	0.35 mm",
+            "Material de la cerda	Acero al carbono ",
+            "Cantidad de pinceles	64 (4 x 16 hileras)",
+            "Alambres por pincel	28",
+            "Medidas del cepillo (Largo x Ancho)	28 x 3 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 128,
+          name: "Cepillo de alambre 51 pinceles acero al carbono con espátula",
+          category: "cepillo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cepillo.2.jpg",
+          description: "",
+          features: [
+            "Cerdas de acero al carbono y mango de polipropileno con espátula",
+            "Remueve pintura vieja, óxido, hollín",
+            "Ideal para limpiar superficies de concreto, piedra, metal y madera",
+            "Calibre del alambre	0.35 mm",
+            "Material de la cerda	Acero al carbono ",
+            "Cantidad de pinceles	51 (3 x 17 hileras)",
+            "Alambres por pincel	28",
+            "Medidas del cepillo (Largo x Ancho)	30 x 3 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 129,
+          name: "Juego de 3 minicepillos de alambre 28 pinceles, TRUPER",
+          category: "cepillo",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/cepillo.3.png",
+          description: "",
+          features: [
+            "Cerdas de acero inoxidable, latón y PET",
+            "Cerdas en la parte superior para detalle y limpieza en áreas de difícil acceso",
+            "Mangos cubiertos de TPR antiderrapante",
+            "Calibre del alambre (acero inoxidable / latón / PET)	0.13 mm / 0.15 mm / 0.45 mm",
+            "Cantidad de pinceles por cepillo	28",
+            "Alambres por pincel (acero inoxidable / latón / PET)	60 / 66 / 14",
+            "Cerda expuesta	1.6 cm",
+            "Medidas del cepillo (Largo x Ancho)	18 x 1 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+      ];
+
+      let currentSearch = "";
+      let currentFilter = "todos";
+      let currentSort = "default";
+      let selectedProductId = null;
+
+      const searchInput = document.getElementById("searchInput");
+      const clearSearch = document.getElementById("clearSearch");
+      const clearSearchLink = document.getElementById("clearSearchLink");
+      const productsGrid = document.getElementById("productsGrid");
+      const productDetail = document.getElementById("productDetail");
+      const backButton = document.getElementById("backButton");
+      const noResults = document.getElementById("noResults");
+      const resultsCount = document.getElementById("resultsCount");
+      const sortSelect = document.getElementById("sortSelect");
+
+      function getFilteredProducts() {
+        let filtered = [...products];
+        if (currentSearch.trim() !== "") {
+          const q = currentSearch.toLowerCase().trim();
+          filtered = filtered.filter(
+            (p) =>
+              p.name.toLowerCase().includes(q) ||
+              p.description.toLowerCase().includes(q) ||
+              p.features.some((f) => f.toLowerCase().includes(q)) ||
+              p.category.toLowerCase().includes(q),
+          );
+        }
+        if (currentFilter !== "todos") {
+          if (currentFilter === "oferta") {
+            filtered = filtered.filter((p) => p.discount >= 40);
+          } else {
+            filtered = filtered.filter(
+              (p) =>
+                p.category === currentFilter ||
+                p.name.toLowerCase().includes(currentFilter),
+            );
+          }
+        }
+        switch (currentSort) {
+          case "price-asc":
+            filtered.sort((a, b) => a.price - b.price);
+            break;
+          case "price-desc":
+            filtered.sort((a, b) => b.price - a.price);
+            break;
+          case "rating":
+            filtered.sort((a, b) => b.rating - a.rating);
+            break;
+          case "discount":
+            filtered.sort((a, b) => b.discount - a.discount);
+            break;
+        }
+        return filtered;
+      }
+
+      function generateStars(rating, size = 14) {
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          const filled = i < Math.floor(rating) ? "filled" : "";
+          html += `<svg class="star ${filled}" width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+        }
+        return html;
+      }
+
+      function highlight(text, query) {
+        if (!query.trim()) return text;
+        const regex = new RegExp(
+          `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+          "gi",
+        );
+        return text.replace(
+          regex,
+          '<mark style="background:#FDB912;border-radius:3px;padding:0 2px;">$1</mark>',
+        );
+      }
+
+      function renderProductsGrid() {
+        const filtered = getFilteredProducts();
+        productsGrid
+          .querySelectorAll(".product-card")
+          .forEach((c) => c.remove());
+        const total = products.length;
+        if (currentSearch || currentFilter !== "todos") {
+          resultsCount.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> productos`;
+        } else {
+          resultsCount.innerHTML = `<strong>${total}</strong> productos disponibles`;
+        }
+        if (filtered.length === 0) {
+          noResults.classList.add("visible");
+          return;
+        }
+        noResults.classList.remove("visible");
+        filtered.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.setAttribute("data-id", product.id);
+          card.onclick = () => showProductDetail(product.id);
+          card.innerHTML = `
+                    <div class="product-image-container">
+                      <div class="discount-badge">-${product.discount}%</div>
+                      <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-name">${highlight(product.name, currentSearch)}</h3>
+                      <div class="rating-container">${generateStars(product.rating)}<span class="reviews-count">(${product.reviews})</span></div>
+                      <div class="price-container">
+                        <span class="current-price">S/ ${product.price}</span>
+                        <span class="original-price">S/ ${product.originalPrice}</span>
+                      </div>
+                      <button class="btn-details">Ver Detalles</button>
+                    </div>`;
+          productsGrid.insertBefore(card, noResults);
+        });
+      }
+
+      function showProductDetail(productId) {
+        selectedProductId = productId;
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+        productDetail.innerHTML = `
+                  <div class="detail-card">
+                    <div class="detail-content">
+                      <div class="detail-image-section">
+                        <div class="discount-badge">-${product.discount}%</div>
+                        <img src="${product.image}" alt="${product.name}" />
+                      </div>
+                      <div class="detail-info-section">
+                        <div>
+                          <div class="rating-container">${generateStars(product.rating, 18)}<span class="reviews-count">(${product.reviews} reseñas)</span></div>
+                          <h1 class="detail-title" style="margin:0.75rem 0">${product.name}</h1>
+                          <div class="detail-price-container">
+                            <span class="detail-current-price">S/ ${product.price}</span>
+                            <span class="detail-original-price">S/ ${product.originalPrice}</span>
+                            <span style="background:#fef2f2;color:#ef4444;padding:4px 10px;border-radius:8px;font-size:0.82rem;font-weight:700;">Ahorras S/ ${product.originalPrice - product.price}</span>
+                          </div>
+                          <p class="detail-description">${product.description}</p>
+                          <div class="features-section">
+                            <h3 class="features-title">Características:</h3>
+                            <ul class="features-list">${product.features.map((f) => `<li><div class="feature-dot"></div>${f}</li>`).join("")}</ul>
+                          </div>
+                        </div>
+                        <div class="buttons-section">
+      <a href="https://api.whatsapp.com/send?phone=51921583704text=Hola! Me interesa: ${encodeURIComponent(product.name)} a S/ ${product.price}" class="btn-whatsapp" target="_blank">
+                            <i class="bx bxl-whatsapp" style="font-size:1.2rem"></i> Comprar Ahora
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
+        productsGrid.classList.add("hidden");
+        productDetail.classList.add("active");
+        backButton.classList.add("active");
+        document.querySelector(".search-wrapper").style.display = "none";
+        document.getElementById("resultsMeta").style.display = "none";
+        document.querySelector(".page-banner").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showProductsGrid() {
+        selectedProductId = null;
+        productsGrid.classList.remove("hidden");
+        productDetail.classList.remove("active");
+        backButton.classList.remove("active");
+        document.querySelector(".search-wrapper").style.display = "";
+        document.getElementById("resultsMeta").style.display = "";
+        document.querySelector(".page-banner").style.display = "";
+      }
+
+      function buyNow() {
+        const product = products.find((p) => p.id === selectedProductId);
+        window.open(
+          `https://api.whatsapp.com/send?phone=51934709652&text=Hola! Quiero comprar: ${encodeURIComponent(product.name)} - S/ ${product.price}`,
+          "_blank",
+        );
+      }
+
+      searchInput.addEventListener("input", function () {
+        currentSearch = this.value;
+        clearSearch.classList.toggle("hidden", !currentSearch);
+        if (productDetail.classList.contains("active")) showProductsGrid();
+        renderProductsGrid();
+      });
+
+      function doClearSearch() {
+        searchInput.value = "";
+        currentSearch = "";
+        clearSearch.classList.add("hidden");
+        searchInput.focus();
+        renderProductsGrid();
+      }
+
+      clearSearch.addEventListener("click", doClearSearch);
+      if (clearSearchLink)
+        clearSearchLink.addEventListener("click", doClearSearch);
+
+      document
+        .getElementById("filterChips")
+        .addEventListener("click", function (e) {
+          const chip = e.target.closest(".chip");
+          if (!chip) return;
+          document
+            .querySelectorAll(".chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          currentFilter = chip.dataset.filter;
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          renderProductsGrid();
+        });
+
+      sortSelect.addEventListener("change", function () {
+        currentSort = this.value;
+        renderProductsGrid();
+      });
+
+      backButton.addEventListener("click", showProductsGrid);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        if (e.key === "Escape") {
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          else doClearSearch();
+        }
+      });
+
+      renderProductsGrid();
+    </script>
+  </body>
+</html>

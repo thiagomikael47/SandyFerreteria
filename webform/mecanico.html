@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Mecanica</title>
+    <link rel="icon" type="image/jpg" href="../assets/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="../assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="../webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="../webform/motores.html" class="dropdown__link">
+                    Motores y Generadores</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/manuales.html" class="dropdown__link"
+                    >herramientas Manuales</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/mecanico.html" class="dropdown__link"
+                    >Mecanico</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link"
+                    >Herramientas Electricas</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/accesorios.html" class="dropdown__link"
+                    >Accesorios</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Banner -->
+    <div class="page-banner">
+      <div class="page-banner-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Inicio</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>mecanica Automotriz</span>
+        </div>
+        <h1>Mecanica <span>Automotriz</span></h1>
+        <p>
+          Martillos, destornilladores, llaves y todo lo que necesitas para tu
+          trabajo
+        </p>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <div class="search-inner">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar productos por nombre..."
+            autocomplete="off"
+          />
+          <button
+            id="clearSearch"
+            class="clear-btn hidden"
+            title="Limpiar búsqueda"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="martillo">Martillos</button>
+          <button class="chip" data-filter="llave">Llaves</button>
+          <button class="chip" data-filter="destornillador">
+            Destornilladores
+          </button>
+          <button class="chip" data-filter="cinta">Cintas</button>
+          <button class="chip" data-filter="oferta">Ofertas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta" id="resultsMeta">
+      <span class="results-count" id="resultsCount"></span>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Ordenar por...</option>
+        <option value="price-asc">Precio: Menor a mayor</option>
+        <option value="price-desc">Precio: Mayor a menor</option>
+        <option value="rating">Mejor valorados</option>
+        <option value="discount">Mayor descuento</option>
+      </select>
+    </div>
+
+    <main>
+      <div class="container__products">
+        <button class="back-button" id="backButton">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Volver a productos</span>
+        </button>
+
+        <div class="products-grid" id="productsGrid">
+          <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>No encontramos resultados</h3>
+            <p>Intenta con otro término o revisa los filtros activos</p>
+            <span class="clear-search-link" id="clearSearchLink"
+              >Limpiar búsqueda</span
+            >
+          </div>
+        </div>
+
+        <div class="product-detail" id="productDetail"></div>
+      </div>
+    </main>
+
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="../assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../webform/motores.html">Productos</a></li>
+            <li><a href="../webform/home.html">Nosotros</a></li>
+            <li><a href="../webform/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Av Grau 511 y Av Maurtua 155
+              , Ica - Perú
+            </li>
+            <li><i class="fas fa-phone"></i>921583704</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: 'Bruñidora para cilindro de motor, 5 a 18 cm, TRUPER"',
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/bruñidoratruper.jpg",
+          description: "",
+          features: [
+            "Cuerpo metálico",
+            "Resorte de tensión ajustable para un mejor pulid",
+            "Limitador de diámetro de apertura",
+            "Elimina las impurezas de los cilindros automotrices",
+            "Compatible con cualquier taladro eléctrico",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 2,
+          name: 'Compresor para anillos de pistón, TRUPER"',
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anillostruper.jpg",
+          description: "",
+          features: [
+            "Cuerpo de acero",
+            "Ajuste con llave",
+            "Instala pistones y comprime los anillos superiores e inferiores",
+            "Palanca de liberación",
+            "Alto: 15 cm",
+            "Apertura máxima: 16 cm",
+            "Apertura mínima: 7 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 3,
+          name: '"',
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/anillodieselturper.jpg",
+          description: "",
+          features: [
+            "Cuerpo de acero",
+            "Ajuste con llave",
+            "Instala pistones y comprime los anillos superiores e inferiores",
+            "Palanca de liberación",
+            "Alto: 15 cm",
+            "Apertura máxima: 16 cm",
+            "Apertura mínima: 7 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 4,
+          name: '"Compresor para resortes de válvulas 166mm a 253mm Truper',
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/resortesvalvutruper.jpg",
+          description: "",
+          features: [
+            "Cuerpo de acero",
+            "Permite remover e instalar resortes de válvulas en automóviles y camiones ligeros",
+            "Para motores grandes",
+            "Largo: 39 cm",
+            "Ancho: 30 cm",
+            "Apertura máxima: 25 cm",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 5,
+          name: "Aceite sintético para motor de 2 tiempos, 400 ml",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitetruper.webp",
+          description: "Aceite sintético para motor de 2 tiempos, 400 ml",
+          features: [
+            "Contenido 400 ml (14 oz)",
+            "Mezcla* de gasolina por botella de aceite 20 L (5.2 gal)",
+            "Viscosidad cinemática a 40°C 70 sCt",
+            "Índice de viscosidad 140",
+            "Punto de inflamación >90° C",
+            "Punto de escurrimiento-36° C",
+            "Empaque individual Envase con etiqueta",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 6,
+          name: "Aceite sintético para motor de 2 tiempos, 100 ml",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitetruper2.jpg",
+          description: "Aceite sintético para motor de 2 tiempos, 400 ml",
+          features: [
+            "Contenido 100 ml (3 oz)",
+            "Mezcla* de gasolina por botella de aceite 5 L (1.3 gal)",
+            "Viscosidad cinemática a 40°C 70 sCt",
+            "Índice de viscosidad 140",
+            "Punto de inflamación >90° C",
+            "Punto de escurrimiento-36° C",
+            "Empaque individual Envase con etiqueta",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 7,
+          name: "Aceite STIHL Para Motores DE 2T(1000 ML)",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitesthil.jpeg",
+          description:
+            "Aceite de motor a base de aceite mineral para motores de dos tiempos más vendido. Especialmente desarrollado para motores STIHL que responde a las altas exigencias de las máquinas a motor.",
+          features: [
+            "Se quema en su totalidad.",
+            "Tiene una mejor adherencia.",
+            "Proporciona una mejor lubricación.",
+            "Produce menores emisiones de gases contaminantes.",
+            "1 : 50 => 1 parte de aceite + 50 partes de gasolina",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 8,
+          name: "Aceite STIHL Para Motores DE 2T(100 ML)",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitestil.2.jpg",
+          description:
+            "Aceite de motor a base de aceite mineral para motores de dos tiempos más vendido. Especialmente desarrollado para motores STIHL que responde a las altas exigencias de las máquinas a motor.",
+          features: [
+            "Se quema en su totalidad.",
+            "Tiene una mejor adherencia.",
+            "Proporciona una mejor lubricación.",
+            "Produce menores emisiones de gases contaminantes.",
+            "1 : 50 => 1 parte de aceite + 50 partes de gasolina",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 9,
+          name: "Aceite semi-sintético, 4 tiempos, 1000ml (34 oz), TRUPER",
+          category:
+            "Protegen contra el desgaste y prolongan la vida útil del motor hasta un 50%",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitetruper.3.jpg",
+          description: "",
+          features: [
+            "Contenido 1L (34 oz)",
+            "Viscosidad cinemática a 40°C: 60.3 a 90.2 cSt",
+            "Viscosidad cinemática a 100°C: 9.3 a 12.5 cSt",
+            "Índice de viscosidad 135",
+            "Punto de inflamación 200° C",
+            "Punto de escurrimiento-31° C",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 10,
+          name: "Aceite semi-sintético, 4 tiempos, 400 ml (14 oz), TRUPER",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitetruper.3.jpg",
+          description:
+            "Protegen contra el desgaste y prolongan la vida útil del motor hasta un 50%",
+          features: [
+            "Contenido 400 ml (14 oz)",
+            "Viscosidad cinemática a 40°C 60.3 a 90.2 cSt",
+            "Viscosidad cinemática a 100°C 9.3 a 12.5 cSt",
+            "Índice de viscosidad 135",
+            "Punto de inflamación 200° C",
+            "Punto de escurrimiento-31° C",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 11,
+          name: "Aceite mineral para compresor 500ml, TRUPE",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitemineraltruper.jpg",
+          description:
+            "Protege contra la corrosión y prolonga la vida útil del compresor eliminando lacas, residuos y depósitos de carbono y estabilidad térmica, baja volatilidad para máximo desempeño del compresor ",
+          features: [
+            "Grado	SAE 30 / ISO 100",
+            "Viscosidad Saybolt SSU a 100°F	480 - 615",
+            "Viscosidad Saybolt SSU a 210°F	60 - 80",
+            "ndice de viscosidad	Mínimo 90",
+            "Punto de inflamación 	Mínimo 200 °C",
+            "Punto de escurrimiento	Mínimo -10 °C",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 12,
+          name: "Lubricante multiusos en aerosol, 550ml (19oz), TRUPER",
+          category: "limpiador",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/lubrimultiu.jpg",
+          description:
+            "Súper penetrante, libera mecanismos, limpia, protegey elimina ruidos tambien afloja piezas con óxido, las mantiene lubricadas sinafectar pintura o superficies",
+          features: [
+            "Contenido 550 ml (19 oz)",
+            "Color Ámbar claro",
+            "Punto de inflamación 63 °C",
+            "Densidad relativa 0.870 g/cm³",
+            "Porcentaje de volatilidad 20-40%",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 13,
+          name: "Limpiador de carburador, 470ml (16oz), TRUPER",
+          category: "limpiador",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/limpiadorcarburo.jpg",
+          description:
+            "Limpiador de carburador, 470ml (16oz), TRUPER para todo tipo de motores",
+          features: [
+            "Contenido neto	470 ml (16 oz)",
+            "Color	Transparente",
+            "Punto de fusión	-95 °C",
+            "Punto de inflamación	-10 °C",
+            "Densidad relativa 	0.763 g/cm³",
+            "",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 14,
+          name: "Aceite multiusos, 30ml (1oz), TRUPER",
+          category: "",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitemulti.jpg",
+          description: "",
+          features: [
+            "Contenido 30 ml (1 oz",
+            "Viscosidad cinemática a 40 °C	18 - 22 cSt",
+            "Viscosidad cinemática a 100 °C	3.8 - 4.8 cSt",
+            "ndice de viscosidad	mínimo 96",
+            "Punto de escurrimiento 	máximo - 15 °C",
+            "Densidad a 20 °C	0.84 - 0.86 g/cm³",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 15,
+          name: "Aceitera de 300 ml (10 oz) con aplicador flexible, TRUPER",
+          category: "aceite",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/aceitefacil.jpg",
+          description:
+            "Aplicador flexible para zonas de difícl acceso de cuerpo de acero",
+          features: [
+            "Capacidad 300 ml (10 oz)",
+            "Largo del aplicador flexible 15 cm",
+            "Boquilla con punta de latón sólido",
+            " Mecanismo interno metálico",
+          ],
+          rating: 4.1,
+          reviews: 62,
+        },
+        {
+          id: 16,
+          name: "Inflador portátil 12 V para auto, con linterna LED TRUPER",
+          category: "linterna",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/linternatruper.jpg",
+          description:
+            "nfla una llanta en la mitad de tiempo que otras marcas (Neumático: 185/ 65 Rin 15 | Presión: 0 - 35 psi)",
+          features: [
+            "Capacidad : 35 L/min",
+            "Máxima presión: 150 psi",
+            "Potencia: 192 W",
+            "Peso: 1,889 g",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 17,
+          name: "Cable De Batería Pasa Corriente 1000 AMP",
+          category: "cable",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/cablecarros.jpg",
+          description:
+            "Cable De Batería Pasa Corriente 1000 AMP:  Es una herramienta esencial para cualquier conductor, especialmente útil en situaciones de emergencia donde se necesita arrancar un vehículo con una batería descargada. Con una capacidad de 1000 amperios, estos cables están diseñados para manejar grandes cargas de corriente, asegurando un arranque rápido y seguro.",
+          features: [
+            "Cable grueso recubierto de PVC",
+            "Largo: 3 m",
+            "Corriente: 1000 Amp ",
+            "pinzas : 2",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 18,
+          name: "Cable con 2 caimanes para cables pasa corriente,PRETUL",
+          category: "cable",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/pinzasbateria.jpg",
+          description:
+            "nzas revestidas con PVC, con mordazas de acero recubierto de cobrePara cables pasa corriente modelos CAP-2010P y CAP-2510P marcaPretul®",
+          features: [
+            "Capacidad máxima de calibre recomendado 10 AWG",
+            "Empaque individual Caballete",
+            "Master 48",
+            "pinzas : 2",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 19,
+          name: "Blíster con 2 caimanes para cables pasa corriente,TRUPER",
+          category: "cable",
+          price: 0,
+          originalPrice: 0,
+          discount: 0,
+          image: "../assets/pinzastruper.jpg",
+          description:
+            "Pinzas con pintura electrostática, con mordazas de acero recubierto de cobre. Para cables pasa corriente modelos CAP-3506T y CAP-3008T marcaTruper",
+          features: [
+            "Capacidad máxima de calibre recomendado 6 AWG | 400 A",
+            "Inner 3",
+            "Master 48",
+            "Pallet 43",
+          ],
+          rating: 4.3,
+          reviews: 156,
+        },
+        {
+          id: 20,
+          name: "Llave de cruz 20¨ pulida y cromada, TRUPER",
+          category: "llave",
+          price: 0,
+          originalPrice: 0,
+          discount: 0,
+          image: "../assets/Llave-de-Cruz-20--Truper.webp",
+          description:
+            "Cuerpo de acero forjado al medio carbono y acabado cromado",
+          features: [
+            "Medida 20¨ (50 cm)",
+            "Acero S2",
+            "Tallas 1.5-10mm",
+            "Portallaves incluido",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 21,
+          name: "Llave de cruz 14¨ plegable pulida y cromada, TRUPER",
+          category: "cinta",
+          price: 0.1,
+          originalPrice: 0,
+          discount: 0,
+          image: "../assets/llave14.png",
+          description: "Cuerpo de acero forjado al medio carbon.",
+          features: [
+            "Medida 14¨ (35 cm)",
+            "Acabado cromado",
+            "Tamaño de bocas 17 mm, 3/4¨(19 mm), 13/16¨(20.5 mm), 7/8¨(22 mm)",
+            "Peso 1.2 kg",
+          ],
+          rating: 4.7,
+          reviews: 421,
+        },
+        {
+          id: 22,
+          name: 'Llave de cruz 20", acabado negro mate, PRETUL',
+          category: "llave",
+          price: 15,
+          originalPrice: 25,
+          discount: 40,
+          image: "../assets/llavepretul.jpg",
+          description:
+            "Cuerpo de acero forjado .Para remover tuercas y birlos de llantas en automóviles y camionetas",
+          features: [
+            "Medida 20¨ (50 cm)",
+            "Tamaño de bocas 17 mm, 3/4¨(19 mm), 13/16¨(20.5 mm), 7/8¨(22 mm)",
+            "Peso 1 kg",
+            "Master 12",
+          ],
+          rating: 4.2,
+          reviews: 134,
+        },
+        {
+          id: 23,
+          name: "Llave de cruz 14¨, acabado negro mate, PRETUL",
+          category: "llave",
+          price: 0,
+          originalPrice: 0,
+          discount: 10,
+          image: "../assets/llave14pretuljpg.jpg",
+          description:
+            "Cuerpo de acero forjado. Para remover tuercas y birlos de llantas en automóviles y camionetas",
+          features: [
+            "Medida 14¨ (35 cm)",
+            "Tamaño de bocas 17 mm, 3/4¨(19 mm), 13/16¨(20.5 mm), 7/8¨(22 mm)",
+            "Peso 1.6 kg",
+            "Empaque individual Etiqueta",
+          ],
+          rating: 4.9,
+          reviews: 267,
+        },
+        {
+          id: 24,
+          name: "Inflallantas de 12 oz (340 g), TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/inflallantas.jpg",
+          description: "",
+          features: [
+            "Infla, sella y repara instantánea y temporalmente fugas y pinchaduras de hasta 6 mm (1/4”)",
+            "Dura hasta 2 año",
+            "No requiere gato o herramientas",
+            "Para llantas de rin 13' a 16'",
+          ],
+          rating: 4.5,
+          reviews: 98,
+        },
+        {
+          id: 25,
+          name: "Triángulo de seguridad, 11', TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/trianguloiruper.webp",
+          description: "",
+          features: [
+            "Reflejante rojo de alta visibilidad",
+            "Superficie fluorescente de ABS",
+            "Base pesada de polietileno para mayor estabilidad",
+          ],
+          rating: 4.3,
+          reviews: 73,
+        },
+        {
+          id: 26,
+          name: "Bomba extractora de aceites con manivela, TRUPER",
+          category: "otros",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/bastontruper.1.png",
+          description:
+            "Cuerpo de hierro y tubo de acero y tubo desmontable en 3 piezas, que facilita su almacenamiento y transporte",
+          features: [
+            "Tuerca de fijación al tambo de 200 litros",
+            "Empaque resistente de hule que evita fugas y no se deforma",
+            "Ideal para uso automotriz, agrícola e industrial con aceite, petróleo, queroseno y diesel",
+            "Flujo 0.3 L/bombeo",
+            "Largo de tubo 40'(1 m)",
+            "Diámetro de tubo 1 1/4' (32 mm)",
+            "Peso 2.8 kg",
+          ],
+          rating: 4.3,
+          reviews: 73,
+        },
+        {
+          id: 27,
+          name: "Bomba extractora de aceites con palanca, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/bastontruper.2.png",
+          description: "Cuerpo y tubo fabricados de acero . ",
+          features: [
+            "Tubo telescópico ajustable a diferentes tamaños de tambo hasta 200 L",
+            "Tuerca de fijación al tambo de 200 litros",
+            "Empaque resistente de hule que evita fugas y no se deforma",
+            "Ideal para uso automotriz, agrícola e industrial con lubricantes y aceites grado de viscosidad hasta ISO VG 100",
+            "El tubo y la bomba vienen integrados en el mismo empaque",
+            "Flujo 0.3 L/bombeo",
+            "Largo de tubo 35' (89 cm)",
+            "Diámetro de tubo 1' (25 mm)",
+            "Peso 1.9 kg",
+          ],
+          rating: 4.3,
+          reviews: 73,
+        },
+        {
+          id: 28,
+          name: "Bomba extractora de solventes con manija tipo T, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 00,
+          image: "../assets/tipoTtruper.webp",
+          description:
+            "Tubo con acabado electrofosfatado para mayor resistencia a la oxidación y cuerpo  de acero",
+          features: [
+            "Tubo con acabado electrofosfatado para mayor resistencia a la oxidación y cuerpo  de acero",
+            "Tuerca de fijación al tambo de 200 litros",
+            "Empaque resistente de hule que evita fugas y no se deforma",
+            "Ideal para uso automotriz, agrícola e industrial con lubricantes y aceites grado de viscosidad hasta ISO VG 100",
+            "El tubo y la bomba vienen integrados en el mismo empaque",
+            "Flujo 0.3 L/bombeo",
+            "Largo de tubo 35' (89 cm)",
+            "Diámetro de tubo 1' (25 mm)",
+            "Peso 1.9 kg",
+          ],
+          rating: 4.3,
+          reviews: 73,
+        },
+      ];
+
+      let currentSearch = "";
+      let currentFilter = "todos";
+      let currentSort = "default";
+      let selectedProductId = null;
+
+      const searchInput = document.getElementById("searchInput");
+      const clearSearch = document.getElementById("clearSearch");
+      const clearSearchLink = document.getElementById("clearSearchLink");
+      const productsGrid = document.getElementById("productsGrid");
+      const productDetail = document.getElementById("productDetail");
+      const backButton = document.getElementById("backButton");
+      const noResults = document.getElementById("noResults");
+      const resultsCount = document.getElementById("resultsCount");
+      const sortSelect = document.getElementById("sortSelect");
+
+      function getFilteredProducts() {
+        let filtered = [...products];
+        if (currentSearch.trim() !== "") {
+          const q = currentSearch.toLowerCase().trim();
+          filtered = filtered.filter(
+            (p) =>
+              p.name.toLowerCase().includes(q) ||
+              p.description.toLowerCase().includes(q) ||
+              p.features.some((f) => f.toLowerCase().includes(q)) ||
+              p.category.toLowerCase().includes(q),
+          );
+        }
+        if (currentFilter !== "todos") {
+          if (currentFilter === "oferta") {
+            filtered = filtered.filter((p) => p.discount >= 40);
+          } else {
+            filtered = filtered.filter(
+              (p) =>
+                p.category === currentFilter ||
+                p.name.toLowerCase().includes(currentFilter),
+            );
+          }
+        }
+        switch (currentSort) {
+          case "price-asc":
+            filtered.sort((a, b) => a.price - b.price);
+            break;
+          case "price-desc":
+            filtered.sort((a, b) => b.price - a.price);
+            break;
+          case "rating":
+            filtered.sort((a, b) => b.rating - a.rating);
+            break;
+          case "discount":
+            filtered.sort((a, b) => b.discount - a.discount);
+            break;
+        }
+        return filtered;
+      }
+
+      function generateStars(rating, size = 14) {
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          const filled = i < Math.floor(rating) ? "filled" : "";
+          html += `<svg class="star ${filled}" width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+        }
+        return html;
+      }
+
+      function highlight(text, query) {
+        if (!query.trim()) return text;
+        const regex = new RegExp(
+          `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+          "gi",
+        );
+        return text.replace(
+          regex,
+          '<mark style="background:#FDB912;border-radius:3px;padding:0 2px;">$1</mark>',
+        );
+      }
+
+      function renderProductsGrid() {
+        const filtered = getFilteredProducts();
+        productsGrid
+          .querySelectorAll(".product-card")
+          .forEach((c) => c.remove());
+        const total = products.length;
+        if (currentSearch || currentFilter !== "todos") {
+          resultsCount.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> productos`;
+        } else {
+          resultsCount.innerHTML = `<strong>${total}</strong> productos disponibles`;
+        }
+        if (filtered.length === 0) {
+          noResults.classList.add("visible");
+          return;
+        }
+        noResults.classList.remove("visible");
+        filtered.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.setAttribute("data-id", product.id);
+          card.onclick = () => showProductDetail(product.id);
+          card.innerHTML = `
+                    <div class="product-image-container">
+                      <div class="discount-badge">-${product.discount}%</div>
+                      <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                    </div>
+                    <div class="product-info">
+                      <h3 class="product-name">${highlight(product.name, currentSearch)}</h3>
+                      <div class="rating-container">${generateStars(product.rating)}<span class="reviews-count">(${product.reviews})</span></div>
+                      <div class="price-container">
+                        <span class="current-price">S/ ${product.price}</span>
+                        <span class="original-price">S/ ${product.originalPrice}</span>
+                      </div>
+                      <button class="btn-details">Ver Detalles</button>
+                    </div>`;
+          productsGrid.insertBefore(card, noResults);
+        });
+      }
+
+      function showProductDetail(productId) {
+        selectedProductId = productId;
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+        productDetail.innerHTML = `
+                  <div class="detail-card">
+                    <div class="detail-content">
+                      <div class="detail-image-section">
+                        <div class="discount-badge">-${product.discount}%</div>
+                        <img src="${product.image}" alt="${product.name}" />
+                      </div>
+                      <div class="detail-info-section">
+                        <div>
+                          <div class="rating-container">${generateStars(product.rating, 18)}<span class="reviews-count">(${product.reviews} reseñas)</span></div>
+                          <h1 class="detail-title" style="margin:0.75rem 0">${product.name}</h1>
+                          <div class="detail-price-container">
+                            <span class="detail-current-price">S/ ${product.price}</span>
+                            <span class="detail-original-price">S/ ${product.originalPrice}</span>
+                            <span style="background:#fef2f2;color:#ef4444;padding:4px 10px;border-radius:8px;font-size:0.82rem;font-weight:700;">Ahorras S/ ${product.originalPrice - product.price}</span>
+                          </div>
+                          <p class="detail-description">${product.description}</p>
+                          <div class="features-section">
+                            <h3 class="features-title">Características:</h3>
+                            <ul class="features-list">${product.features.map((f) => `<li><div class="feature-dot"></div>${f}</li>`).join("")}</ul>
+                          </div>
+                        </div>
+                        <div class="buttons-section">
+      <a href="https://api.whatsapp.com/send?phone=51921583704text=Hola! Me interesa: ${encodeURIComponent(product.name)} a S/ ${product.price}" class="btn-whatsapp" target="_blank">
+                            <i class="bx bxl-whatsapp" style="font-size:1.2rem"></i> Comprar Ahora
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>`;
+        productsGrid.classList.add("hidden");
+        productDetail.classList.add("active");
+        backButton.classList.add("active");
+        document.querySelector(".search-wrapper").style.display = "none";
+        document.getElementById("resultsMeta").style.display = "none";
+        document.querySelector(".page-banner").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showProductsGrid() {
+        selectedProductId = null;
+        productsGrid.classList.remove("hidden");
+        productDetail.classList.remove("active");
+        backButton.classList.remove("active");
+        document.querySelector(".search-wrapper").style.display = "";
+        document.getElementById("resultsMeta").style.display = "";
+        document.querySelector(".page-banner").style.display = "";
+      }
+
+      function buyNow() {
+        const product = products.find((p) => p.id === selectedProductId);
+        window.open(
+          `https://api.whatsapp.com/send?phone=51934709652&text=Hola! Quiero comprar: ${encodeURIComponent(product.name)} - S/ ${product.price}`,
+          "_blank",
+        );
+      }
+
+      searchInput.addEventListener("input", function () {
+        currentSearch = this.value;
+        clearSearch.classList.toggle("hidden", !currentSearch);
+        if (productDetail.classList.contains("active")) showProductsGrid();
+        renderProductsGrid();
+      });
+
+      function doClearSearch() {
+        searchInput.value = "";
+        currentSearch = "";
+        clearSearch.classList.add("hidden");
+        searchInput.focus();
+        renderProductsGrid();
+      }
+
+      clearSearch.addEventListener("click", doClearSearch);
+      if (clearSearchLink)
+        clearSearchLink.addEventListener("click", doClearSearch);
+
+      document
+        .getElementById("filterChips")
+        .addEventListener("click", function (e) {
+          const chip = e.target.closest(".chip");
+          if (!chip) return;
+          document
+            .querySelectorAll(".chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          currentFilter = chip.dataset.filter;
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          renderProductsGrid();
+        });
+
+      sortSelect.addEventListener("change", function () {
+        currentSort = this.value;
+        renderProductsGrid();
+      });
+
+      backButton.addEventListener("click", showProductsGrid);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        if (e.key === "Escape") {
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          else doClearSearch();
+        }
+      });
+
+      renderProductsGrid();
+    </script>
+  </body>
+</html>

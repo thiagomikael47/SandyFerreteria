@@ -1,0 +1,1409 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>Motores y Genradores</title>
+    <link rel="icon" type="image/jpg" href="../assets/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+  </head>
+  <body>
+    <a
+      href="https://api.whatsapp.com/send?phone=51934709652&text=Hola, quiero más información sobre sus productos"
+      class="btn-wsp"
+      target="_blank"
+    >
+      <i class="bx bxl-whatsapp"></i>
+    </a>
+
+    <header class="header">
+      <nav class="nav">
+        <a href="#" class="nav__logo">
+          <img class="imagen__sandy" src="../assets/logo.png" />
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="../index.html" class="nav__link">Inicio</a></li>
+            <li>
+              <a href="../webform/home.html" class="nav__link">Nosotros</a>
+            </li>
+
+            <li class="dropdown__item">
+              <span class="nav__link nav__link--drop">
+                Productos <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+              </span>
+              <ul class="dropdown__menu">
+                <li>
+                  <a href="../webform/motores.html" class="dropdown__link">
+                    Motores y Generadores</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/manuales.html" class="dropdown__link"
+                    >herramientas Manuales</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/mecanico.html" class="dropdown__link"
+                    >Mecanico</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/electrico.html" class="dropdown__link"
+                    >Herramientas Electricas</a
+                  >
+                </li>
+                <li>
+                  <a href="../webform/accesorios.html" class="dropdown__link"
+                    >Accesorios</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="../webform/contacto.html" class="nav__link">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Page Banner -->
+    <div class="page-banner">
+      <div class="page-banner-inner">
+        <div class="breadcrumb">
+          <a href="../index.html">Inicio</a>
+          <i class="fas fa-chevron-right"></i>
+          <span>Maquinas y Generadores</span>
+        </div>
+        <h1>Maquinas y <span>Generadores</span></h1>
+        <p>
+          Martillos, destornilladores, llaves y todo lo que necesitas para tu
+          trabajo
+        </p>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-wrapper">
+      <div class="search-inner">
+        <div class="search-box">
+          <svg
+            class="search-icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar productos por nombre..."
+            autocomplete="off"
+          />
+          <button
+            id="clearSearch"
+            class="clear-btn hidden"
+            title="Limpiar búsqueda"
+          >
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip active" data-filter="todos">Todos</button>
+          <button class="chip" data-filter="martillo">Martillos</button>
+          <button class="chip" data-filter="llave">Llaves</button>
+          <button class="chip" data-filter="destornillador">
+            Destornilladores
+          </button>
+          <button class="chip" data-filter="cinta">Cintas</button>
+          <button class="chip" data-filter="oferta">Ofertas</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results meta -->
+    <div class="results-meta" id="resultsMeta">
+      <span class="results-count" id="resultsCount"></span>
+      <select class="sort-select" id="sortSelect">
+        <option value="default">Ordenar por...</option>
+        <option value="price-asc">Precio: Menor a mayor</option>
+        <option value="price-desc">Precio: Mayor a menor</option>
+        <option value="rating">Mejor valorados</option>
+        <option value="discount">Mayor descuento</option>
+      </select>
+    </div>
+
+    <main>
+      <div class="container__products">
+        <button class="back-button" id="backButton">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          <span>Volver a productos</span>
+        </button>
+
+        <div class="products-grid" id="productsGrid">
+          <div class="no-results" id="noResults">
+            <div class="no-results-icon">🔍</div>
+            <h3>No encontramos resultados</h3>
+            <p>Intenta con otro término o revisa los filtros activos</p>
+            <span class="clear-search-link" id="clearSearchLink"
+              >Limpiar búsqueda</span
+            >
+          </div>
+        </div>
+
+        <div class="product-detail" id="productDetail"></div>
+      </div>
+    </main>
+    <footer id="contacto">
+      <div class="footer__container">
+        <div>
+          <div class="container__logo">
+            <img class="imagen__sandy" src="../assets/logo.png" />
+          </div>
+          <p>
+            Ser el lider del mercado y ser reconocido en los mercados donde
+            opera por la calidad y diversidad de productos, como tambien
+            soluciones que se ofrecen en el sector ferretero , tanto a nivel
+            nacional
+          </p>
+          <div class="social__media">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook"></i
+            ></a>
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="https://www.tiktok.com" target="_blank"
+              ><i class="bx bxl-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__title">Enlaces Rápidos</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="../webform/motores.html">Productos</a></li>
+            <li><a href="../webform/home.html">Nosotros</a></li>
+            <li><a href="../webform/contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Contacto</h3>
+          <ul class="footer__links">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>Av Grau 511 y Av Maurtua 155
+              , Ica - Perú
+            </li>
+            <li><i class="fas fa-phone"></i>921583704</li>
+            <li><i class="fas fa-envelope"></i> info@sandiferreteria.com</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__title">Horarios</h3>
+          <ul class="footer__links">
+            <li>Lunes - Viernes: 8:00 AM - 6:00 PM</li>
+            <li>Sábados: 8:00 AM - 2:00 PM</li>
+            <li>Domingos: Cerrado</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="../js/script.js"></script>
+    <script>
+      const products = [
+        {
+          id: 1,
+          name: "Bomba periférica 1/2HP, 220V/60Hz, uso agrícola,EXPERT",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bombatruper1.2hp.jpg",
+          description:
+            "Se utiliza cuando se requiere bombear el agua a lugares altos (arriba de 15m aproximadamente). Puede ser usada con sistemas hidroneumáticos para incrementar la presión ",
+          features: [
+            "Potencia: 1/2hp",
+            "Flujo máximo: 42 L/min",
+            "Velocidad: 3,450 rpm",
+            "Ciclo de trabajo: 50 minutos de trabajo por 20 minutos de descanso.Máximo diario 6 horas",
+            "Tensión: Frecuencia 220 V / 60 Hz",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 2,
+          name: "Bomba de agua periférica 1/2 HP 20 m Pretul",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bombapretul.jpg",
+          description:
+            "Se utiliza cuando se requiere bombear el agua a lugares altos (arriba de 15 m aproximadamente). Puede ser usada con sistemas hidroneumáticos para incrementar la presión",
+          features: [
+            "Potencia: 1/2 HP",
+            "Flujo máximo:  30 L/min",
+            "Velocidad: 3,450 rpm",
+            "Ciclo de trabajo: 20 minutos de trabajo por 15 minutos de descanso. Máximo diario 6 horas",
+            "Tensión / Frecuencia 220 V / 60 Hz",
+          ],
+          rating: 4.8,
+          reviews: 189,
+        },
+        {
+          id: 3,
+          name: "Electrobomba Centrifuga CPM158 MEBA",
+          category: "bomba",
+          price: 35,
+          originalPrice: 60,
+          discount: 42,
+          image: "../assets/bombameba2.jpg",
+          description:
+            "Electrobomba Centrífuga MEBA CPM158, la solución de ingeniería peruana diseñada para ofrecer un rendimiento confiable y duradero en aplicaciones domésticas, agrícolas e industriales ligeras",
+          features: [
+            "Potencia: 1 HP",
+            "KW: 0.75",
+            "CAaudal: 120 L/M",
+            "Revolucion: 3450 RPM",
+            "Voltaje: 220",
+          ],
+          rating: 4.5,
+          reviews: 302,
+        },
+        {
+          id: 4,
+          name: "Electrobomba Centrifuga 2 HP DE MEBA CPM190",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bombameba2.jpg",
+          description:
+            "La electrobomba centrífuga MEBA CPM-190 de 2 HP es una bomba de alto rendimiento diseñada para aplicaciones de bombeo de agua limpia en entornos residenciales, comerciales e industriales ligeros.",
+          features: [
+            "Potencia:	2 HP",
+            "Caudal:	10 L/Min",
+            "Frecuencia	60 Hz",
+            "Tipo :	Centrifuga",
+          ],
+          rating: 4.3,
+          reviews: 156,
+        },
+        {
+          id: 5,
+          name: "Electrobomba Meba 0.5 HP",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bombamebaM.jpg",
+          description:
+            "Bomba De Agua Meba 0.5 hp. La electrobomba Meba 0.5 HP es una bomba centrífuga de uso doméstico y comercial.",
+          features: [
+            "Voltaje: 220V / 60 Hz",
+            "Caudal máximo: 130 L/min",
+            "Altura máxima de bombeo: 38 m",
+            "Temperatura máxima del agua: 40 °C",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 6,
+          name: "ELECTROBOMBA CENTRIFUGA CPm 600 0.5HP, PEDROLLO",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bomaPedrollo1.jpg",
+          description:
+            "Son recomendadas para bombear agua limpia, sin partículas abrasivas y líquidos químicamente no agresivos con los materiales que constituyen la bomba.",
+          features: [
+            "Altura: 22 mts",
+            "Sub Tipo: de Producto Centrífuga",
+            "Máximo poder de descarga: 80 l/min",
+            "Caudal Maximo: 4.8 m3/h",
+            "Voltaje: 220 V",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 7,
+          name: "Electrobomba PEDROLLO 3/4 HP 110V(CPM 610)",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bomaPedrollo1.jpg",
+          description:
+            "Electrobomba de 3/4 HP modelo CPM 610, recomendada para el bombeo de agua limpia en instalaciones domésticas. Funciona a 110V.",
+          features: [
+            "Altura: 30 mts",
+            "Sub Tipo de Producto: Centrífuga",
+            "Máximo poder de descarga: 90 l/min",
+            "Caudal Maximo: 6.0 m3/h",
+            "Voltaje: 220 V",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 8,
+          name: "Electrobomba Centrífuga Pedrollo 1 HP CPM620 100L/min",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bombapedrollo0.5.jpg",
+          description:
+            "Electrobomba de 1 HP modelo CPM 620, recomendada para el bombeo de agua limpia en instalaciones domésticas. Funciona a 220V",
+          features: [
+            "Altura: 30 mts",
+            "Sub Tipo de Producto: Centrífuga",
+            "Máximo poder de descarga: 90 l/min",
+            "Caudal Maximo: 6.0 m3/h",
+            "Voltaje: 220 V",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 9,
+          name: "Bomba ELECTRICElectricaA SUMERGIBLE 2HP MEBA",
+          category: "bomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/bombameba2.webp",
+          description:
+            "La electrobomba sumergible MEBA WQD10-15 de 2 HP y 2″ de diámetro es una solución eficiente para el bombeo de aguas residuales con sólidos en suspensión.",
+          features: [
+            "Tipo de bomba:	Campana",
+            "Potencia:	2 hp",
+            "Caudal:	168 l/min",
+            "Altura máxima:	15 metros",
+            "Corriente	Monofásico 220v",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 10,
+          name: "Motobomba autocebante 2'x2', gasolina 7HP, agrícola, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/mtobomabatruper.jpg",
+          description:
+            "Para zonas de difícil acceso a electricidad se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Cilindrada: 212 cc",
+            "Potencia nominal: 7 HP (5,200 W)",
+            "Velocidad sin carga: 3,650 - 3,700 rpm",
+            "Capacidad del tanque: 2.3 L",
+            "Altura máxima de bombeo: 25 m",
+            "Flujo máximo 500 L/min",
+            "Peso 22 kg",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 11,
+          name: "Motobomba autocebante 2' x 2' a gasolina 6-1/2 HP Pretul",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombapretul.jpg",
+          description:
+            "Para zonas de difícil acceso a electricidad se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Potencia: 6 1/2 HP.",
+            "Altura máxima de bombeo: 25 m.",
+            "Flujo máximo: 500 L/min",
+            "Duración del tanque con 100% de carga: 1.8 horas.",
+            "Capacidad del tanque: 3.2 L.",
+            "Velocidad sin carga: 3,650 - 3,700 rpm.",
+            "Cilindrada del motor: 212 cc.",
+            "Peso: 20 kg.",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 12,
+          name: "Motobomba autocebante 3'x3', gasolina 7HP, agrícola, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/mtobomabatruper.jpg",
+          description:
+            "Para zonas de difícil acceso a electricidad se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Cilindrada: 212 cc",
+            "Potencia nominal: 7 HP (5,200 W)",
+            "Velocidad sin carga: 3,650 - 3,700 rpm",
+            "Capacidad del tanque: 2.6 L",
+            "Altura máxima de bombeo: 25 m",
+            "Flujo máximo 900 L/min",
+            "Peso 23 kg",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 13,
+          name: "Motobomba autocebante 3' x 3' a gasolina 6 ½' HP Pretul",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombapretul.jpg",
+          description:
+            "Ideal para sistemas de riego, bombeo de pozos, agricultura y construcción. Para zonas de difícil acceso a electricidad.",
+          features: [
+            "Potencia: 6 1/2 HP.",
+            "Altura máxima de bombeo: 25 m.",
+            "Flujo máximo: 900 L/min",
+            "Duración del tanque con 100% de carga: 1.5 horas.",
+            "Capacidad del tanque: 3.4 L.",
+            "Velocidad sin carga: 3,650 - 3,700 rpm.",
+            "Cilindrada del motor: 212 cc.",
+            "Peso: 22 kg.",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+
+        {
+          id: 14,
+          name: "Motobomba autocebante 1'x1', gas. 1-1/3HP, agrícola, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombatrupe3.webp",
+          description:
+            "Para zonas de difícil acceso a electricidad, se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Potencia: 1 1/3 HP",
+            "Flujo máximo: 110 L/min",
+            "Capacidad del tanque: 0.7 L",
+            "Cilindrada del motor: 36 cc",
+            "Altura máxima de bombeo:25 m",
+            "Velocidad sin carga: 6,500 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 15,
+          name: "Motobomba autocebante 1'x1', gas. 1-1/2HP, agrícola, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombatruper1.2.jpg",
+          description:
+            "Para zonas de difícil acceso a electricidad, se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Potencia: 1 1/2 HP",
+            "Flujo máximo: 100 L/min",
+            "Capacidad del tanque: 1.3 L",
+            "Cilindrada del motor: 42 cc",
+            "Altura máxima de bombeo:20 m",
+            "Velocidad sin carga: 6,500 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 16,
+          name: "Motobomba autocebante 4'x4', gasolina 9HP, agrícola, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motomobatruper4.webp",
+          description:
+            "Para zonas de difícil acceso a electricidad, se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Potencia: 9 HP",
+            "Flujo máximo: 1500 L/min",
+            "Capacidad del tanque: 5.2 L",
+            "Cilindrada del motor: 42 cc",
+            "Altura máxima de bombeo:25 m",
+            "Velocidad sin carga: 3,650 - 3,700 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 17,
+          name: "Motobomba autocebante 4'x4', gasolina 15HP, agrícola, TRUPER",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motomobatruper4.webp",
+          description:
+            "Para zonas de difícil acceso a electricidad, se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Potencia: 15 HP",
+            "Flujo máximo: 1600 L/min",
+            "Capacidad del tanque: 5.8 L",
+            "Cilindrada del motor: 420 cc",
+            "Altura máxima de bombeo:30 m",
+            "Velocidad sin carga: 3,650 - 3,700 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 18,
+          name: "Motobomba Caracol DE 3'  HONDA GX270 9 HP",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombahonda1.jpg",
+          description:
+            "La motobomba caracol de 3″ con motor Honda GX270 de 9 HP gasolinero es una solución versátil y potente para una amplia gama de aplicaciones de bombe.",
+          features: [
+            "Potencia: 9 HP",
+            "Flujo máximo: 84 M3/H",
+            "Capacidad del tanque: 5.5 L",
+            "Peso: 	35 KG APROX",
+            "Altura máxima de bombeo:33 m",
+            "Velocidad sin carga: 3,650 - 3,700 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 19,
+          name: "Motobomba Caracol DE 4″ HONDA GX390 13HP",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombahonda1.jpg",
+          description:
+            "La motobomba caracol de 4' con motor Honda GX270 de 9 HP gasolinero es una solución versátil y potente para una amplia gama de aplicaciones de bombe.",
+          features: [
+            "Potencia: 13 HP",
+            "Flujo máximo: 35 L/s",
+            "Capacidad del tanque: 6.1 L",
+            "Peso: 	38 KG APROX",
+            "Altura máxima de bombeo:35 m",
+            "Velocidad sin carga: 3,650 - 3,700 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 20,
+          name: "Motobomba HONDA 2×2 WH20XT-DE 5.5 HP GASOLINA",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombahonda.2.jpg",
+          description:
+            "La motobomba caracol de 2″ con motor Honda GX270 de 9 HP gasolinero es una solución versátil y potente para una amplia gama de aplicaciones de bombe.",
+          features: [
+            "Potencia: 5.5 HP",
+            "Flujo máximo: 450 L/m",
+            "Capacidad del tanque: 6.1 L",
+            "Peso: 	24 KG APROX",
+            "Altura máxima de bombeo: 32 m",
+            "Velocidad sin carga: 3,600 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 21,
+          name: "Motobomba Autocebante 3x3pulg WB30XH-2DR 5.5HP, HONDA",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombahonda.2.jpg",
+          description:
+            "La motobomba caracol de 3″ con motor Honda GX270 de 9 HP gasolinero es una solución versátil y potente para una amplia gama de aplicaciones de bombe.",
+          features: [
+            "Potencia: 5.5 HP",
+            "Flujo máximo: 1100 L/m",
+            "Capacidad del tanque: 3.6 L",
+            "Peso: 	24 KG APROX",
+            "Altura máxima de bombeo: 28 m",
+            "Velocidad sin carga: 3,600 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 22,
+          name: "Motobomba a Gasolina 1' 2 Hp 2 T Kaili KL718",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/motobombakaili.jpg",
+          description:
+            "Para zonas de difícil acceso a electricidad, se utiliza para trasladar grandes cantidades de agua limpia",
+          features: [
+            "Potencia: 2 HP",
+            "Flujo máximo: 8 m3/h",
+            "Capacidad del tanque: 1.2 L",
+            "Cilindrada del motor: 42.7 cc",
+            "Altura máxima de bombeo: 20 m",
+            "Velocidad sin carga: 3,600 rpm",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 23,
+          name: "Generador a Gasolina 1000W / 900W 2T Kaili KL707",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadorkaili.jpg",
+          description:
+            "Son capaces de suministrar electricidad durante un largo periodo de tiempo de forma continua cuando el servicio de energía eléctrica se interrumpe.",
+          features: [
+            "Peso: 11Kg",
+            "Potencia:2 HP",
+            "Motor: 2T",
+            "Potencia Max. Monofasica: 1000 W",
+            "Potencia Trab. Monofasic:a: 900 w",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 24,
+          name: "Generador Gasolinero M3600-200UG",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadormeba.jpg",
+          description:
+            "Generador gasolinero de 4  tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Motor Potencia: 6.5 Hp",
+            "Potencia Nominal: 2.2 KVA",
+            "Potencia Máxima: 2.8 KVA",
+            "Cilindrada: 196 CC",
+            "Horas de uso continuo: 15",
+            "Voltaje: 220 V",
+            "Frecuencia: 60 Hz",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 25,
+          name: "GeneradoG asolinero M6500-390UG",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadormeba.jpg",
+          description:
+            "Generador gasolinero de 4  tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Motor Potencia: 13 Hp",
+            "Potencia Nominal: 5 KVA",
+            "Potencia Máxima: 5.5 KVA",
+            "Cilindrada: 389 CC",
+            "Horas de uso continuo: 9",
+            "Voltaje: 220 V",
+            "Frecuencia: 60 Hz",
+            "Tambien se usa con bateria",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 26,
+          name: "Generador Gasolinero M8000-420UG",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadormeba.jpg",
+          description:
+            "Generador gasolinero de 4 tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Motor Potencia: 15 Hp",
+            "Potencia Nominal: 6.5 KVA",
+            "Potencia Máxima: 7 KVA",
+            "Cilindrada: 420 CC",
+            "Horas de uso continuo: 8",
+            "Voltaje: 220 V",
+            "Frecuencia: 60 Hz",
+            "Combustible: 25 L",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 27,
+          name: "Generador Gasolinero Monofásico m10500-192ug",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadormeba.jpg",
+          description:
+            "Generador gasolinero de 4 tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Motor Potencia: 14 Hp",
+            "Potencia Nominal: 8 KVA",
+            "Potencia Máxima: 10 KVA",
+            "Cilindrada: 459 CC",
+            "Horas de uso continuo: 8",
+            "Voltaje: 220 V",
+            "Frecuencia: 60 Hz",
+            "Combustible: 25 L",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 28,
+          name: "Generador Electrico 800W (TOTAL)",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadortotal.jpg",
+          description:
+            "Generador gasolinero de 4 tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Motor Potencia: 2 Hp",
+            "Potencia Nominal: 8 KVA",
+            "Potencia Máxima: 10 KVA",
+            "Cilindrada: 459 CC",
+            "Horas de uso continuo: 4",
+            "Voltaje: 220 V",
+            "Frecuencia: 60 Hz",
+            "Combustible: 4 L",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 29,
+          name: "Generador Electrico Makute 4000A ,MAKUTE",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadoramakute3.jpeg",
+          description:
+            "Generador gasolinero de 4 tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Potencia Nominal: 2.4 KVA",
+            "Potencia Máxima: 2.6 KVA",
+            "Factor de potencia: Cos φ = 1.0",
+            "Soporte personalizado: OEM",
+            "Voltaje: 220 V",
+            "Frecuencia: 50 Hz",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 30,
+          name: "Generador Electrico Makute MK1500 ,MAKUTE",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadormakute2.jpg",
+          description:
+            "Generador gasolinero de 4 tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Potencia Nominal: 1.0 KVA",
+            "Potencia Máxima: 1.2 KVA",
+            "Factor de potencia: Cos φ = 1.0",
+            "Soporte personalizado: OEM",
+            "Voltaje: 220 V",
+            "Frecuencia: 50 Hz",
+            "Capacidad de tanque:  7 L",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 31,
+          name: "Generador Electrico Makute MK2500 ,MAKUTE",
+          category: "generador",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/generadormakute4.webp",
+          description:
+            "Generador gasolinero de 4 tiempos monofásico utilizado para suministro de energía de respaldo en el hogar, minería, eventos al aire libre y sitios de construcción.",
+          features: [
+            "Potencia Nominal: 2.0 KVA",
+            "Potencia Máxima: 2.2 KVA",
+            "Factor de potencia: Cos φ = 1.0",
+            "Soporte personalizado: OEM",
+            "Voltaje: 220 V",
+            "Frecuencia: 50 Hz",
+            "Capacidad de tanque:  7 L",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 32,
+          name: "Kit de compresor 50 L, 220V/60 Hz,PIPI-420 y manguera",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresora01.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 50 L",
+            "Potencia máxima / nominal: 3 1/2 HP / 2 1/2 HP",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+            "Velocidad: 3,450 rpm",
+            "Nivel de ruido: 90 dBA máximo",
+            "Flujo de aire 4.4 CFM @ 40 psi / 3.4 CFM @ 90 psi",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 33,
+          name: "Compresor lubricado de aire, 25 L, 220V/60 Hz",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresoratruper.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 25 L",
+            "Potencia máxima / nominal: 3 HP / 2 HP",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+            "Velocidad: 3,450 rpm",
+            "Nivel de ruido: 90 dBA máximo",
+            "Flujo de aire 4.4 CFM @ 40 psi / 3.4 CFM @ 90 psi",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 34,
+          name: "Compresor vertical 240 L, 4 HP (máx), 220 V, con clavija",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresortruperclavija.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 240 L",
+            "Potencia máxima / nominal: 4 HP / 3 HP",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+            "Velocidad: 3,450 rpm",
+            "Nivel de ruido: 90 dBA máximo",
+            "Flujo de aire: 4.4 CFM @ 40 psi / 3.4 CFM @ 90 psi",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 35,
+          name: "Compresor vertical 120 L, 4 HP (máx), 220 V, con clavija",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresortruperclavija2.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 120 L",
+            "Potencia máxima / nominal: 4 HP / 3 HP",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+            "Velocidad: 3,450 rpm",
+            "Nivel de ruido: 90 dBA máximo",
+            "Flujo de aire: 7.7 CFM @ 40 psi / 5.7 CFM @ 90 psi",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 36,
+          name: "Compresora Crown 50L - 2.0HP",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/cpmpresorcrown1.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 50 L",
+            "Potencia máxima:2 HP",
+            "Tensión / Frecuencia: 230 V / 50 Hz",
+            "Presion operativa: 8 BAR",
+            "Desplazamiento de aire: 135 L/M",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 37,
+          name: "Compresora Crown 24 L S/ACEITE - 760W",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresoracrown2.jpeg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 24 L",
+            "Potencia máxima:2 HP",
+            "Velocidad Nominal: 2800 min",
+            "Tensión / Frecuencia: 230 V / 50 Hz",
+            "Presion operativa: 8 BAR",
+            "Desplazamiento de aire: 60 L/M",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 38,
+          name: "Compresora de 50 L Mitoshi",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresormiyat.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 50 L",
+            "Potencia máxima:2.5 HP",
+            "Velocidad Nominal: 116 psi",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+          ],
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 39,
+          name: "Compresora de 25 L Mitoshi",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresormiyat.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 25 L",
+            "Potencia máxima:2 HP",
+            "Velocidad Nominal: 116 psi",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+          ],
+
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 39,
+          name: "Compresora de 15 L Mitoshi",
+          category: "compresor",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/compresormiyat.jpg",
+          description:
+            "Una compresora de aire es una máquina diseñada para tomar aire ambiental, comprimirlo y almacenarlo en un tanque a alta presión, transformando energía mecánica (eléctrica o de combustión) en energía neumática.",
+          features: [
+            "Capacidad del tanque: 15 L",
+            "Potencia máxima:2 HP",
+            "Velocidad Nominal: 116 psi",
+            "Tensión / Frecuencia: 220 V / 60 Hz",
+          ],
+
+          rating: 4.4,
+          reviews: 88,
+        },
+        {
+          id: 40,
+          name: "Compresor De Aire Total Auto Llanta 12v 140psi - Ttac1406",
+          category: "minicompresora",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/minicompresorat.webp",
+          description:
+            "Compresor para auto full 12V TOTAL. Recomendado para inflar neumáticos, pelotas, colchones, entre otros. Este compresor incluye: 3M de manguera de aire con adaptador de liberación rápida, 3pzas de luz LED, 2 Cilindros de diámetro 30mm y 3m de cable con pinzas de batería. Empaque bolsa de lona. ",
+          features: [
+            "Potencia: 12V",
+            "Presión máxima: 120PSI.",
+            "Peso: 2,4K.",
+            "Máximo flujo de aire: 45L/min",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 41,
+          name: "Rollo de manguera plana de 2' x 100m de descarga p/motobomba",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/magueratruper.jpg",
+          description:
+            "Diseño plano para mayor flexibilidad , fácil almacenamiento es utilizada para la descarga de agua limpia en aplicaciones agrícolas ",
+          features: [
+            "Fabricada con PVC, resistente a rayos UV",
+            "Presión máxima de trabajo: 58 psi",
+            "Espesor de pared: 1.7 mmPeso: 2,4K.",
+            "Largo 100 m",
+            "Diámetro 2' (50 mm)",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 42,
+          name: "Manguera de succión y descarga 2' para motobomba, rollo 30m",
+          category: "motobomba",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "../assets/mangueratruper.2.jpg",
+          description:
+            "Mayor flexibilidad para fácil manejo aún en climas extremos (frío/calor) con refuerzo de espiral rígido de PVC para máxima resistencia. No se deforman",
+          features: [
+            "Para succión y descarga de grandes flujos de agua limpia y sucia",
+            "Ideales para uso en el sector agrícola e industrial con resistencia media a productos químicos",
+            "Presión máxima de trabajo 73 psi",
+            "Espesor de pared 4.2 mm",
+            "Largo 30 m",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+        {
+          id: 41,
+          name: "",
+          category: "",
+          price: 00,
+          originalPrice: 00,
+          discount: 10,
+          image: "",
+          description: "",
+          features: [
+            "Potencia: 12V",
+            "Presión máxima: 120PSI.",
+            "Peso: 2,4K.",
+            "Máximo flujo de aire: 45L/min",
+          ],
+          rating: 4.6,
+          reviews: 214,
+        },
+      ];
+
+      let currentSearch = "";
+      let currentFilter = "todos";
+      let currentSort = "default";
+      let selectedProductId = null;
+
+      const searchInput = document.getElementById("searchInput");
+      const clearSearch = document.getElementById("clearSearch");
+      const clearSearchLink = document.getElementById("clearSearchLink");
+      const productsGrid = document.getElementById("productsGrid");
+      const productDetail = document.getElementById("productDetail");
+      const backButton = document.getElementById("backButton");
+      const noResults = document.getElementById("noResults");
+      const resultsCount = document.getElementById("resultsCount");
+      const sortSelect = document.getElementById("sortSelect");
+
+      function getFilteredProducts() {
+        let filtered = [...products];
+        if (currentSearch.trim() !== "") {
+          const q = currentSearch.toLowerCase().trim();
+          filtered = filtered.filter(
+            (p) =>
+              p.name.toLowerCase().includes(q) ||
+              p.description.toLowerCase().includes(q) ||
+              p.features.some((f) => f.toLowerCase().includes(q)) ||
+              p.category.toLowerCase().includes(q),
+          );
+        }
+        if (currentFilter !== "todos") {
+          if (currentFilter === "oferta") {
+            filtered = filtered.filter((p) => p.discount >= 40);
+          } else {
+            filtered = filtered.filter(
+              (p) =>
+                p.category === currentFilter ||
+                p.name.toLowerCase().includes(currentFilter),
+            );
+          }
+        }
+        switch (currentSort) {
+          case "price-asc":
+            filtered.sort((a, b) => a.price - b.price);
+            break;
+          case "price-desc":
+            filtered.sort((a, b) => b.price - a.price);
+            break;
+          case "rating":
+            filtered.sort((a, b) => b.rating - a.rating);
+            break;
+          case "discount":
+            filtered.sort((a, b) => b.discount - a.discount);
+            break;
+        }
+        return filtered;
+      }
+
+      function generateStars(rating, size = 14) {
+        let html = "";
+        for (let i = 0; i < 5; i++) {
+          const filled = i < Math.floor(rating) ? "filled" : "";
+          html += `<svg class="star ${filled}" width="${size}" height="${size}" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>`;
+        }
+        return html;
+      }
+
+      function highlight(text, query) {
+        if (!query.trim()) return text;
+        const regex = new RegExp(
+          `(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
+          "gi",
+        );
+        return text.replace(
+          regex,
+          '<mark style="background:#FDB912;border-radius:3px;padding:0 2px;">$1</mark>',
+        );
+      }
+
+      function renderProductsGrid() {
+        const filtered = getFilteredProducts();
+        productsGrid
+          .querySelectorAll(".product-card")
+          .forEach((c) => c.remove());
+        const total = products.length;
+        if (currentSearch || currentFilter !== "todos") {
+          resultsCount.innerHTML = `Mostrando <strong>${filtered.length}</strong> de <strong>${total}</strong> productos`;
+        } else {
+          resultsCount.innerHTML = `<strong>${total}</strong> productos disponibles`;
+        }
+        if (filtered.length === 0) {
+          noResults.classList.add("visible");
+          return;
+        }
+        noResults.classList.remove("visible");
+        filtered.forEach((product) => {
+          const card = document.createElement("div");
+          card.className = "product-card";
+          card.setAttribute("data-id", product.id);
+          card.onclick = () => showProductDetail(product.id);
+          card.innerHTML = `
+            <div class="product-image-container">
+              <div class="discount-badge">-${product.discount}%</div>
+              <img src="${product.image}" alt="${product.name}" loading="lazy" />
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">${highlight(product.name, currentSearch)}</h3>
+              <div class="rating-container">${generateStars(product.rating)}<span class="reviews-count">(${product.reviews})</span></div>
+              <div class="price-container">
+                <span class="current-price">S/ ${product.price}</span>
+                <span class="original-price">S/ ${product.originalPrice}</span>
+              </div>
+              <button class="btn-details">Ver Detalles</button>
+            </div>`;
+          productsGrid.insertBefore(card, noResults);
+        });
+      }
+
+      function showProductDetail(productId) {
+        selectedProductId = productId;
+        const product = products.find((p) => p.id === productId);
+        if (!product) return;
+        productDetail.innerHTML = `
+          <div class="detail-card">
+            <div class="detail-content">
+              <div class="detail-image-section">
+                <div class="discount-badge">-${product.discount}%</div>
+                <img src="${product.image}" alt="${product.name}" />
+              </div>
+              <div class="detail-info-section">
+                <div>
+                  <div class="rating-container">${generateStars(product.rating, 18)}<span class="reviews-count">(${product.reviews} reseñas)</span></div>
+                  <h1 class="detail-title" style="margin:0.75rem 0">${product.name}</h1>
+                  <div class="detail-price-container">
+                    <span class="detail-current-price">S/ ${product.price}</span>
+                    <span class="detail-original-price">S/ ${product.originalPrice}</span>
+                    <span style="background:#fef2f2;color:#ef4444;padding:4px 10px;border-radius:8px;font-size:0.82rem;font-weight:700;">Ahorras S/ ${product.originalPrice - product.price}</span>
+                  </div>
+                  <p class="detail-description">${product.description}</p>
+                  <div class="features-section">
+                    <h3 class="features-title">Características:</h3>
+                    <ul class="features-list">${product.features.map((f) => `<li><div class="feature-dot"></div>${f}</li>`).join("")}</ul>
+                  </div>
+                </div>
+                <div class="buttons-section">
+                  <button class="btn-buy" onclick="buyNow()"><i class="fas fa-bolt"></i> Comprar Ahora</button>
+                  <a href="https://api.whatsapp.com/send?phone=51934709652&text=Hola! Me interesa: ${encodeURIComponent(product.name)} a S/ ${product.price}" class="btn-whatsapp" target="_blank">
+                    <i class="bx bxl-whatsapp" style="font-size:1.2rem"></i> Consultar por WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        productsGrid.classList.add("hidden");
+        productDetail.classList.add("active");
+        backButton.classList.add("active");
+        document.querySelector(".search-wrapper").style.display = "none";
+        document.getElementById("resultsMeta").style.display = "none";
+        document.querySelector(".page-banner").style.display = "none";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function showProductsGrid() {
+        selectedProductId = null;
+        productsGrid.classList.remove("hidden");
+        productDetail.classList.remove("active");
+        backButton.classList.remove("active");
+        document.querySelector(".search-wrapper").style.display = "";
+        document.getElementById("resultsMeta").style.display = "";
+        document.querySelector(".page-banner").style.display = "";
+      }
+
+      function buyNow() {
+        const product = products.find((p) => p.id === selectedProductId);
+        window.open(
+          `https://api.whatsapp.com/send?phone=51934709652&text=Hola! Quiero comprar: ${encodeURIComponent(product.name)} - S/ ${product.price}`,
+          "_blank",
+        );
+      }
+
+      searchInput.addEventListener("input", function () {
+        currentSearch = this.value;
+        clearSearch.classList.toggle("hidden", !currentSearch);
+        if (productDetail.classList.contains("active")) showProductsGrid();
+        renderProductsGrid();
+      });
+
+      function doClearSearch() {
+        searchInput.value = "";
+        currentSearch = "";
+        clearSearch.classList.add("hidden");
+        searchInput.focus();
+        renderProductsGrid();
+      }
+
+      clearSearch.addEventListener("click", doClearSearch);
+      if (clearSearchLink)
+        clearSearchLink.addEventListener("click", doClearSearch);
+
+      document
+        .getElementById("filterChips")
+        .addEventListener("click", function (e) {
+          const chip = e.target.closest(".chip");
+          if (!chip) return;
+          document
+            .querySelectorAll(".chip")
+            .forEach((c) => c.classList.remove("active"));
+          chip.classList.add("active");
+          currentFilter = chip.dataset.filter;
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          renderProductsGrid();
+        });
+
+      sortSelect.addEventListener("change", function () {
+        currentSort = this.value;
+        renderProductsGrid();
+      });
+
+      backButton.addEventListener("click", showProductsGrid);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "/" && document.activeElement.tagName !== "INPUT") {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        if (e.key === "Escape") {
+          if (productDetail.classList.contains("active")) showProductsGrid();
+          else doClearSearch();
+        }
+      });
+
+      renderProductsGrid();
+    </script>
+  </body>
+</html>
